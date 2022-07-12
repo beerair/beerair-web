@@ -4,5 +4,3 @@ node_modules
 # next config
 next.config.js
 
-# storybook components
-src/**/*.stories.tsx
