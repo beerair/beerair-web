@@ -1,0 +1,4 @@
+apps:
+  - script: yarn
+    name: 'beerair-web'
+    args: start
