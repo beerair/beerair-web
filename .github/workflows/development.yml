@@ -33,6 +33,23 @@ jobs:
           docker tag ${{secrets.DOCKER_REPO}}:latest ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
           docker push ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}
 
+      - uses: ravsamhq/notify-slack-action@v1
+        if: ${{ failure() }}
+        with:
+          notification_title: '*[beta] execute ${{ github.job }} by ${{ github.actor }}*'
+          notify_when: 'failure,warnings'
+          icon_success: ':white_check_mark:'
+          message_format: |-
+            *workflow*: {workflow}
+            *status*: {emoji} {status_message} 
+            *branch*: <{repo_url}|{branch}>
+            *commit*: <{commit_url}|{commit_sha}>
+            *commit message*: ${{ github.event.head_commit.message }}
+          status: ${{ job.status }}
+          footer: '<{run_url}|View Github Actions>'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
   deploy:
     needs: build
     name: Deploy
@@ -54,3 +71,18 @@ jobs:
             docker rm -f $(docker ps -q -a)
           fi
           docker run -dit -p 3001:3000 --name $DOCKER_CONTAINER ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
+
+      - uses: ravsamhq/notify-slack-action@v1
+        with:
+          notification_title: '*[beta] execute ${{ github.job }} by ${{ github.actor }}*'
+          icon_success: ':white_check_mark:'
+          message_format: |-
+            *workflow*: {workflow}
+            *status*: {emoji} {status_message} 
+            *branch*: <{repo_url}|{branch}>
+            *commit*: <{commit_url}|{commit_sha}>
+            *commit message*: ${{ github.event.head_commit.message }}
+          status: ${{ job.status }}
+          footer: '<{run_url}|View Github Actions>'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
