@@ -1,7 +1,12 @@
+name: beerair-web-cicd
+
 on:
   push:
-    branchs:
+    branches:
       - develop
+
+env:
+  DOCKER_CONTAINER: beerair-web-dev
 
 jobs:
   build:
@@ -27,3 +32,25 @@ jobs:
           docker build -t ${{secrets.DOCKER_REPO}} .
           docker tag ${{secrets.DOCKER_REPO}}:latest ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
           docker push ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}
+
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: [self-hosted]
+    steps:
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{secrets.DOCKER_HUB_USERNAME}}
+          password: ${{secrets.DOCKER_HUB_TOKEN}}
+
+      - name: Docker run
+        run: |
+          CONTAINERS=$(docker ps -qa)
+          if [ -z "$CONTAINERS" ];
+          then
+            echo "container not exist"
+          else
+            docker rm -f $(docker ps -q -a)
+          fi
+          docker run -dit -p 3001:3000 --name $DOCKER_CONTAINER ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
