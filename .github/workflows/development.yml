@@ -1,9 +1,13 @@
-name: beerair-web-cicd
+name: beerair-web-beta-cicd
 
 on:
   push:
     branches:
       - develop
+  workflow_dispatch:
+    inputs:
+      log:
+        description: 'deploy log'
 
 env:
   DOCKER_CONTAINER: beerair-web-dev
