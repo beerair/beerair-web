@@ -3,6 +3,9 @@ const path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  core: {
+    builder: 'webpack5',
+  },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -41,6 +44,12 @@ module.exports = {
       type: 'javascript/auto',
     });
 
+    /**
+     * webpack5 버전 업 이후 svg파일에서 에러가 발생해 아래 블로그 참고
+     * https://minemanemo.tistory.com/161
+     */
+    const fileLoaderRule = config.module.rules.find((rule) => rule?.test?.test?.('.svg'));
+    fileLoaderRule.exclude = /\.svg$/;
     config.module.rules.unshift({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
