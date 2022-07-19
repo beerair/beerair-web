@@ -1,4 +1,5 @@
 import { Global, css, ThemeProvider } from '@emotion/react';
+import { RecoilRoot } from 'recoil';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 
@@ -39,23 +40,25 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle theme={theme} />
-      <Global
-        styles={css`
-          html,
-          #root {
-            height: 100%;
-          }
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle theme={theme} />
+        <Global
+          styles={css`
+            html,
+            #root {
+              height: 100%;
+            }
 
-          body {
-            height: 100%;
-            padding: 0 !important;
-            background-color: ${theme.semanticColor.background};
-          }
-        `}
-      />
-      <Story />
-    </ThemeProvider>
+            body {
+              height: 100%;
+              padding: 0 !important;
+              background-color: ${theme.semanticColor.background};
+            }
+          `}
+        />
+        <Story />
+      </ThemeProvider>
+    </RecoilRoot>
   ),
 ];
