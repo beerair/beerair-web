@@ -40,7 +40,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
-    "@emotion/babel-plugin": "^11.9.2",
     "@hookform/devtools": "4.1.0",
     "@storybook/addon-a11y": "^6.5.9",
     "@storybook/addon-actions": "^6.5.9",
