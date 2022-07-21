@@ -1,21 +1,20 @@
 import { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { parseISO } from 'date-fns';
-import { useRecoilValue } from 'recoil';
 
 import Emoji from '@/components/commons/Emoji';
 import Badge from '@/components/Badge';
 import { formatDateDiff } from '@/utils/formatDateDiff';
 import { IReview } from '@/types';
-import { $userSession } from '@/recoil/atoms';
+
 import { isNil } from 'lodash';
 
-export interface Props extends IReview {}
+export interface Props extends IReview {
+  isMe?: boolean;
+}
 
 const ReviewListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { content, feel, member, createdAt, flavors } = props;
-
-  const user = useRecoilValue($userSession);
+  const { content, feel, member, createdAt, flavors, isMe } = props;
 
   return (
     <StyledReview ref={ref}>
@@ -23,7 +22,7 @@ const ReviewListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
       <ReviewContainer>
         <UserAndDate>
           <User>
-            {user?.nickname === member.name && <Me>ME</Me>}
+            {isMe && <Me>ME</Me>}
             {member.name}
           </User>
           {!isNil(createdAt) && <Date>{formatDateDiff(parseISO(createdAt))}</Date>}

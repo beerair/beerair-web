@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import ReviewListItem from '@/components/ReviewListItem';
 import { IReview } from '@/types';
 import { Ref } from 'react';
+import { $userSession } from '@/recoil/atoms';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   reviews: IReview[];
@@ -12,6 +14,8 @@ interface Props {
 const TITLE = '이 맥주는 어땠냐면,';
 
 const ReviewList = ({ reviews, lastItemRef }: Props) => {
+  const user = useRecoilValue($userSession);
+
   if (!reviews?.length) {
     return null;
   }
@@ -28,6 +32,7 @@ const ReviewList = ({ reviews, lastItemRef }: Props) => {
           createdAt={review.createdAt}
           member={review.member}
           flavors={review.flavors}
+          isMe={user?.nickname === review.member.name}
         />
       ))}
     </StyledReviewList>
