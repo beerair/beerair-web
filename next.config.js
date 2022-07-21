@@ -20,6 +20,15 @@ const rewrites =
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  swcMinify: true,
+  compiler: {
+    emotion: true,
+  },
+  experimental: {
+    lodash: {
+      transform: 'lodash/{{member}}',
+    },
+  },
   rewrites,
   webpack(config) {
     config.module.rules.push({ test: /\.svg$/, use: ['@svgr/webpack'] });
