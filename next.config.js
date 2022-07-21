@@ -20,6 +20,7 @@ const rewrites =
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   swcMinify: true,
   compiler: {
     emotion: true,
@@ -28,6 +29,7 @@ const nextConfig = {
     lodash: {
       transform: 'lodash/{{member}}',
     },
+    outputStandalone: true,
   },
   rewrites,
   webpack(config) {

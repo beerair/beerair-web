@@ -34,8 +34,8 @@ jobs:
       - name: Docker build & push to push
         run: |
           docker build -t ${{secrets.DOCKER_REPO}} .
-          docker tag ${{secrets.DOCKER_REPO}}:latest ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
-          docker push ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}
+          docker tag ${{secrets.DOCKER_REPO}}:latest ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
+          docker push ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
 
       - uses: ravsamhq/notify-slack-action@v1
         if: ${{ failure() }}
@@ -74,7 +74,7 @@ jobs:
           else
             docker rm -f $(docker ps -q -a)
           fi
-          docker run -dit -p 3001:3000 --name $DOCKER_CONTAINER ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
+          docker run -dit -p 3001:3000 --name $DOCKER_CONTAINER ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
 
       - uses: ravsamhq/notify-slack-action@v1
         with:
