@@ -6,18 +6,19 @@
 
 여행사 비어에어입니다 🛫
 
-## Download
+- [BeerAir Web](https://beerair.kr/)
 
-[beerair.kr](https://beerair.kr/)
+- [Storybook](https://beerair.github.io/beerair-web/?path=/story/design-system-color--default)
+
+<br />
+
+## Download
 
 | iOS                                                                                                                                                                                                                                                                                                                                         | Android                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <a href="https://play.google.com/store/apps/details?id=com.sulsul"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83&amp;releaseDate=1654300800&h=dd4ccd7fb22c609cf9132f37bf23c390" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a> | <a href='https://play.google.com/store/apps/details?id=com.sulsul'><img alt='다운로드하기 Google Play' width='285px' src='https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png'/></a> |
 
 <br />
-<br />
-
-<br/>
 
 ## 🍻 Intro: 서비스 소개
 
