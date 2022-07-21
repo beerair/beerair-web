@@ -9,20 +9,20 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   count: number;
 }
 
-const Like = (props: Props) => {
+const LikeBadge = (props: Props) => {
   const { className, count, ...rest } = props;
 
   return (
-    <StyledLike className={className} {...rest}>
+    <StyledLikeBadge className={className} {...rest}>
       <Icon name="Like" size={14} />
       <Count>{count}</Count>
-    </StyledLike>
+    </StyledLikeBadge>
   );
 };
 
-export default Like;
+export default LikeBadge;
 
-const StyledLike = styled.div`
+const StyledLikeBadge = styled.div`
   ${({ theme }) => theme.fonts.SmallBold2}
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.semanticColor.primary};
