@@ -1,0 +1,19 @@
+name: 'Deploy Storybook'
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: yarn
+
+      - name: Deploy Storybook to gh-page
+        run: yarn deploy-storybook
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_PAT }}
