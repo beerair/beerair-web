@@ -4,10 +4,15 @@ import styled from '@emotion/styled';
 import LikeBadge from './LikeBadge';
 import { IFlavor } from '@/types';
 
-const FlavorListItem = ({ count, content }: IFlavor) => {
+export interface IFlavorListItem {
+  flavor: IFlavor;
+  count: number;
+}
+
+const FlavorListItem = ({ flavor, count }: IFlavorListItem) => {
   return (
     <StyledFlavorListItem>
-      {content}
+      {flavor.content}
       <LikeBadge count={count} />
     </StyledFlavorListItem>
   );

@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
 import FlavorListItem from '@/components/FlavorListItem';
-import { IFlavor } from '@/types';
+import { IFlavorListItem } from '../FlavorListItem';
 
 interface Props {
-  flavors: IFlavor[];
+  flavors: IFlavorListItem[];
   limit?: number;
 }
 
@@ -15,8 +15,8 @@ const FlavorList = ({ flavors, limit = 3 }: Props) => {
 
   return (
     <StyledFlavorList>
-      {flavors?.slice(0, limit).map(({ content, count }) => (
-        <FlavorListItem key={content} content={content} count={count} />
+      {flavors?.slice(0, limit).map(({ flavor, count }) => (
+        <FlavorListItem key={flavor.id} flavor={flavor} count={count} />
       ))}
     </StyledFlavorList>
   );
