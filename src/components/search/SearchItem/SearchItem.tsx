@@ -40,7 +40,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
 
     return text
       .split(searchTextRegExp)
-      .map((v) => (searchTextRegExp.test(v) ? <strong>{v}</strong> : v));
+      .map((v, i) => (searchTextRegExp.test(v) ? <strong key={`${v}-${i}`}>{v}</strong> : v));
   }, [text, searchText]);
 
   const handleDelete = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
