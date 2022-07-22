@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 
 /**
- * @todo z-index design system 구축
+ * @todo z-index design system 구축 (관련이슈 #85)
  * max-width: 768px -> breakpoint로 관리
  */
 const StyledContainer = styled.div<{ open: boolean }>`
@@ -44,7 +44,7 @@ to {
 }
 `;
 
-/** @todo z-index design system 구축 */
+/** @todo z-index design system 구축 (관련이슈 #85) */
 const StyledDim = styled.div<{ open: boolean }>`
   width: 100%;
   height: 100%;
@@ -67,6 +67,10 @@ interface ModalLayoutProps {
 const ModalLayout: React.FC<ModalLayoutProps> = ({ open, children, onDimClick }) => {
   const dimRef = useRef<HTMLDivElement>(null);
   const isVisible = useIsModalLayoutVisible(open, dimRef);
+
+  if (typeof document === 'undefined') {
+    return null;
+  }
 
   if (!isVisible) {
     return null;
@@ -104,17 +108,13 @@ const useIsModalLayoutVisible = (open: boolean, dimRef: RefObject<HTMLDivElement
 
   /** 애니메이션이 끝난 후에 모달이 안보이도록 함 */
   useEffect(() => {
-    let divRefValue: HTMLDivElement | null = null;
-
-    if (dimRef.current) {
-      divRefValue = dimRef.current;
-      divRefValue.addEventListener('animationend', hideModalLayout);
-    }
+    dimRef.current?.addEventListener('animationend', hideModalLayout);
 
     return () => {
-      divRefValue && divRefValue.removeEventListener('animationend', hideModalLayout);
+      dimRef.current?.removeEventListener('animationend', hideModalLayout);
     };
-  }, [dimRef, hideModalLayout]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hideModalLayout]);
 
   return isVisible;
 };
