@@ -36,7 +36,7 @@ const REVIEWS: IReview[] = [
 ];
 
 export default {
-  title: 'Components/ReviewList',
+  title: 'Components/beer-detail/ReviewList',
   component: ReviewList,
   args: { reviews: REVIEWS },
 } as ComponentMeta<typeof ReviewList>;
