@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IProfileBoxButtonListItem } from '../ProfileBoxButtonListItem';
+import { IMyPageBoxButtonListItem } from '../MyPageBoxButtonListItem';
 
-import ProfileBoxButtonList from './ProfileBoxButtonList';
+import MyPageBoxButtonList from './MyPageBoxButtonList';
 
-const DATA: IProfileBoxButtonListItem[] = [
+const MYPAGE_BOX_BUTTON_LIST_DATA: IMyPageBoxButtonListItem[] = [
   {
     iconName: 'Heart',
     text: '내가 반한 맥주',
@@ -23,17 +23,17 @@ const DATA: IProfileBoxButtonListItem[] = [
 ];
 
 export default {
-  title: 'Components/profile/ProfileBoxButtonList',
-  component: ProfileBoxButtonList,
-} as ComponentMeta<typeof ProfileBoxButtonList>;
+  title: 'Components/MyPage/MyPageBoxButtonList',
+  component: MyPageBoxButtonList,
+} as ComponentMeta<typeof MyPageBoxButtonList>;
 
-const Template: ComponentStory<typeof ProfileBoxButtonList> = ({ ...args }) => (
-  <ProfileBoxButtonList {...args} />
+const Template: ComponentStory<typeof MyPageBoxButtonList> = ({ ...args }) => (
+  <MyPageBoxButtonList {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  data: DATA,
+  myPageBoxButtonListData: MYPAGE_BOX_BUTTON_LIST_DATA,
 };
 Default.decorators = [
   (Story) => (

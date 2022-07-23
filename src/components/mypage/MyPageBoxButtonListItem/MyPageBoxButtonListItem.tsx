@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import Icon, { IconNameType } from '@/components/commons/Icon';
 
-export interface IProfileBoxButtonListItem {
+export interface IMyPageBoxButtonListItem {
   iconName: IconNameType;
   text: string;
   count?: number;
@@ -10,15 +10,15 @@ export interface IProfileBoxButtonListItem {
   onClick?: () => void;
 }
 
-const ProfileBoxButtonListItem = ({
+const MyPageBoxButtonListItem = ({
   iconName,
   text,
   count,
   unit,
   onClick,
-}: IProfileBoxButtonListItem) => {
+}: IMyPageBoxButtonListItem) => {
   return (
-    <StyledProfileBoxButtonListItem onClick={onClick}>
+    <StyledMyPageBoxButtonListItem onClick={onClick}>
       <SquareBox>
         <Icon name={iconName} size={iconName === 'Heart' ? 30 : 20} color="white" />
       </SquareBox>
@@ -28,13 +28,13 @@ const ProfileBoxButtonListItem = ({
         {unit}
       </Count>
       <Icon name="Next" size={16} />
-    </StyledProfileBoxButtonListItem>
+    </StyledMyPageBoxButtonListItem>
   );
 };
 
-export default ProfileBoxButtonListItem;
+export default MyPageBoxButtonListItem;
 
-const StyledProfileBoxButtonListItem = styled.a`
+const StyledMyPageBoxButtonListItem = styled.a`
   display: flex;
   align-items: center;
   width: 100%;
