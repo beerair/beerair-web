@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ProfileBio, { ProfileBioProps } from './ProfileBio';
+import MyPageBio, { MyPageBioProps } from './MyPageBio';
 
 export default {
-  title: 'Components/profile/ProfileBio',
-  component: ProfileBio,
+  title: 'Components/MyPage/MyPageBio',
+  component: MyPageBio,
   args: {
     remainRecord: 1,
     userLevel: {
@@ -15,9 +15,9 @@ export default {
     nickname: '호딩',
     email: 'gywls00100@gmail.com',
   },
-} as ComponentMeta<typeof ProfileBio>;
+} as ComponentMeta<typeof MyPageBio>;
 
-const Template: ComponentStory<typeof ProfileBio> = ({ ...args }) => <ProfileBio {...args} />;
+const Template: ComponentStory<typeof MyPageBio> = ({ ...args }) => <MyPageBio {...args} />;
 
 export const Default = Template.bind({});
 Default.decorators = [
