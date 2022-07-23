@@ -2,7 +2,7 @@ import Icon from '@/components/commons/Icon';
 import { ILevel } from '@/types';
 import styled from '@emotion/styled';
 
-export interface MyPageBioProps {
+export interface BioProps {
   remainRecord: number;
   userLevel: ILevel;
   nickname: string;
@@ -11,16 +11,16 @@ export interface MyPageBioProps {
   openModifyModal?: () => void;
 }
 
-const MyPageBio = ({
+const Bio = ({
   remainRecord,
   userLevel,
   nickname,
   email,
   openLevelModal,
   openModifyModal,
-}: MyPageBioProps) => {
+}: BioProps) => {
   return (
-    <StyledMyPageBio>
+    <StyledBio>
       <ToolTip>
         {remainRecord > 0
           ? `여행 ${remainRecord}번만 더 하면 Level UP!`
@@ -33,13 +33,13 @@ const MyPageBio = ({
         <ModifyIcon name="Modify" size={24} onClick={openModifyModal} />
       </NickName>
       <Email>{email}</Email>
-    </StyledMyPageBio>
+    </StyledBio>
   );
 };
 
-export default MyPageBio;
+export default Bio;
 
-const StyledMyPageBio = styled.section`
+const StyledBio = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
