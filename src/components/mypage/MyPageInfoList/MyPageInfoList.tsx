@@ -1,40 +1,40 @@
 import styled from '@emotion/styled';
 
-export interface IProfileInfoListItem {
+export interface IMyPageInfoListItem {
   count: number;
   unit: string;
   title: string;
 }
 
-interface Props {
-  data: IProfileInfoListItem[];
+interface MyPageInfoListProps {
+  myPageInfoListData: IMyPageInfoListItem[];
 }
 
-const ProfileInfoList = ({ data }: Props) => {
+const MyPageInfoList = ({ myPageInfoListData }: MyPageInfoListProps) => {
   return (
-    <StyledProfileInfoList>
-      {data.map((item) => (
-        <ProfileInfoListItem key={item.title}>
+    <StyledMyPageInfoList>
+      {myPageInfoListData.map((item) => (
+        <MyPageInfoListItem key={item.title}>
           <NumberAndUnit>
             <Number>{item.count}</Number>
             <Unit>{item.unit}</Unit>
           </NumberAndUnit>
           <Title>{item.title}</Title>
-        </ProfileInfoListItem>
+        </MyPageInfoListItem>
       ))}
-    </StyledProfileInfoList>
+    </StyledMyPageInfoList>
   );
 };
 
-export default ProfileInfoList;
+export default MyPageInfoList;
 
-const StyledProfileInfoList = styled.section`
+const StyledMyPageInfoList = styled.section`
   display: flex;
   gap: 40px;
   justify-content: center;
 `;
 
-const ProfileInfoListItem = styled.div`
+const MyPageInfoListItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
