@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 import { uniq } from 'lodash';
 
-import { $searchHistories } from '@/recoil/atoms';
+import { $searchHistories } from '../atoms';
 import { config } from '@/constants/config';
 
 const useSearchHistory = () => {
