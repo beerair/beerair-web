@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ProfileBio, { IProfileBio } from './ProfileBio';
+import ProfileBio, { ProfileBioProps } from './ProfileBio';
 
 export default {
   title: 'Components/profile/ProfileBio',

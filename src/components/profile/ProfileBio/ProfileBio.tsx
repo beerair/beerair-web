@@ -2,7 +2,7 @@ import Icon from '@/components/commons/Icon';
 import { ILevel } from '@/types';
 import styled from '@emotion/styled';
 
-export interface IProfileBio {
+export interface ProfileBioProps {
   remainRecord: number;
   userLevel: ILevel;
   nickname: string;
@@ -18,7 +18,7 @@ const ProfileBio = ({
   email,
   openLevelModal,
   openModifyModal,
-}: IProfileBio) => {
+}: ProfileBioProps) => {
   return (
     <StyledProfileBio>
       <ToolTip>
