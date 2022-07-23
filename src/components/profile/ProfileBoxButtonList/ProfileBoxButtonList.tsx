@@ -8,16 +8,15 @@ interface Props {
 const ProfileBoxButtonList = ({ data }: Props) => {
   return (
     <StyledProfileBoxButtonList>
-      {data &&
-        data.map((item) => (
-          <ProfileBoxButtonListItem
-            key={item.text}
-            iconName={item.iconName}
-            text={item.text}
-            count={item.count}
-            unit={item.unit}
-          />
-        ))}
+      {data.map((item) => (
+        <ProfileBoxButtonListItem
+          key={item.text}
+          iconName={item.iconName}
+          text={item.text}
+          count={item.count}
+          unit={item.unit}
+        />
+      ))}
     </StyledProfileBoxButtonList>
   );
 };
