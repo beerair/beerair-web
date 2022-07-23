@@ -56,4 +56,3 @@ const Template: ComponentStory<typeof LevelModal> = () => {
 };
 
 export const Default = Template.bind({});
-// Default.args = { isLevelModalOpen: true, levelData: LEVEL_DATA };
