@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import useSearchHistory from '@/hooks/useSearchHistory';
+import { useSearchHistory } from '../hooks';
 
 import SearchList from './SearchList';
 
 export default {
-  title: 'Components/SearchList',
+  title: 'Components/search/SearchList',
   component: SearchList,
   argTypes: {
     type: { control: 'radio', options: ['search', 'history'] },
