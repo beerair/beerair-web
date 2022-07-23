@@ -10,9 +10,13 @@ export interface IProfileBoxButtonListItem {
   onClick?: () => void;
 }
 
-const ProfileBoxButtonListItem = (props: IProfileBoxButtonListItem) => {
-  const { iconName, text, count, unit, onClick } = props;
-
+const ProfileBoxButtonListItem = ({
+  iconName,
+  text,
+  count,
+  unit,
+  onClick,
+}: IProfileBoxButtonListItem) => {
   return (
     <StyledProfileBoxButtonListItem onClick={onClick}>
       <SquareBox>
