@@ -27,7 +27,7 @@ const ProfileBio = ({
           : '만렙이 되신걸 축하합니다!'}
         <InfoIcon name="Info" size={20} onClick={openLevelModal} />
       </ToolTip>
-      <LevelImage src={userLevel?.imageUrl} alt={userLevel?.tier?.toString()} />
+      <LevelImage src={userLevel?.imageUrl} alt={userLevel?.tier.toString()} />
       <NickName>
         {nickname}
         <ModifyIcon name="Modify" size={24} onClick={openModifyModal} />
