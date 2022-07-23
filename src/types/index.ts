@@ -5,3 +5,4 @@ export type { IFeel } from './feel';
 export type { IReview } from './review';
 export type { IContinent } from './continent';
 export type { ICountry } from './country';
+export type { ILevel } from './level';
