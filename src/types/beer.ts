@@ -1,6 +1,6 @@
 import { ICountry } from '.';
 
-export enum EBeerType {
+export enum BeerType {
   LIGHT_ALE = 'LIGHT_ALE',
   IPA = 'IPA',
   PALE_ALE = 'PALE_ALE',
@@ -11,7 +11,7 @@ export enum EBeerType {
 }
 
 export interface IBeerType {
-  nameEng: EBeerType;
+  nameEng: BeerType;
   nameKor: string;
   description: string;
   imageUrl: string;
