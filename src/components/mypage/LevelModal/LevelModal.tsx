@@ -10,14 +10,10 @@ interface Props {
   isLevelModalOpen: boolean;
   openLevelModal: () => void;
   closeLevelModal: () => void;
-  levelData: ILevel[];
+  levels: ILevel[];
 }
 
-const LevelModal = ({ isLevelModalOpen, closeLevelModal, levelData }: Props) => {
-  if (!levelData) {
-    return null;
-  }
-
+const LevelModal = ({ isLevelModalOpen, closeLevelModal, levels }: Props) => {
   return (
     <ModalLayout open={isLevelModalOpen} onDimClick={closeLevelModal}>
       <StyleLevelModal open={isLevelModalOpen}>
@@ -26,7 +22,7 @@ const LevelModal = ({ isLevelModalOpen, closeLevelModal, levelData }: Props) => 
           <Title>{LEVEL_MODAL_TITLE}</Title>
         </Header>
         <LevelList>
-          {levelData.map(({ id, imageUrl, req, tier }) => (
+          {levels.map(({ id, imageUrl, req, tier }) => (
             <LevelListItem key={id}>
               <img src={imageUrl} alt={tier.toString()} width="64px" height="auto" />
               <p>
