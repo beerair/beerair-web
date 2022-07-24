@@ -3,7 +3,7 @@ import { ILevel } from '@/types';
 import styled from '@emotion/styled';
 
 export interface BioProps {
-  remainRecord: number;
+  remainRecordCount: number;
   userLevel: ILevel;
   nickname: string;
   email: string;
@@ -12,7 +12,7 @@ export interface BioProps {
 }
 
 const Bio = ({
-  remainRecord,
+  remainRecordCount,
   userLevel,
   nickname,
   email,
@@ -22,8 +22,8 @@ const Bio = ({
   return (
     <StyledBio>
       <ToolTip>
-        {remainRecord > 0
-          ? `여행 ${remainRecord}번만 더 하면 Level UP!`
+        {remainRecordCount > 0
+          ? `여행 ${remainRecordCount}번만 더 하면 Level UP!`
           : '만렙이 되신걸 축하합니다!'}
         <InfoIcon name="Info" size={20} onClick={openLevelModal} />
       </ToolTip>
