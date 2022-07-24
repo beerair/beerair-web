@@ -30,7 +30,9 @@ const Bio = ({
       <LevelImage src={userLevel?.imageUrl} alt={userLevel?.tier.toString()} />
       <NickName>
         {nickname}
-        <ModifyIcon name="Modify" size={24} onClick={openModifyModal} />
+        <button type="button" aria-label="수정">
+          <ModifyIcon name="Modify" size={24} onClick={openModifyModal} />
+        </button>
       </NickName>
       <Email>{email}</Email>
     </StyledBio>
@@ -88,7 +90,6 @@ const NickName = styled.div`
 `;
 
 const ModifyIcon = styled(Icon)`
-  cursor: pointer;
   position: absolute;
   left: calc(100% + 12px);
 `;

@@ -1,10 +1,8 @@
 import styled from '@emotion/styled';
 
-import ModalLayout from '@/components/layouts/ModalLayout';
-import Icon from '@/components/commons/Icon';
 import { ILevel } from '@/types';
-
-const LEVEL_MODAL_TITLE = 'Level 안내';
+import Modal from '@/components/Modal';
+import { useState } from 'react';
 
 interface Props {
   isLevelModalOpen: boolean;
@@ -14,13 +12,19 @@ interface Props {
 }
 
 const LevelModal = ({ isLevelModalOpen, closeLevelModal, levels }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
-    <ModalLayout open={isLevelModalOpen} onDimClick={closeLevelModal}>
-      <StyleLevelModal open={isLevelModalOpen}>
-        <Header>
-          <CloseIcon name="Close" size={24} onClick={closeLevelModal} />
-          <Title>{LEVEL_MODAL_TITLE}</Title>
-        </Header>
+    <Modal
+      open={isModalOpen}
+      openModal={openModal}
+      closeModal={closeModal}
+      header="Level 안내"
+      withCloseButton
+      description={
         <LevelList>
           {levels.map(({ id, imageUrl, req, tier }) => (
             <LevelListItem key={id}>
@@ -31,49 +35,12 @@ const LevelModal = ({ isLevelModalOpen, closeLevelModal, levels }: Props) => {
             </LevelListItem>
           ))}
         </LevelList>
-      </StyleLevelModal>
-    </ModalLayout>
+      }
+    />
   );
 };
 
 export default LevelModal;
-
-const StyleLevelModal = styled.div<{ open: boolean }>`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-  padding: 16px;
-  border-radius: 12px;
-  background-color: ${(p) => p.theme.color.white};
-
-  ${(p) => !p.open && `display:none;`}
-`;
-
-const Header = styled.div`
-  position: relative;
-  width: 100%;
-  margin-bottom: 25px;
-`;
-
-const Title = styled.h1`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #323232;
-`;
-
-const CloseIcon = styled(Icon)`
-  cursor: pointer;
-`;
 
 const LevelList = styled.div`
   display: flex;
@@ -82,6 +49,7 @@ const LevelList = styled.div`
   align-items: center;
   width: 100%;
   gap: 40px;
+  margin-top: 40px;
   margin-bottom: 8px;
 `;
 
