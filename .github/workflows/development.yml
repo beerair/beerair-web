@@ -74,6 +74,7 @@ jobs:
           else
             docker rm -f $(docker ps -q -a)
           fi
+          docker pull ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
           docker run -dit -p 3001:3000 --name $DOCKER_CONTAINER ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
 
       - uses: ravsamhq/notify-slack-action@v1
