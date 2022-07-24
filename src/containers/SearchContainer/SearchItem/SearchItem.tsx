@@ -3,14 +3,15 @@ import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 
 import Icon from '@/components/commons/Icon';
-import { useSearchHistory } from '@/hooks';
+
+import { useSearchHistory } from '../hooks';
 
 export type SearchIconType = 'search' | 'history';
 
 interface SearchItemProps {
   type?: SearchIconType;
   text: string;
-  searchText?: string;
+  highlightingText?: string;
   deleteButtonText?: string;
   className?: string;
   hasDeleteButton?: boolean;
@@ -23,7 +24,7 @@ export const DEFAULT_ICON_TYPE = 'search';
 const SearchItem: React.FC<SearchItemProps> = ({
   type = DEFAULT_ICON_TYPE,
   text,
-  searchText = '',
+  highlightingText = '',
   deleteButtonText = DEFAULT_DELETE_BUTTON_TEXT,
   className,
   hasDeleteButton = false,
@@ -32,16 +33,16 @@ const SearchItem: React.FC<SearchItemProps> = ({
   const router = useRouter();
   const { removeSearchHistory, addSearchHistory } = useSearchHistory();
   const renderedText = useMemo(() => {
-    if (!searchText?.trim()) {
+    if (!highlightingText?.trim()) {
       return text;
     }
 
-    const searchTextRegExp = new RegExp(`(${searchText})`, 'gi');
+    const highlightingTextRegExp = new RegExp(`(${highlightingText})`, 'gi');
 
     return text
-      .split(searchTextRegExp)
-      .map((v, i) => (searchTextRegExp.test(v) ? <strong key={`${v}-${i}`}>{v}</strong> : v));
-  }, [text, searchText]);
+      .split(highlightingTextRegExp)
+      .map((v, i) => (highlightingTextRegExp.test(v) ? <strong key={`${v}-${i}`}>{v}</strong> : v));
+  }, [text, highlightingText]);
 
   const handleDelete = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
     (e) => {

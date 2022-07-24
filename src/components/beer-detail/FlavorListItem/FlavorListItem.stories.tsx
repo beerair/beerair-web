@@ -3,14 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import FlavorListItem from './FlavorListItem';
 
 export default {
-  title: 'Components/FlavorListItem',
+  title: 'Components/beer-detail/FlavorListItem',
   component: FlavorListItem,
-  argTypes: {
-    content: { control: 'text' },
-    count: { control: 'text' },
-  },
   args: {
-    content: '목넘김이 부드러워요',
+    flavor: { id: 1, content: '목넘김이 부드러워요' },
     count: 12,
   },
 } as ComponentMeta<typeof FlavorListItem>;
