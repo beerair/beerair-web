@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 import MyPageBoxButtonListItem, { IMyPageBoxButtonListItem } from '../MyPageBoxButtonListItem';
 
 interface MyPageBoxButtonListProps {
-  myPageBoxButtonListData: IMyPageBoxButtonListItem[];
+  myPageBoxButtonListItems: IMyPageBoxButtonListItem[];
 }
 
-const MyPageBoxButtonList = ({ myPageBoxButtonListData }: MyPageBoxButtonListProps) => {
+const MyPageBoxButtonList = ({ myPageBoxButtonListItems }: MyPageBoxButtonListProps) => {
   return (
     <StyledMyPageBoxButtonList>
-      {myPageBoxButtonListData.map((item) => (
+      {myPageBoxButtonListItems.map((item) => (
         <MyPageBoxButtonListItem
           key={item.text}
           iconName={item.iconName}
