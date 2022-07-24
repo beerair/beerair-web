@@ -24,9 +24,9 @@ const SearchContainer: React.FC = () => {
   const [, startTransition] = useTransition();
 
   const handleChangeHighlightingText = useCallback(
-    (_searchText: string) =>
+    (searchText: string) =>
       startTransition(() => {
-        setHighlightingText(_searchText);
+        setHighlightingText(searchText);
       }),
     [],
   );
