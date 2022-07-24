@@ -50,7 +50,7 @@ const Template: ComponentStory<typeof LevelModal> = () => {
       isLevelModalOpen={isOpen}
       openLevelModal={() => setIsOpen(true)}
       closeLevelModal={() => setIsOpen(false)}
-      levelData={LEVEL_DATA}
+      levels={LEVEL_DATA}
     />
   );
 };
