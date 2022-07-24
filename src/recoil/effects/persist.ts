@@ -7,10 +7,6 @@ interface PersistRecoilEffectArgs {
 const persistRecoilEffect =
   <RecoilState = any>({ recoilAtomKey }: PersistRecoilEffectArgs): AtomEffect<RecoilState> =>
   ({ setSelf, onSet }) => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
     const persistRecoilKey = `persist:recoil@${recoilAtomKey}`;
 
     const savedValue = localStorage.getItem(persistRecoilKey);
