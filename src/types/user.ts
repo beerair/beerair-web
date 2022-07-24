@@ -10,7 +10,7 @@ export interface IUser {
   email: string;
   nickname: string;
   phoneNumber: string;
-  profileUrl: string;
+  myPageUrl: string;
   role: string;
   social: string;
   memberLevelResponseDto: IUserLevel;
