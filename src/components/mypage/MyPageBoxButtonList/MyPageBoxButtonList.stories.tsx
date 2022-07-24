@@ -33,7 +33,7 @@ const Template: ComponentStory<typeof MyPageBoxButtonList> = ({ ...args }) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  myPageBoxButtonListData: MYPAGE_BOX_BUTTON_LIST_DATA,
+  myPageBoxButtonListItems: MYPAGE_BOX_BUTTON_LIST_DATA,
 };
 Default.decorators = [
   (Story) => (
