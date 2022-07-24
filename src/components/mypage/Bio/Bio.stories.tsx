@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Bio, { BioProps } from './Bio';
 
 export default {
-  title: 'Components//Bio',
+  title: 'Components/Bio',
   component: Bio,
   args: {
     remainRecord: 1,
