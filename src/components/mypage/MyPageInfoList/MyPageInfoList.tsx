@@ -7,13 +7,13 @@ export interface IMyPageInfoListItem {
 }
 
 interface MyPageInfoListProps {
-  myPageInfoListData: IMyPageInfoListItem[];
+  myPageInfoListItems: IMyPageInfoListItem[];
 }
 
-const MyPageInfoList = ({ myPageInfoListData }: MyPageInfoListProps) => {
+const MyPageInfoList = ({ myPageInfoListItems }: MyPageInfoListProps) => {
   return (
     <StyledMyPageInfoList>
-      {myPageInfoListData.map((item) => (
+      {myPageInfoListItems.map((item) => (
         <MyPageInfoListItem key={item.title}>
           <NumberAndUnit>
             <Number>{item.count}</Number>
