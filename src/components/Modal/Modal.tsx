@@ -12,7 +12,7 @@ interface ModalProps {
   title?: string;
   description?: string | ReactNode;
   withCloseButton?: boolean;
-  noMoreSee?: boolean;
+  noMoreSee?: boolean; // TODO: 홈 화면 모달 컴포넌트 만들 때 noMoreSee prop 이동
   disabledDimClick?: boolean;
 }
 
