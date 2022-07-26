@@ -5,22 +5,15 @@ import Modal from '@/components/Modal';
 import { useState } from 'react';
 
 interface Props {
-  isLevelModalOpen: boolean;
-  openLevelModal: () => void;
-  closeLevelModal: () => void;
+  open: boolean;
+  closeModal: () => void;
   levels: ILevel[];
 }
 
-const LevelModal = ({ isLevelModalOpen, closeLevelModal, levels }: Props) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
+const LevelModal = ({ open, closeModal, levels }: Props) => {
   return (
     <Modal
-      open={isModalOpen}
-      openModal={openModal}
+      open={open}
       closeModal={closeModal}
       header="Level 안내"
       withCloseButton

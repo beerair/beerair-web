@@ -5,10 +5,8 @@ import ModalLayout from '@/components/layouts/ModalLayout';
 import Icon from '@/components/commons/Icon';
 
 interface ModalProps {
-  openModal?: () => void;
-  closeModal?: () => void;
   open: boolean;
-  setOpen?: () => void;
+  closeModal?: () => void;
   buttons?: ReactNode;
   header?: string;
   title?: string;
@@ -20,8 +18,8 @@ interface ModalProps {
 
 const Modal = (props: ModalProps) => {
   const {
-    closeModal,
     open,
+    closeModal,
     buttons,
     header,
     title,

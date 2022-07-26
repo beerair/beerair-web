@@ -1,10 +1,13 @@
 import Icon from '@/components/commons/Icon';
 import { ILevel } from '@/types';
 import styled from '@emotion/styled';
+import { useState } from 'react';
+import LevelModal from '../LevelModal';
 
 export interface BioProps {
   remainRecordCount: number;
   userLevel: ILevel;
+  levels: ILevel[];
   nickname: string;
   email: string;
   openLevelModal?: () => void;
@@ -14,11 +17,14 @@ export interface BioProps {
 const Bio = ({
   remainRecordCount,
   userLevel,
+  levels,
   nickname,
   email,
   openLevelModal,
   openModifyModal,
 }: BioProps) => {
+  const [isLevelModalOpen, setIsLevelModalOpen] = useState(false);
+
   return (
     <StyledBio>
       <ToolTip>
@@ -35,6 +41,13 @@ const Bio = ({
         </button>
       </NickName>
       <Email>{email}</Email>
+      {isLevelModalOpen && (
+        <LevelModal
+          open={isLevelModalOpen}
+          closeModal={() => setIsLevelModalOpen(false)}
+          levels={levels}
+        />
+      )}
     </StyledBio>
   );
 };
