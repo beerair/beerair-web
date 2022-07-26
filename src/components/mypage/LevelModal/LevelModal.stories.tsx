@@ -45,14 +45,7 @@ export default {
 const Template: ComponentStory<typeof LevelModal> = () => {
   const [isOpen, setIsOpen] = useState(true);
 
-  return (
-    <LevelModal
-      isLevelModalOpen={isOpen}
-      openLevelModal={() => setIsOpen(true)}
-      closeLevelModal={() => setIsOpen(false)}
-      levels={LEVEL_DATA}
-    />
-  );
+  return <LevelModal open={isOpen} closeModal={() => setIsOpen(false)} levels={LEVEL_DATA} />;
 };
 
 export const Default = Template.bind({});

@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Bio, { BioProps } from './Bio';
+import Bio from './Bio';
 
 export default {
-  title: 'Components/Bio',
+  title: 'Components/mypage/Bio',
   component: Bio,
   args: {
     remainRecord: 1,

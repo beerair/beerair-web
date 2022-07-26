@@ -96,9 +96,9 @@ const LevelImage = styled.img`
 `;
 
 const NickName = styled.div`
+  ${({ theme }) => theme.fonts.H2}
   position: relative;
   display: flex;
-  ${({ theme }) => theme.fonts.H2}
   margin-bottom: 6px;
 `;
 

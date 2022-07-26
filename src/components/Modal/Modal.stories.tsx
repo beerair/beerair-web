@@ -13,43 +13,41 @@ export default {
     withCloseButton: { control: 'boolean' },
     noMoreSee: { control: 'boolean' },
   },
-  args: { withCloseButton: true, noMoreSee: true },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  return <Modal openModal={openModal} closeModal={closeModal} {...args} />;
-};
-
-export const Default = Template.bind({});
-Default.args = {
-  open: true,
-  header: '헤더입니다',
-  title: '타이틀입니다',
-  withCloseButton: true,
-  noMoreSee: true,
-  description: '설명설명설명설명설명설명설명설명',
-  buttons: (
-    <Button type="primary" width="large">
-      기록할 맥주 검색하러 가기
-    </Button>
-  ),
-};
-
-export const 로그아웃: ComponentStory<typeof Modal> = () => {
+const Template: ComponentStory<typeof Modal> = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
     <Modal
       open={isModalOpen}
-      openModal={openModal}
+      closeModal={closeModal}
+      header="헤더입니다"
+      title="타이틀입니다"
+      description={'설명설명설명설명설명설명설명설명'}
+      buttons={
+        <Button type="primary" width="large">
+          기록할 맥주 검색하러 가기
+        </Button>
+      }
+      withCloseButton
+      noMoreSee
+    />
+  );
+};
+
+export const Default = Template.bind({});
+
+export const 로그아웃: ComponentStory<typeof Modal> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const closeModal = () => setIsModalOpen(false);
+
+  return (
+    <Modal
+      open={isModalOpen}
       closeModal={closeModal}
       buttons={
         <>
@@ -69,13 +67,11 @@ export const 로그아웃: ComponentStory<typeof Modal> = () => {
 export const 회원탈퇴: ComponentStory<typeof Modal> = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
     <Modal
       open={isModalOpen}
-      openModal={openModal}
       closeModal={closeModal}
       buttons={
         <>
@@ -96,13 +92,11 @@ export const 회원탈퇴: ComponentStory<typeof Modal> = () => {
 export const 닉네임_수정: ComponentStory<typeof Modal> = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
     <Modal
       open={isModalOpen}
-      openModal={openModal}
       closeModal={closeModal}
       withCloseButton
       header="닉네임 수정하기"
@@ -118,13 +112,11 @@ export const 닉네임_수정: ComponentStory<typeof Modal> = () => {
 export const 기록할_맥주_검색_하러가기: ComponentStory<typeof Modal> = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
     <Modal
       open={isModalOpen}
-      openModal={openModal}
       closeModal={closeModal}
       title="어떤 맥주를 기록하시겠어요?"
       description="맥주를 선택하면 기록을 시작할 수 있어요."
@@ -138,4 +130,3 @@ export const 기록할_맥주_검색_하러가기: ComponentStory<typeof Modal> 
     />
   );
 };
-

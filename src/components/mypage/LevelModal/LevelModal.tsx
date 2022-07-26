@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 import { ILevel } from '@/types';
 import Modal from '@/components/Modal';
-import { useState } from 'react';
 
 interface Props {
   open: boolean;
