@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import LevelModal from './LevelModal';
 
-const LEVEL_DATA: ILevel[] = [
+export const LEVEL_DATA: ILevel[] = [
   {
     id: 1,
     tier: 1,
@@ -45,7 +45,7 @@ export default {
 const Template: ComponentStory<typeof LevelModal> = () => {
   const [isOpen, setIsOpen] = useState(true);
 
-  return <LevelModal open={isOpen} closeModal={() => setIsOpen(false)} levels={LEVEL_DATA} />;
+  return <LevelModal open={isOpen} closeModal={() => setIsOpen(false)} />;
 };
 
 export const Default = Template.bind({});
