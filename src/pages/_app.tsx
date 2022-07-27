@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 
 import { theme, GlobalStyle } from '@/themes';
 import awesome from '@/utils/awesome';
-import ReactQueryClientProvider from '@/commons/QueryClientProvideer';
+import ReactQueryClientProvider from '@/commons/QueryClientProvider';
 import { Hydrate } from 'react-query';
 
 awesome();
