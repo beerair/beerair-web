@@ -1,7 +1,26 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
+import { prefetchWithSSR } from '@/hooks/prefetch';
+import { useGetTest } from '@/hooks/queries/test';
+import { getTest } from '@/networks/test';
 
 const Home: NextPage = () => {
-  return <div>hello beerair</div>;
+  const { data } = useGetTest();
+
+  return <div>{data}</div>;
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const resources = [{ key: queryKeyFactory.FETCH_TEST(), fetcher: getTest }];
+
+  const { dehydratedState } = await prefetchWithSSR(resources);
+
+  return {
+    props: {
+      dehydratedState,
+    },
+  };
 };
 
 export default Home;
