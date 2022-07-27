@@ -11,13 +11,18 @@ export const ellipsis = (lineCount = 1) => css`
   -webkit-box-orient: vertical;
 `;
 
-/** @note 스크롤은 동작하나 스크롤 바는 보이지 않습니다.  */
 export const hideScrollbar = css`
+  -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  &::-webkit-scrollbar {
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb {
     display: none;
-    width: 0 !important;
+    width: 0;
+    height: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
