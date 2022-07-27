@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { queryKeyFactory } from '@/commons/queryKeyFactory';
-import { prefetchWithSSR } from '@/hooks/prefetch';
+import { prefetchWithSSR } from '@/commons/prefetch';
 import { useGetTest } from '@/hooks/queries/test';
 import { getTest } from '@/networks/test';
 
