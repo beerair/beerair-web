@@ -30,7 +30,7 @@ const Tab = ({
   type = 'primary',
   isGhost = false,
   size = 'small',
-  onChange = () => null,
+  onChange,
 }: TabProps) => {
   const [activatedIndex, setActivatedIndex] = useState(outerActivatedIndex);
 
@@ -41,7 +41,7 @@ const Tab = ({
   }, [outerActivatedIndex]);
 
   useEffect(() => {
-    onChange(activatedIndex);
+    onChange?.(activatedIndex);
   }, [activatedIndex, onChange]);
 
   return (
