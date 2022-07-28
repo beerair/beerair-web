@@ -45,7 +45,7 @@ const Template: ComponentStory<typeof Tab> = (args) => {
       <div>
         <StyledH1>children 타입: ReactChild (children에 스와이프 적용)</StyledH1>
         <Tab {...args} activatedIndex={activatedIndex} onChange={setActivatedIndex}>
-          <Swiper selectedItem={activatedIndex} onChange={setActivatedIndex}>
+          <Swiper currentSlide={activatedIndex} afterChange={setActivatedIndex}>
             {Array(args.tabItems.length)
               .fill(0)
               .map((_, index) => (
