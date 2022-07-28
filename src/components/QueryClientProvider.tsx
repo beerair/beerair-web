@@ -1,11 +1,11 @@
 import { FC, ReactNode, useState } from 'react';
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from 'react-query';
 
-interface Props {
+interface ReactQueryClientProviderProps {
   children: ReactNode;
 }
 
-const ReactQueryClientProvider: FC<Props> = (props) => {
+const ReactQueryClientProvider: FC<ReactQueryClientProviderProps> = (props) => {
   const { children } = props;
   const [queryClient] = useState(
     () =>
