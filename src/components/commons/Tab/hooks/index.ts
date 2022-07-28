@@ -1,1 +1,1 @@
-export { default as useScrollToActivatedTab } from './useScrollToActivatedTab';
+export { default as useScrollToTabItem } from './useScrollToTabItem';
