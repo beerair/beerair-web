@@ -27,7 +27,8 @@ export type ColorToken =
   | MakeTokenSet<'grey', [0, 1, 2, 3, 4, 5]>
   | 'red'
   | MakeTokenSet<'black', [100, 80]>
-  | MakeTokenSet<'whiteOpacity', [90, 80, 65, 50, 35, 20, 10, 0]>;
+  | MakeTokenSet<'whiteOpacity', [90, 80, 65, 50, 35, 20, 10, 0]>
+  | 'transparent';
 
 export type ColorScheme = Record<ColorToken, string>;
 

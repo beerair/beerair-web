@@ -31,6 +31,8 @@ export const theme: Readonly<ColorTheme & FontTheme> = {
       whiteOpacity20: 'rgba(255, 255, 255, 0.2)',
       whiteOpacity10: 'rgba(255, 255, 255, 0.1)',
       whiteOpacity0: 'rgba(255, 255, 255, 0)',
+
+      transparent: 'transparent',
     },
     semanticColor: {
       background: 'black100',
