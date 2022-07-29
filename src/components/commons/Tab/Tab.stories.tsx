@@ -9,8 +9,10 @@ export default {
   title: 'Commons/Tab',
   component: Tab,
   argTypes: {
-    isSwipable: { control: 'boolean', defaultValue: true },
-    isGhost: { control: 'boolean', defaultValue: false },
+    isGhost: { control: 'boolean' },
+  },
+  args: {
+    isGhost: false,
   },
 } as ComponentMeta<typeof Tab>;
 
