@@ -5,9 +5,11 @@ import Markdown from './Markdown';
 export default {
   title: 'Components/Markdown',
   argTypes: {
-    markdown: { control: 'text', defaultValue: '' },
+    markdown: { control: 'text' },
   },
-  args: {},
+  args: {
+    markdown: '',
+  },
 } as ComponentMeta<typeof Markdown>;
 
 const Template: ComponentStory<typeof Markdown> = ({ ...args }) => <Markdown {...args} />;
