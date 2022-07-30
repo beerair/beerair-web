@@ -85,7 +85,7 @@ const Header = styled.div`
   justify-content: space-between;
 `;
 
-const Title = styled.p`
+const Title = styled.div`
   width: 100%;
   margin: 46px 0 8px 0;
   text-align: center;
@@ -93,7 +93,7 @@ const Title = styled.p`
   ${(p) => p.theme.fonts.SubTitle2};
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   width: 100%;
   text-align: center;
   color: ${({ theme }) => theme.color.grey4};
