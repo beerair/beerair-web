@@ -8,7 +8,10 @@ export default {
   title: 'Commons/Header',
   component: Header,
   argTypes: {
-    isTransparent: { control: 'boolean', defaultValue: false },
+    isTransparent: { control: 'boolean' },
+  },
+  args: {
+    isTransparent: false,
   },
   decorators: [
     (Story) => (
