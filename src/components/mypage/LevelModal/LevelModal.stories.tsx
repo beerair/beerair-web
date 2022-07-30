@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
-
+import { LEVEL_DATA } from '@/constants/level_data';
 import LevelModal from './LevelModal';
 
 export default {
@@ -11,7 +11,7 @@ export default {
 const Template: ComponentStory<typeof LevelModal> = () => {
   const [isOpen, setIsOpen] = useState(true);
 
-  return <LevelModal open={isOpen} closeModal={() => setIsOpen(false)} />;
+  return <LevelModal open={isOpen} closeModal={() => setIsOpen(false)} levels={LEVEL_DATA} />;
 };
 
 export const Default = Template.bind({});

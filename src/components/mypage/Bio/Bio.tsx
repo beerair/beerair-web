@@ -1,4 +1,5 @@
 import Icon from '@/components/commons/Icon';
+import { LEVEL_DATA } from '@/constants/level_data';
 import { ILevel } from '@/types';
 import styled from '@emotion/styled';
 import { useState } from 'react';
@@ -32,7 +33,11 @@ const Bio = ({ remainRecordCount, userLevel, nickname, email }: BioProps) => {
       </NickName>
       <Email>{email}</Email>
       {isLevelModalOpen && (
-        <LevelModal open={isLevelModalOpen} closeModal={() => setIsLevelModalOpen(false)} />
+        <LevelModal
+          open={isLevelModalOpen}
+          closeModal={() => setIsLevelModalOpen(false)}
+          levels={LEVEL_DATA}
+        />
       )}
     </StyledBio>
   );

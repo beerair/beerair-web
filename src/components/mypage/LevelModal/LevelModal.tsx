@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
 
 import Modal from '@/components/Modal';
-import { LEVEL_DATA } from '@/constants/level_data';
+
+import { ILevel } from '@/types';
 
 interface Props {
   open: boolean;
   closeModal: () => void;
+  levels: ILevel[];
 }
 
-const LevelModal = ({ open, closeModal }: Props) => {
+const LevelModal = ({ open, closeModal, levels }: Props) => {
   return (
     <Modal
       open={open}
@@ -17,7 +19,7 @@ const LevelModal = ({ open, closeModal }: Props) => {
       withCloseButton
       description={
         <LevelList>
-          {LEVEL_DATA?.map(({ id, imageUrl, req, tier }) => (
+          {levels?.map(({ id, imageUrl, req, tier }) => (
             <LevelListItem key={id}>
               <img src={imageUrl} alt={tier.toString()} width="64px" height="auto" />
               <p>
