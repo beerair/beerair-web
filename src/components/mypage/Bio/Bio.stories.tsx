@@ -1,11 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import Bio from './Bio';
 
 export default {
   title: 'Components/mypage/Bio',
   component: Bio,
   args: {
-    remainRecord: 1,
+    remainRecordCount: 1,
     userLevel: {
       id: 1,
       tier: 1,

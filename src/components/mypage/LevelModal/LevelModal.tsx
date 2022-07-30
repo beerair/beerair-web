@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import Modal from '@/components/Modal';
-import { LEVEL_DATA as levels } from './LevelModal.stories';
+import { LEVEL_DATA } from '@/constants/level_data';
 
 interface Props {
   open: boolean;
@@ -17,7 +17,7 @@ const LevelModal = ({ open, closeModal }: Props) => {
       withCloseButton
       description={
         <LevelList>
-          {levels?.map(({ id, imageUrl, req, tier }) => (
+          {LEVEL_DATA?.map(({ id, imageUrl, req, tier }) => (
             <LevelListItem key={id}>
               <img src={imageUrl} alt={tier.toString()} width="64px" height="auto" />
               <p>
