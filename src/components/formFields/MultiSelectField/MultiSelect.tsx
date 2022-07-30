@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { isNil } from 'lodash';
 
 import ColorTextBox from '@/components/commons/ColorTextBox';
+import { hideScrollbar } from '@/styles/common';
 
 export interface SelectOption<T = any> {
   value: T;
@@ -102,16 +103,11 @@ const StyledMultiSelect = styled.div<StyledMultiSelectProps>`
     justify-content: space-between;
     overflow-y: scroll;
 
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-
     & > .multi-select-item {
       margin-bottom: 16px;
     }
 
-    &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera*/
-    }
+    ${hideScrollbar}
   }
 
   &::after {
