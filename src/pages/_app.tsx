@@ -4,17 +4,23 @@ import type { AppProps } from 'next/app';
 
 import { theme, GlobalStyle } from '@/themes';
 import awesome from '@/utils/awesome';
+import ReactQueryClientProvider from '@/components/QueryClientProvider';
+import { Hydrate } from 'react-query';
 
 awesome();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle theme={theme} />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </RecoilRoot>
+    <ReactQueryClientProvider>
+      <Hydrate state={pageProps.dehydratedState}>
+        <RecoilRoot>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle theme={theme} />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </RecoilRoot>
+      </Hydrate>
+    </ReactQueryClientProvider>
   );
 }
 
