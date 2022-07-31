@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
 
 import Modal from '@/components/Modal';
-import { LEVEL_DATA as levels } from './LevelModal.stories';
+
+import { ILevel } from '@/types';
 
 interface Props {
   open: boolean;
   closeModal: () => void;
+  levels: ILevel[];
 }
 
-const LevelModal = ({ open, closeModal }: Props) => {
+const LevelModal = ({ open, closeModal, levels }: Props) => {
   return (
     <Modal
       open={open}
