@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { beer } from '@/constants/dummy';
 
-// import backgroundImage from '../../../.storybook/assets/beer_background.png';
 import BeerPhotoLabel from './BeerPhotoLabel';
 
 export default {
