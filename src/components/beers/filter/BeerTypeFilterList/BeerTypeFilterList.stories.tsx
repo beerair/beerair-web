@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import BeerTypeFilterList from './BeerTypeFilterList';
 
 export default {
-  title: 'Components/beers/filter/BeerTypeFilterList',
   component: BeerTypeFilterList,
 } as ComponentMeta<typeof BeerTypeFilterList>;
 

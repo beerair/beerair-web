@@ -5,7 +5,6 @@ import BeerListFilterChipList from './BeerListFilterChipList';
 import { BEER_TYPES } from '@/types/beer';
 
 export default {
-  title: 'Components/beers/filter/BeerListFilterChipList',
   component: BeerListFilterChipList,
 } as ComponentMeta<typeof BeerListFilterChipList>;
 
