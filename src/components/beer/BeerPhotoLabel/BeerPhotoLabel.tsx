@@ -10,10 +10,6 @@ interface BeerPhotoLabelProps {
   background?: string;
 }
 
-interface StyledBeerPhotoLabelProps {
-  ticketBackground?: string;
-}
-
 const BeerPhotoLabel: React.FC<BeerPhotoLabelProps> = ({ background, beer }) => (
   <StyledBeerPhotoLabel ticketBackground={background}>
     {background && <div className="ticket-background-img" />}
@@ -31,6 +27,10 @@ const BeerPhotoLabel: React.FC<BeerPhotoLabelProps> = ({ background, beer }) => 
     <span className="beer-name">{beer.nameKor}</span>
   </StyledBeerPhotoLabel>
 );
+
+interface StyledBeerPhotoLabelProps {
+  ticketBackground?: string;
+}
 
 const StyledBeerPhotoLabel = styled.div<StyledBeerPhotoLabelProps>`
   position: relative;
