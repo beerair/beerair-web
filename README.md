@@ -2,19 +2,90 @@
 
 ![intro1](https://user-images.githubusercontent.com/39763891/175964465-8a8811d6-03e5-4216-8572-3b2c4c52f939.png)
 
-세계 맥주로 떠나는 세계 여행
+세계 맥주로 떠나는 세계 여행, 여행사 비어에어입니다 🛫
 
-여행사 비어에어입니다 🛫
+<br />
 
 ## Download
 
-[beerair.kr](https://beerair.kr/)
-
-| iOS                                                                                                                                                                                                                                                                                                                                         | Android                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a href="https://play.google.com/store/apps/details?id=com.sulsul"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83&amp;releaseDate=1654300800&h=dd4ccd7fb22c609cf9132f37bf23c390" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a> | <a href='https://play.google.com/store/apps/details?id=com.sulsul'><img alt='다운로드하기 Google Play' width='285px' src='https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png'/></a> |
+| Web                               | iOS               | Android                                                                                                                                                                                                                  |
+| --------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [beerair.kr](https://beerair.kr/) | To Be Continue... | <a href='https://play.google.com/store/apps/details?id=com.sulsul'><img alt='다운로드하기 Google Play' width='285px' src='https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png'/></a> |
 
 <br />
+
+## Getting Started
+
+### Create environment variables
+
+```
+NEXT_PUBLIC_API_BASE_URL=EXAMPLE
+NEXT_PUBLIC_LOCAL_TOKEN=EXAMPLE
+NEXT_PUBLIC_SENTRY_DSN=EXAMPLE
+SENTRY_DSN=EXAMPLE
+
+```
+
+프로젝트 루트 경로에 `.env.development`, `.env.production`, `.env` 파일을 생성하고 프로젝트에 필요한 환경 변수를 설정합니다.
+
+> [Next.js 환경 변수 (nextjs.org)](https://nextjs.org/docs/basic-features/environment-variables)
+
+### Install
+
+```
+$ yarn install
+```
+
+### Start Node.js server
+
+```
+$ yarn dev
+```
+
+파일 변경 사항이 바로 반영되는 Next.js 웹 서버를 실행합니다.
+or
+
+```
+$ yarn build && yarn start
+```
+
+TypeScript 파일을 JavaScript로 트랜스파일 및 최적화한 후 Next.js 웹 서버를 실행합니다.
+
+```
+$ http://localhost:3000
+```
+
+### Storybook
+
+```
+$ yarn storybook
+```
+
+개발 중인 컴포넌트를 스토리북을 통해 볼 수 있습니다
+
+```
+$ http://localhost:6006
+```
+
+## 🛠 Skills: 개발환경 및 기술스택
+
+![개발환경및기술스택](https://user-images.githubusercontent.com/39763891/175996836-ea8a83b4-32c4-4315-906b-d06624ee34db.png)
+
+<p>
+
+<img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white"/>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>
+<img src="https://img.shields.io/badge/Emotion-EFD1EA?style=flat-square&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/ReactQuery-FF4154?style=flat-square&logo=ReactQuery&logoColor=white"/>
+<img src="https://img.shields.io/badge/Recoil-3578E5?style=flat-square&logo=react&logoColor=white"/>
+<img alt="ESLint" src="https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white" />
+<img alt="Prettier" src="https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white" />
+<img alt="github actions" src="https://img.shields.io/badge/-GithubActions-2088FF?style=flat-square&logo=githubactions&logoColor=white" />
+<img alt="Storybook" src="https://img.shields.io/badge/-Storybook-FF4785?style=flat-square&logo=storybook&logoColor=white" />
+<img alt="Storybook" src="https://img.shields.io/badge/-GoogleAnalytics-E37400?style=flat-square&logo=googleanalytics&logoColor=white" />
+
+</p>
+
 <br />
 
 <br/>
@@ -107,28 +178,9 @@
 
 <br/>
 
-## 🛠 Skills: 개발환경 및 기술스택
-
-![개발환경및기술스택](https://user-images.githubusercontent.com/39763891/175996836-ea8a83b4-32c4-4315-906b-d06624ee34db.png)
-
-<p>
-
-<img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white"/>
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>
-<img src="https://img.shields.io/badge/Emotion-EFD1EA?style=flat-square&logo=css3&logoColor=white"/>
-<img src="https://img.shields.io/badge/ReactQuery-FF4154?style=flat-square&logo=ReactQuery&logoColor=white"/>
-<img src="https://img.shields.io/badge/Recoil-3578E5?style=flat-square&logo=react&logoColor=white"/>
-<img alt="ESLint" src="https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white" />
-<img alt="Prettier" src="https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white" />
-<img alt="github actions" src="https://img.shields.io/badge/-GithubActions-2088FF?style=flat-square&logo=githubactions&logoColor=white" />
-<img alt="Storybook" src="https://img.shields.io/badge/-Storybook-FF4785?style=flat-square&logo=storybook&logoColor=white" />
-<img alt="Storybook" src="https://img.shields.io/badge/-GoogleAnalytics-E37400?style=flat-square&logo=googleanalytics&logoColor=white" />
-
-</p>
-
 <br/>
 
-## 👨‍👩‍👧‍👦 Owner: 팀원 소개
+## 👨‍👩‍👧‍👦 Owner: FE 팀원 소개
 
 <table>
 
@@ -136,9 +188,7 @@
   <td align=center>
   <a href="https://github.com/hy57in">
   <img src="https://avatars.githubusercontent.com/u/60775453?v=4" width="100px" />
-  <br/>
-  FE 🖥
-  <br/>
+   <br/>
   김효진
   </a>
   </td>
@@ -146,9 +196,7 @@
   <td align=center>
   <a href="https://github.com/cyjo9603">
   <img src="https://avatars.githubusercontent.com/u/49899406?v=4" width="100px" />
-  <br/>
-  FE 🖥
-  <br/>
+   <br/>
   조찬영
   </a>
   </td>
@@ -156,71 +204,25 @@
   <td align=center>
   <a href="https://github.com/syoung125">
   <img src="https://avatars.githubusercontent.com/u/39763891?v=4" width="100px"  />
-  <br/>
-  FE 🖥
-  <br/>
+   <br/>
   고서영
   </a>
   </td>
   
   <td align=center>
-  <a href="https://github.com/Ting-Kim">
-  <img src="https://avatars.githubusercontent.com/u/59888684?v=4" width="100px"  />
+  <a href="https://github.com//hoo00nn">
+  <img src="https://avatars.githubusercontent.com/u/52775389?v=4" width="100px"  />
   <br/>
-  BE 💾
-  <br/>
-  김태호
+  오지훈
   </a>
   </td>
 
   </tr>
 
   <tr>
-    
-  <td align=center>
-  <a href="https://github.com/RyooChan">
-  <img src="https://avatars.githubusercontent.com/u/53744363?v=4" width="100px"  />
-  <br/>
-  BE 💾
-  <br/>
-  류찬
-  </a>
-  </td>
-
-<td align=center>
-  <a href="https://www.behance.net/dudtj92081bdd9/moodboards">
-  <img src="https://user-images.githubusercontent.com/39763891/175975227-23034d1f-fb1d-44b7-84da-a627a081b5e6.png" width="100px"  />
-  <br/>
-  Design 🎨
-  <br/>
-  김영서
-  </a>
-  </td>
-  
-  <td align=center>
-  <a href="https://www.behance.net/piebee9207bafc/appreciated">
-  <img src="https://user-images.githubusercontent.com/39763891/175975008-6ec6bf48-7f98-472c-bc5a-890d8a83304f.png" width="100px"  />
-  <br/>
-  Design 🎨
-  <br/>
-  전혜원
-  </a>
-  </td>
-  
-  <td align=center>
-  <a href="https://notefolio.net/line_ha/portfolio">
-  <img src="https://user-images.githubusercontent.com/39763891/175977894-1517498f-b934-4437-a72b-80ab918be448.jpeg" width="100px" />
-  <br/>
-  Design 🎨
-  <br/>
-  정선하
-  </a>
-  </td>
  
 </tr>
 
 </table>
-
-![team](https://user-images.githubusercontent.com/39763891/175967318-150e37a5-5f1e-4214-970c-d5631bd75621.png)
 
 비어에어 많관부~🍻💜
