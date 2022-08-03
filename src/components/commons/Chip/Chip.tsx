@@ -5,10 +5,10 @@ import cx from 'classnames';
 
 import { ColorTheme } from '@/themes/types';
 
-type BadgeType = 'primary' | 'secondary' | 'ghost' | 'default';
+type ChipType = 'primary' | 'secondary' | 'ghost' | 'default';
 
-interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
-  type?: BadgeType;
+interface ChipProps extends HTMLAttributes<HTMLDivElement> {
+  type?: ChipType;
   width?: string;
   leftAddon?: React.ReactNode;
   rightAddon?: React.ReactNode;
@@ -17,12 +17,12 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-interface StyledBadgeProps {
-  badgeType: BadgeType;
-  badgeWidth?: string;
+interface StyledChipProps {
+  chipType: ChipType;
+  chipWidth?: string;
 }
 
-const Badge: React.FC<BadgeProps> = ({
+const Chip: React.FC<ChipProps> = ({
   type = 'default',
   width,
   className,
@@ -32,15 +32,15 @@ const Badge: React.FC<BadgeProps> = ({
   ...attrs
 }) => {
   return (
-    <StyledBadge badgeType={type} badgeWidth={width} className={className} {...attrs}>
-      {leftAddon && <span className="common-badge-icon-wrapper margin-right">{leftAddon}</span>}
-      <span className={cx('common-badge-text')}>{label}</span>
-      {rightAddon && <span className={`common-badge-icon-wrapper margin-left`}>{rightAddon}</span>}
-    </StyledBadge>
+    <StyledChip chipType={type} chipWidth={width} className={className} {...attrs}>
+      {leftAddon && <span className="common-chip-icon-wrapper margin-right">{leftAddon}</span>}
+      <span className={cx('common-chip-text')}>{label}</span>
+      {rightAddon && <span className={`common-chip-icon-wrapper margin-left`}>{rightAddon}</span>}
+    </StyledChip>
   );
 };
 
-const getColorByType = (type: BadgeType, theme: ColorTheme) => {
+const getColorByType = (type: ChipType, theme: ColorTheme) => {
   switch (type) {
     case 'primary':
       return theme.semanticColor.primary;
@@ -53,7 +53,7 @@ const getColorByType = (type: BadgeType, theme: ColorTheme) => {
   }
 };
 
-const getFontColorByType = (type: BadgeType, theme: ColorTheme) => {
+const getFontColorByType = (type: ChipType, theme: ColorTheme) => {
   switch (type) {
     case 'primary':
       return theme.color.white;
@@ -65,9 +65,9 @@ const getFontColorByType = (type: BadgeType, theme: ColorTheme) => {
       return theme.semanticColor.secondary;
   }
 };
-const StyledBadge = styled.div<StyledBadgeProps>`
-  background-color: ${({ theme, badgeType }) => getColorByType(badgeType, theme)};
-  color: ${({ theme, badgeType }) => getFontColorByType(badgeType, theme)};
+const StyledChip = styled.div<StyledChipProps>`
+  background-color: ${({ theme, chipType }) => getColorByType(chipType, theme)};
+  color: ${({ theme, chipType }) => getFontColorByType(chipType, theme)};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,13 +75,13 @@ const StyledBadge = styled.div<StyledBadgeProps>`
   transition: filter 0.2s;
   box-sizing: border-box;
   width: fit-content;
-  ${({ badgeWidth }) => (badgeWidth ? ` width: ${badgeWidth};` : '')};
+  ${({ chipWidth }) => (chipWidth ? ` width: ${chipWidth};` : '')};
 
   border-radius: 12px;
   padding: 6px 11px;
   height: 24px;
 
-  & > .common-badge-icon-wrapper {
+  & > .common-chip-icon-wrapper {
     height: 14px;
 
     &.margin-right {
@@ -97,7 +97,7 @@ const StyledBadge = styled.div<StyledBadgeProps>`
     }
   }
 
-  & > .common-badge-text {
+  & > .common-chip-text {
     display: inline-block;
     font-weight: 400;
     font-size: 10px;
@@ -117,4 +117,4 @@ const StyledBadge = styled.div<StyledBadgeProps>`
   }
 `;
 
-export default Badge;
+export default Chip;
