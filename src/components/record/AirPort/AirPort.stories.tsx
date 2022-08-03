@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import AirPort from './AirPort';
 
 export default {
-  title: 'Components/beer-detail/AirPort',
+  title: 'Components/record/AirPort',
   component: AirPort,
   args: {
     startCountry: {

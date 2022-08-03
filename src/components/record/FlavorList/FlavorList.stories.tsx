@@ -10,7 +10,7 @@ const FLAVORS = [
 ];
 
 export default {
-  title: 'Components/beer-detail/FlavorList',
+  title: 'Components/record/FlavorList',
   component: FlavorList,
   args: { flavors: FLAVORS },
 } as ComponentMeta<typeof FlavorList>;
