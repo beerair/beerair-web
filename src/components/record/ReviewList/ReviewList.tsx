@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import ReviewListItem from '@/components/beer-detail/ReviewListItem';
+import ReviewListItem from '@/components/record/ReviewListItem';
 import { IReview } from '@/types';
 import { Ref } from 'react';
 import { $userSession } from '@/recoil/atoms';
