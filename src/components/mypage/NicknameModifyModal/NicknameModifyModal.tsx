@@ -35,7 +35,7 @@ const NicknameModifyModal = ({ open, closeModal, onSubmit }: Props) => {
       header="닉네임 수정하기"
       withCloseButton
       description={
-        <InputContainer onSubmit={onSubmit}>
+        <StyledForm onSubmit={onSubmit}>
           <StyledInput
             id="nickname"
             type="text"
@@ -54,7 +54,7 @@ const NicknameModifyModal = ({ open, closeModal, onSubmit }: Props) => {
           />
           {errors.nickname?.message && <p className="error-text">{errors.nickname.message}</p>}
           <p className="helper-text">최대 15글자까지 입력할 수 있습니다</p>
-        </InputContainer>
+        </StyledForm>
       }
       buttons={
         <Button
@@ -72,7 +72,7 @@ const NicknameModifyModal = ({ open, closeModal, onSubmit }: Props) => {
 
 export default NicknameModifyModal;
 
-const InputContainer = styled.form`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
