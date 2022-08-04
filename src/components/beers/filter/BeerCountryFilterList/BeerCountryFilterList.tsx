@@ -100,9 +100,8 @@ const StyledWrapper = styled.div`
   grid-gap: 16px 12px;
   grid-template-columns: repeat(auto-fill, minmax(90px, auto));
   justify-items: center;
+  height: 100%;
   padding: 16px 20px;
-
-  overflow-y: auto;
 `;
 
 export default BeerCountryFilterList;
