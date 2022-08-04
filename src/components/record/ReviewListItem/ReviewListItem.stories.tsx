@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ReviewListItem from './ReviewListItem';
 
 export default {
-  title: 'Components/beer-detail/ReviewListItem',
+  title: 'Components/record/ReviewListItem',
   component: ReviewListItem,
   argTypes: {
     content: { control: 'text' },

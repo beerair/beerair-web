@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import FlavorListItem from '@/components/beer-detail/FlavorListItem';
+import FlavorListItem from '@/components/record/FlavorListItem';
 import { IFlavorListItem } from '../FlavorListItem';
 
 interface Props {
