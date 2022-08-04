@@ -23,7 +23,6 @@ NEXT_PUBLIC_API_BASE_URL=EXAMPLE
 NEXT_PUBLIC_LOCAL_TOKEN=EXAMPLE
 NEXT_PUBLIC_SENTRY_DSN=EXAMPLE
 SENTRY_DSN=EXAMPLE
-
 ```
 
 프로젝트 루트 경로에 `.env.development`, `.env.production`, `.env` 파일을 생성하고 프로젝트에 필요한 환경 변수를 설정합니다.
