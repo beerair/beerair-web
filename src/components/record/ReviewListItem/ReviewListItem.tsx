@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { parseISO } from 'date-fns';
 
 import Emoji from '@/components/commons/Emoji';
-import Badge from '@/components/Badge';
+import Badge from '@/components/commons/Chip';
 import { formatDateDiff } from '@/utils/formatDateDiff';
 import { IReview } from '@/types';
 

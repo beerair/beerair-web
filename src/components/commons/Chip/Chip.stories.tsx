@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Icon from '@/components/commons/Icon';
-import Badge from './Badge';
+import Chip from './Chip';
 
 export default {
-  title: 'Commons/Badge',
-  component: Badge,
+  title: 'Commons/Chip',
+  component: Chip,
   argTypes: {
     label: { control: 'text', name: 'text' },
     width: { control: 'text' },
@@ -14,10 +14,10 @@ export default {
     rightAddon: { control: 'boolean' },
   },
   args: { likeCount: 100 },
-} as ComponentMeta<typeof Badge>;
+} as ComponentMeta<typeof Chip>;
 
-const Template: ComponentStory<typeof Badge> = ({ leftAddon, rightAddon, ...args }) => (
-  <Badge
+const Template: ComponentStory<typeof Chip> = ({ leftAddon, rightAddon, ...args }) => (
+  <Chip
     {...args}
     leftAddon={leftAddon ? <Icon name="Like" /> : undefined}
     rightAddon={rightAddon ? <Icon name="Like" /> : undefined}
