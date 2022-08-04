@@ -6,50 +6,7 @@ import { $nextBeerListFilterChips } from '../recoil/atoms';
 import { $selectedBeerCountryIds } from '../recoil/selectors';
 
 import { IContinent, ICountry } from '@/types';
-// import { useGetCountries } from '@/queries';
-
-/** @todo api 연동 */
-const useGetCountries = (continentId?: number) => {
-  return {
-    countries: [
-      {
-        id: 1,
-        nameKor: '독일',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 2,
-        nameKor: '프랑스',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 3,
-        nameKor: '대한민국',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 4,
-        nameKor: '영국',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 5,
-        nameKor: '벨기에',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-    ],
-  };
-};
+import { useGetCountries } from '@/hooks/queries/country';
 
 interface BeerCountryFilterListProps {
   continentId?: IContinent['id'];

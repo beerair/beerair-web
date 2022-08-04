@@ -5,20 +5,7 @@ import BeerCountryFilterList from '../BeerCountryFilterList';
 
 import Tab from '@/components/commons/Tab';
 import Swiper from '@/components/commons/Swiper';
-// import { useGetContinents } from '@/queries';
-
-const useGetContinents = () => {
-  return {
-    data: {
-      contents: [
-        { id: 1, name: '유럽' },
-        { id: 2, name: '아시아' },
-        { id: 3, name: '아메리카' },
-        { id: 4, name: '호주' },
-      ],
-    },
-  };
-};
+import { useGetContinents } from '@/hooks/queries/continent';
 
 const BeerCountryFilterTab = () => {
   const [activatedIndex, setActivatedIndex] = useState(0);
