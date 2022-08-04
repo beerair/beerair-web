@@ -15,21 +15,13 @@ export default function BottomNavigation() {
       <StyledBottomNavigation>
         <Link href="/" passHref>
           <a className={`nav-link ${router.pathname === '/' ? 'active' : ''}`}>
-            {router.pathname === '/' ? (
-              <Icon name="NavHomeActive" size={36} />
-            ) : (
-              <Icon name="NavHome" size={36} />
-            )}
+            <Icon name={router.pathname === '/' ? 'NavHomeActive' : 'NavHome'} size={36} />
             <span>홈</span>
           </a>
         </Link>
         <Link href="/beers" passHref>
           <a className={`nav-link ${router.pathname === '/beers' ? 'active' : ''}`}>
-            {router.pathname === '/beers' ? (
-              <Icon name="NavBeerActive" size={36} />
-            ) : (
-              <Icon name="NavBeer" size={36} />
-            )}
+            <Icon name={router.pathname === '/beers' ? 'NavBeerActive' : 'NavBeer'} size={36} />
             <span>맥주목록</span>
           </a>
         </Link>
@@ -39,21 +31,19 @@ export default function BottomNavigation() {
 
         <Link href="/records/my" passHref>
           <a className={`nav-link ${router.pathname === '/records/my' ? 'active' : ''}`}>
-            {router.pathname === '/records/my' ? (
-              <Icon name="NavTravelActive" size={36} />
-            ) : (
-              <Icon name="NavTravel" size={36} />
-            )}
+            <Icon
+              name={router.pathname === '/records/my' ? 'NavTravelActive' : 'NavTravel'}
+              size={36}
+            />
             <span>여행목록</span>
           </a>
         </Link>
         <Link href="/profile" passHref>
           <a className={`nav-link ${router.pathname === '/profile' ? 'active' : ''}`}>
-            {router.pathname === '/profile' ? (
-              <Icon name="NavMyPageActive" size={36} />
-            ) : (
-              <Icon name="NavMyPage" size={36} />
-            )}
+            <Icon
+              name={router.pathname === '/profile' ? 'NavMyPageActive' : 'NavMyPage'}
+              size={36}
+            />
             <span>프로필</span>
           </a>
         </Link>
