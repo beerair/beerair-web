@@ -8,3 +8,4 @@ export type { IBeer, IBeerType } from './beer';
 export { BeerType } from './beer';
 export type { IContinent } from './continent';
 export type { ICountry } from './country';
+export type { IRecord } from './record';
