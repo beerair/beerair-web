@@ -3,9 +3,10 @@ import styled from '@emotion/styled';
 import { parseISO } from 'date-fns';
 
 import Icon from '@/components/commons/Icon';
+import { IFeel } from '@/types';
 
 interface BeerTicketStampProps {
-  feel: 1 | 2 | 3 | 4 | 5;
+  feel: IFeel;
   recordedAt: string;
 }
 
