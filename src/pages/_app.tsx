@@ -1,11 +1,12 @@
 import { ThemeProvider } from '@emotion/react';
 import { RecoilRoot } from 'recoil';
 import type { AppProps } from 'next/app';
+import { Hydrate } from 'react-query';
 
 import { theme, GlobalStyle } from '@/themes';
 import awesome from '@/utils/awesome';
 import ReactQueryClientProvider from '@/components/QueryClientProvider';
-import { Hydrate } from 'react-query';
+import MainLayout from '@/components/layouts/MainLayout';
 
 awesome();
 
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <RecoilRoot>
           <ThemeProvider theme={theme}>
             <GlobalStyle theme={theme} />
-            <Component {...pageProps} />
+            <MainLayout>
+              <Component {...pageProps} />
+            </MainLayout>
           </ThemeProvider>
         </RecoilRoot>
       </Hydrate>
