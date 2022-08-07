@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
 
-import StyledBeerTicketField from './BeerTicketField';
+import BeerTicketField from './BeerTicketField';
 import BeerTicketFlight from './BeerTicketFlight';
 import BeerTicketStamp from './BeerTicketStamp';
 import BeerTicketSection from './BeerTicketSection';
@@ -44,12 +44,12 @@ const BeerTicket: React.FC<BeerTicketProps> = ({
         />
       </BeerTicketSection>
       <BeerTicketSection bottomBorder>
-        <StyledBeerTicketField title="date" className="beer-ticket-date">
+        <BeerTicketField title="date" className="beer-ticket-date">
           {format(parseISO(record.createdAt), 'dd/LLL/yyyy')}
-        </StyledBeerTicketField>
-        <StyledBeerTicketField title="boarding time" className="beer-ticket-date">
+        </BeerTicketField>
+        <BeerTicketField title="boarding time" className="beer-ticket-date">
           {format(parseISO(record.createdAt), 'p')}
-        </StyledBeerTicketField>
+        </BeerTicketField>
         {type === 'stamp' && (
           <>
             <div className="beer-ticket-dot left" />
@@ -57,33 +57,33 @@ const BeerTicket: React.FC<BeerTicketProps> = ({
           </>
         )}
       </BeerTicketSection>
-      {type === 'default' ? (
+      {type === 'stamp' ? (
+        <BeerTicketSection>
+          <BeerTicketStamp feel={record.feel} recordedAt={record.createdAt} />
+        </BeerTicketSection>
+      ) : (
         <>
           <BeerTicketSection bottomBorder>
-            <StyledBeerTicketField title="feel" className="beer-ticket-feel">
+            <BeerTicketField title="feel" className="beer-ticket-feel">
               <Emoji feel={record.feel} size={24} className="ticket-feel-emoji" />
               <p>{FEEL_MESSAGES[record.feel]}</p>
-            </StyledBeerTicketField>
-            <StyledBeerTicketField title="taste">
+            </BeerTicketField>
+            <BeerTicketField title="taste">
               {record.flavorDtos.map((flavor) => (
                 <span key={flavor.id} className="beer-ticket-flavor">
                   {flavor.content}
                 </span>
               ))}
-            </StyledBeerTicketField>
+            </BeerTicketField>
             <div className="beer-ticket-dot left" />
             <div className="beer-ticket-dot right" />
           </BeerTicketSection>
           <BeerTicketSection>
-            <StyledBeerTicketField title="impression" size="max" className="beer-ticket-content">
+            <BeerTicketField title="impression" size="max" className="beer-ticket-content">
               {record.content}
-            </StyledBeerTicketField>
+            </BeerTicketField>
           </BeerTicketSection>
         </>
-      ) : (
-        <BeerTicketSection>
-          <BeerTicketStamp feel={record.feel} recordedAt={record.createdAt} />
-        </BeerTicketSection>
       )}
       <footer className="beer-ticket-footer">
         <Icon name="Logo" semanticColor="primary" size={60} />
