@@ -14,13 +14,13 @@ export default function BottomNavigation() {
     <>
       <div style={{ height: `${BOTTOM_NAVIGATION_HEIGHT}px` }} />
       <StyledBottomNavigation>
-        <Link href="/" passHref>
+        <Link href="/">
           <a className={cx(`nav-link`, `${router.pathname === '/' && 'active'}`)}>
             <Icon name={router.pathname === '/' ? 'NavHomeActive' : 'NavHome'} size={36} />
             <span>홈</span>
           </a>
         </Link>
-        <Link href="/beers" passHref>
+        <Link href="/beers">
           <a className={cx(`nav-link`, `${router.pathname === '/beers' && 'active'}`)}>
             <Icon name={router.pathname === '/beers' ? 'NavBeerActive' : 'NavBeer'} size={36} />
             <span>맥주목록</span>
@@ -30,7 +30,7 @@ export default function BottomNavigation() {
           <Icon name="Plus" size={14} />
         </StyledPlusIconButton>
 
-        <Link href="/records/my" passHref>
+        <Link href="/records/my">
           <a className={cx(`nav-link`, `${router.pathname === '/records/my' && 'active'}`)}>
             <Icon
               name={router.pathname === '/records/my' ? 'NavTravelActive' : 'NavTravel'}
@@ -39,7 +39,7 @@ export default function BottomNavigation() {
             <span>여행목록</span>
           </a>
         </Link>
-        <Link href="/profile" passHref>
+        <Link href="/profile">
           <a className={cx(`nav-link`, `${router.pathname === '/profile' && 'active'}`)}>
             <Icon
               name={router.pathname === '/profile' ? 'NavMyPageActive' : 'NavMyPage'}
