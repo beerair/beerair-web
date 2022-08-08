@@ -17,7 +17,7 @@ const BeginningLayout = ({ title, children, cloudColor = 'white' }: BeginningLay
       <StyledHeader>
         <Icon name="Logo" size={80} aria-label="비어에어 로고" />
       </StyledHeader>
-      {Boolean(title) && <StyledTitle>{title}</StyledTitle>}
+      {title && <StyledTitle>{title}</StyledTitle>}
       <StyledWrapper>{children}</StyledWrapper>
       <StyledCloudWrapper cloudColor={cloudColor}>
         <Icon className="cloud" name="Cloud" aria-hidden />
