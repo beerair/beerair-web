@@ -72,10 +72,13 @@ const StyledWrapper = styled.div`
   flex: 1;
   overflow-y: auto;
   position: relative;
+
+  z-index: 1;
 `;
 
 const StyledCloudWrapper = styled.div<{ cloudColor: BeginningLayoutProps['cloudColor'] }>`
-  position: relative;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   margin-top: 1px;
 
