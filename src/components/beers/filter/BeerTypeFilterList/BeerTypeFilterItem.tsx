@@ -25,7 +25,7 @@ const BeerTypeFilterItem = ({
       <BeerTypeImage src={imageUrl} alt="" />
       <BeerTypeInfo>
         <b>{nameKor}</b>
-        <p className="description">{description} </p>
+        <p className="description">{description}</p>
       </BeerTypeInfo>
       {isSelected && <Icon name="Check" width={CHECK_ICON_WIDTH} semanticColor="secondary" />}
     </StyledWrapper>
