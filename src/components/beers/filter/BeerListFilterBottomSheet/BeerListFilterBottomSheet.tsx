@@ -48,7 +48,7 @@ const BeerListFilterBottomSheet: React.FC<BeerListFilterBottomSheetProps> = ({
     resetNextFilterChips();
   };
 
-  const apply = () => {
+  const applyFilter = () => {
     onApply(nextFiler, nextFilterChips);
     onClose();
   };
@@ -67,7 +67,7 @@ const BeerListFilterBottomSheet: React.FC<BeerListFilterBottomSheetProps> = ({
         <BeerTypeFilterList />
         <BeerCountryFilterTab />
       </StyledTab>
-      <BeerListFilterFooter onApplyClick={apply} />
+      <BeerListFilterFooter onApplyClick={applyFilter} />
     </StyledBottomSheet>
   );
 };
