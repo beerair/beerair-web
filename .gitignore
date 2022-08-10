@@ -21,3 +21,8 @@ tsconfig.tsbuildinfo
 
 # Sentry
 .sentryclirc
+
+# cypress
+cypress/screenshots
+cypress/videos
+cypress/reports
