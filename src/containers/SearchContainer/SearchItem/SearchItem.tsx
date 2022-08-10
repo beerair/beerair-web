@@ -58,7 +58,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
   }, [text, router, addSearchHistory]);
 
   return (
-    <StyledSearchItem onClick={onClick || handleClick} className={className}>
+    <StyledSearchItem onClick={onClick || handleClick} className={className} data-cy="search-item">
       <div className="search-item-side">
         <span className="search-item-icon-wrapper">
           {type === DEFAULT_ICON_TYPE ? (
@@ -67,11 +67,18 @@ const SearchItem: React.FC<SearchItemProps> = ({
             <Icon name="History" />
           )}
         </span>
-        <span className="search-item-content">{renderedText}</span>
+        <span className="search-item-content" data-cy="search-item-text">
+          {renderedText}
+        </span>
       </div>
       <div className="search-item-side">
         {hasDeleteButton && (
-          <button type="button" onClick={handleDelete} className="search-item-delete-btn">
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="search-item-delete-btn"
+            data-cy="search-item-delete-btn"
+          >
             {deleteButtonText}
           </button>
         )}
