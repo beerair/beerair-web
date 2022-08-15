@@ -80,10 +80,11 @@ const SearchInput: React.FC<SearchInputProps> = ({
           onChange={handleChange}
           value={searchText}
           placeholder={PLACEHOLDER_TEXT}
+          data-cy="search-page-input"
         />
       </form>
       {searchText && (
-        <button onClick={handleReset}>
+        <button onClick={handleReset} data-cy="search-page-input-reset-btn">
           <Icon name="XCircle" size={20} />
         </button>
       )}
