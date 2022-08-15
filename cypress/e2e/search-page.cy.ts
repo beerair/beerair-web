@@ -71,3 +71,5 @@ context('Search Page Test', () => {
     });
   });
 });
+
+export {};

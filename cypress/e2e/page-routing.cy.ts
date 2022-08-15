@@ -7,3 +7,5 @@ describe('Move Page', () => {
     cy.location('href').should('contain', '/search');
   });
 });
+
+export {};
