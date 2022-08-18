@@ -13,13 +13,13 @@ interface BeerTypeFilterItemProps extends Pick<IBeerType, 'nameKor' | 'descripti
   onClick: (e?: MouseEvent) => void;
 }
 
-const BeerTypeFilterItem = ({
+const BeerTypeFilterItem: React.FC<BeerTypeFilterItemProps> = ({
   nameKor,
   description,
   imageUrl,
   isSelected,
   onClick = () => null,
-}: BeerTypeFilterItemProps) => {
+}) => {
   return (
     <StyledWrapper aria-checked={isSelected} onClick={onClick}>
       <BeerTypeImage src={imageUrl} alt="" />

@@ -12,7 +12,7 @@ interface BeerCountryFilterListProps {
   continentId?: IContinent['id'];
 }
 
-const BeerCountryFilterList = ({ continentId }: BeerCountryFilterListProps) => {
+const BeerCountryFilterList: React.FC<BeerCountryFilterListProps> = ({ continentId }) => {
   const [selectedCountryIds, setSelectedCountryIds] = useRecoilState($selectedBeerCountryIds);
   const [nextFilterChips, setNextFilterChips] = useRecoilState($nextBeerListFilterChips);
 

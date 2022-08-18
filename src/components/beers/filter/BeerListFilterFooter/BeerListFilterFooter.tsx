@@ -11,7 +11,7 @@ interface BeerListFilterFooterProps {
   onApplyClick: () => void;
 }
 
-const BeerListFilterFooter = ({ onApplyClick }: BeerListFilterFooterProps) => {
+const BeerListFilterFooter: React.FC<BeerListFilterFooterProps> = ({ onApplyClick }) => {
   const [nextFilter, setNextFilter] = useRecoilState($nextBeerListFilter);
   const [nextFilterChips, setNextFilterChips] = useRecoilState($nextBeerListFilterChips);
 

@@ -15,7 +15,10 @@ interface BeerListFilterChipListPros {
   onRemove: (chip: BeerListFilterChipType) => void;
 }
 
-const BeerListFilterChipList = ({ filterChips, onRemove }: BeerListFilterChipListPros) => {
+const BeerListFilterChipList: React.FC<BeerListFilterChipListPros> = ({
+  filterChips,
+  onRemove,
+}) => {
   return (
     <StyledWrapper>
       {filterChips.map((chip) => (

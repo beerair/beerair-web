@@ -7,7 +7,7 @@ interface BeerListFilterChipProps {
   onRemove: () => void;
 }
 
-const BeerListFilterChip = ({ children, onRemove }: BeerListFilterChipProps) => {
+const BeerListFilterChip: React.FC<BeerListFilterChipProps> = ({ children, onRemove }) => {
   return (
     <StyledWrapper>
       <p>{children}</p>
