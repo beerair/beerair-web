@@ -28,11 +28,9 @@ const BeerCountryFilterTab = () => {
       onChange={setActivatedIndex}
     >
       <StyledSwiper currentSlide={activatedIndex} afterChange={setActivatedIndex}>
-        {Array(continents.length)
-          .fill(0)
-          .map((_, index) => (
-            <BeerCountryFilterList key={index} continentId={continents[index].id} />
-          ))}
+        {continents.map((continent) => (
+          <BeerCountryFilterList key={continent.id} continentId={continent.id} />
+        ))}
       </StyledSwiper>
     </Tab>
   );
