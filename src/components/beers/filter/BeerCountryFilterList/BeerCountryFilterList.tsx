@@ -43,7 +43,7 @@ const BeerCountryFilterList = ({ continentId }: BeerCountryFilterListProps) => {
       {countries.map((country) => (
         <BeerCountryFilterItem
           key={country.id}
-          {...country}
+          country={country}
           isSelected={selectedCountryIds.includes(country.id)}
           onClick={handleItemClick(country)}
         />

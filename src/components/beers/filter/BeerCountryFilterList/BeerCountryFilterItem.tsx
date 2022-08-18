@@ -5,18 +5,20 @@ import { ellipsis } from '@/styles/common';
 import { ICountry } from '@/types';
 import Icon from '@/components/commons/Icon';
 
-interface BeerCountryFilterItemProps extends ICountry {
+interface BeerCountryFilterItemProps {
+  country: ICountry;
   /** 선택 여부 (default:false) */
   isSelected?: boolean;
   onClick: () => void;
 }
 
 const BeerCountryFilterItem: React.FC<BeerCountryFilterItemProps> = ({
-  nameKor,
-  imageUrl,
+  country,
   isSelected = false,
   onClick = () => null,
 }) => {
+  const { nameKor, imageUrl } = country;
+
   return (
     <StyledWrapper aria-checked={isSelected} onClick={onClick}>
       <ImageWrapper>

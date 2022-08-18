@@ -1,5 +1,7 @@
+import { ICountry } from '@/types';
+
 /** @todo api 연동 */
-export const useGetCountries = (continentId?: number) => {
+export const useGetCountries = (continentId?: number): { countries: ICountry[] } => {
   return {
     countries: [
       {
