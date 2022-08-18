@@ -9,9 +9,11 @@
     "lint": "next lint",
     "prettier": "prettier --write **/*.{ts,tsx}",
     "tsc": "tsc",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -s ./public",
+    "deploy-storybook": "storybook-to-ghpages",
+    "cy:run": "cypress run --browser chrome",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -66,6 +68,7 @@
     "@types/showdown": "^2.0.0",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "babel-loader": "^8.2.5",
+    "cypress": "^10.4.0",
     "eslint": "^8.19.0",
     "eslint-config-next": "^12.2.2",
     "eslint-config-prettier": "^8.5.0",

@@ -4,6 +4,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 
 import { theme, GlobalStyle } from '../src/themes';
+import MainLayout from '../src/components/layouts/MainLayout';
 
 const customViewports = {
   full: {
@@ -56,7 +57,9 @@ export const decorators = [
             }
           `}
         />
-        <Story />
+        <MainLayout>
+          <Story />
+        </MainLayout>
       </ThemeProvider>
     </RecoilRoot>
   ),
