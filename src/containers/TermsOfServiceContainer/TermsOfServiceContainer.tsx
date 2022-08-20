@@ -10,6 +10,19 @@ interface TermsOfServiceContainerProps {
   html: string;
 }
 
+const TermsOfServiceContainer: NextPage<TermsOfServiceContainerProps> = ({
+  html: termsOfServiceHtml,
+}) => {
+  return (
+    <StyledTermsOfServiceContainer>
+      <Header leftExtras={<BackButton />}>서비스 정책 약관</Header>
+      <StyledMarkdown markdown={termsOfServiceHtml} />
+    </StyledTermsOfServiceContainer>
+  );
+};
+
+export default TermsOfServiceContainer;
+
 const StyledTermsOfServiceContainer = styled.div`
   white-space: pre-line;
   & > section {
@@ -29,19 +42,6 @@ const StyledTermsOfServiceContainer = styled.div`
 const StyledMarkdown = styled(Markdown)`
   padding: 20px;
 `;
-
-const TermsOfServiceContainer: NextPage<TermsOfServiceContainerProps> = ({
-  html: termsOfServiceHtml,
-}) => {
-  return (
-    <StyledTermsOfServiceContainer>
-      <Header leftExtras={<BackButton />}>서비스 정책 약관</Header>
-      <StyledMarkdown markdown={termsOfServiceHtml} />
-    </StyledTermsOfServiceContainer>
-  );
-};
-
-export default TermsOfServiceContainer;
 
 export const getTermsOfServiceHtml = async () => {
   const { default: markdown } = await import('contents/terms-of-service.md');

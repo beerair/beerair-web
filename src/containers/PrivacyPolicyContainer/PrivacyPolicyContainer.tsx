@@ -10,6 +10,17 @@ interface PrivacyPolicyContainerProps {
   html: string;
 }
 
+const PrivacyPolicyContainer: NextPage<PrivacyPolicyContainerProps> = ({
+  html: privacyPolicyHtml,
+}) => {
+  return (
+    <StyledPrivacyPolicyContainer>
+      <Header leftExtras={<BackButton />}>개인정보 처리방침</Header>
+      <StyledMarkdown markdown={privacyPolicyHtml} />
+    </StyledPrivacyPolicyContainer>
+  );
+};
+
 const StyledPrivacyPolicyContainer = styled.div`
   white-space: pre-line;
   & > section {
@@ -29,17 +40,6 @@ const StyledPrivacyPolicyContainer = styled.div`
 const StyledMarkdown = styled(Markdown)`
   padding: 20px;
 `;
-
-const PrivacyPolicyContainer: NextPage<PrivacyPolicyContainerProps> = ({
-  html: privacyPolicyHtml,
-}) => {
-  return (
-    <StyledPrivacyPolicyContainer>
-      <Header leftExtras={<BackButton />}>개인정보 처리방침</Header>
-      <StyledMarkdown markdown={privacyPolicyHtml} />
-    </StyledPrivacyPolicyContainer>
-  );
-};
 
 export default PrivacyPolicyContainer;
 
