@@ -1,14 +1,16 @@
 import { ICountry } from '.';
 
-export enum BeerType {
-  LIGHT_ALE = 'LIGHT_ALE',
-  IPA = 'IPA',
-  PALE_ALE = 'PALE_ALE',
-  BROWN_ALE = 'BROWN_ALE',
-  LARGER = 'LARGER',
-  WEIZEN = 'WEIZEN',
-  PILSNER = 'PILSNER',
-}
+export const BEER_TYPE = {
+  LIGHT_ALE: 'LIGHT_ALE',
+  IPA: 'IPA',
+  PALE_ALE: 'PALE_ALE',
+  BROWN_ALE: 'BROWN_ALE',
+  LARGER: 'LARGER',
+  WEIZEN: 'WEIZEN',
+  PILSNER: 'PILSNER',
+} as const;
+
+export type BeerType = typeof BEER_TYPE[keyof typeof BEER_TYPE];
 
 export interface IBeerType {
   nameEng: BeerType;
@@ -35,4 +37,9 @@ export interface IBeer {
   updatedAt: Date | number;
   feel?: number | null;
   isLiked: boolean;
+}
+
+export interface IBeerListFilter {
+  beerTypes?: BeerType[];
+  countryIds?: number[];
 }

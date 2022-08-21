@@ -1,4 +1,4 @@
-import { BeerType, IRecord } from '@/types';
+import { BEER_TYPE, IRecord } from '@/types';
 
 export const beer = {
   id: 1,
@@ -15,7 +15,7 @@ export const beer = {
     },
   },
   type: {
-    nameEng: BeerType.LIGHT_ALE,
+    nameEng: BEER_TYPE.LIGHT_ALE,
     nameKor: '위트 에일',
     imageUrl: '',
     description: '투명한 황금빛으로 단 맛과 쓴 맛이 어우러진 깔끔한 맛',
