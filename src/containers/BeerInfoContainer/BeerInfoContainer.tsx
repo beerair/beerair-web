@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
-import Link from 'next/link';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NextSeo } from 'next-seo';
@@ -98,11 +97,14 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
         )}
         <BottomFloatingButtonArea
           button={
-            <Link href={`/record/create/${beerId}`} passHref>
-              <Button type="primary" width="large" rightAddon={<Icon name="FlightTakeOff" />}>
-                기록하기
-              </Button>
-            </Link>
+            <Button
+              type="primary"
+              width="large"
+              rightAddon={<Icon name="FlightTakeOff" />}
+              onClick={() => router.push(`/record/create/${beerId}`)}
+            >
+              기록하기
+            </Button>
           }
         />
       </StyledBeerInfoPage>
