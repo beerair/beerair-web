@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil';
 
 interface Props {
   reviews: IReview[];
-  lastItemRef?: Ref<HTMLDivElement>;
+  lastItemRef?: Ref<HTMLDivElement> | null;
 }
 
 const TITLE = '이 맥주는 어땠냐면,';

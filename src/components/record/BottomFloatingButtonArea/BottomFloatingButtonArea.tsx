@@ -15,16 +15,14 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   bottomOffset?: number;
 }
 
-const BottomFloatingButtonArea = (props: Props) => {
-  const {
-    button,
-    withHomeButton = false,
-    isOnlyHomeButton = false,
-    className,
-    bottomOffset = 0,
-    children,
-  } = props;
-
+const BottomFloatingButtonArea = ({
+  button,
+  withHomeButton = false,
+  isOnlyHomeButton = false,
+  className,
+  bottomOffset = 0,
+  children,
+}: Props) => {
   return (
     <>
       <div
@@ -34,7 +32,7 @@ const BottomFloatingButtonArea = (props: Props) => {
         {children}
         {!isOnlyHomeButton && button}
         {withHomeButton && (
-          <Link href="/">
+          <Link href="/" passHref>
             <StyledHomeIconButton>
               <Icon name="Home" size={30} color="blue" />
             </StyledHomeIconButton>

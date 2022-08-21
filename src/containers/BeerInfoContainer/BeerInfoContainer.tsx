@@ -27,10 +27,10 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
       const scrollY = window.scrollY ?? window.pageYOffset;
 
       if (scrollY > 30) {
-        setIsscrolled(true);
+        setScroll(true);
         setIsTransparent(false);
       } else if (scrollY < 30) {
-        setIsscrolled(false);
+        setScroll(false);
         setIsTransparent(true);
       }
     };
@@ -40,7 +40,7 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
     };
   }, []);
 
-  const [isscrolled, setIsscrolled] = useState(false);
+  const [scroll, setScroll] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
 
   const router = useRouter();
@@ -59,7 +59,7 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
       />
       <StyledBeerInfoPage>
         <Header
-          leftExtras={<StyledBackButton isscrolled={isscrolled} />}
+          leftExtras={<BackButton />}
           rightExtras={
             <>
               <ShareButton
@@ -79,7 +79,7 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
           {nameKor}
         </Header>
         <ToastContainer />
-        <BackgroundImage isscrolled={isscrolled}>
+        <BackgroundImage scroll={scroll}>
           <img src={country?.backgroundImageUrl} alt={country?.nameKor} />
         </BackgroundImage>
         <section className="container">
@@ -92,7 +92,7 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
           <>
             <HorizontalDivider />
             <section className="container">
-              <ReviewList reviews={reviews} />
+              <ReviewList reviews={reviews} lastItemRef={null} />
             </section>
           </>
         )}
@@ -125,7 +125,7 @@ const StyledBeerInfoPage = styled.div`
   }
 `;
 
-const BackgroundImage = styled.div<{ isscrolled: boolean }>`
+const BackgroundImage = styled.div<{ scroll: boolean }>`
   position: fixed;
   top: 0;
   left: 50%;
@@ -138,7 +138,7 @@ const BackgroundImage = styled.div<{ isscrolled: boolean }>`
   & > img {
     width: 100%;
     height: 237px;
-    opacity: ${({ isscrolled }) => (isscrolled ? 0 : 1)};
+    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
     object-fit: cover;
     transition: opacity 0.5s;
   }
@@ -154,10 +154,4 @@ const HorizontalDivider = styled.div`
   width: 100%;
   height: 8px;
   background-color: ${({ theme }) => theme.color.whiteOpacity10};
-`;
-
-const StyledBackButton = styled(BackButton)<{ isscrolled: boolean }>`
-  svg {
-    fill: ${(p) => (p.isscrolled ? p.theme.color.white : p.theme.color.whiteOpacity50)};
-  }
 `;
