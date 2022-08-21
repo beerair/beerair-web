@@ -15,6 +15,7 @@ const MyPageBoxButtonList = ({ myPageBoxButtonListItems }: MyPageBoxButtonListPr
           text={item.text}
           count={item.count}
           unit={item.unit}
+          href={item.href}
         />
       ))}
     </StyledMyPageBoxButtonList>
@@ -27,4 +28,5 @@ const StyledMyPageBoxButtonList = styled.section`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 `;

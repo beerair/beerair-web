@@ -1,9 +1,10 @@
 import Icon from '@/components/commons/Icon';
-import { LEVEL_DATA } from '@/constants/level_data';
+import { levels } from '@/constants/dummy';
 import { ILevel } from '@/types';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import LevelModal from '../LevelModal';
+import NicknameModifyModal from '../NicknameModifyModal';
 
 export interface BioProps {
   remainRecordCount: number;
@@ -15,6 +16,11 @@ export interface BioProps {
 const Bio = ({ remainRecordCount, userLevel, nickname, email }: BioProps) => {
   const [isLevelModalOpen, setIsLevelModalOpen] = useState(false);
   const [isModifyModalOpen, setIsModifyModalOpen] = useState(false);
+
+  const onSubmit = () => {
+    setIsModifyModalOpen(false);
+    // TODO: nickname update mutation 연결
+  };
 
   return (
     <StyledBio>
@@ -36,7 +42,14 @@ const Bio = ({ remainRecordCount, userLevel, nickname, email }: BioProps) => {
         <LevelModal
           open={isLevelModalOpen}
           closeModal={() => setIsLevelModalOpen(false)}
-          levels={LEVEL_DATA}
+          levels={levels}
+        />
+      )}
+      {isModifyModalOpen && (
+        <NicknameModifyModal
+          open={isModifyModalOpen}
+          closeModal={() => setIsModifyModalOpen(false)}
+          onSubmit={onSubmit}
         />
       )}
     </StyledBio>
@@ -49,6 +62,7 @@ const StyledBio = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 const ToolTip = styled.div`
@@ -95,6 +109,7 @@ const NickName = styled.div`
 
 const ModifyIcon = styled(Icon)`
   position: absolute;
+  top: 0;
   left: calc(100% + 12px);
 `;
 

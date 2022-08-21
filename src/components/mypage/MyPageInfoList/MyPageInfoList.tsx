@@ -32,6 +32,7 @@ const StyledMyPageInfoList = styled.section`
   display: flex;
   gap: 40px;
   justify-content: center;
+  width: 100%;
 `;
 
 const MyPageInfoListItem = styled.div`

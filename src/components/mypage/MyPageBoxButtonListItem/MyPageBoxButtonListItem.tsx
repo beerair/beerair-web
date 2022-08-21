@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
 import Icon, { IconNameType } from '@/components/commons/Icon';
+import Link from 'next/link';
 
 export interface IMyPageBoxButtonListItem {
   iconName: IconNameType;
   text: string;
   count?: number;
   unit?: string;
+  href: string;
   onClick?: () => void;
 }
 
@@ -15,20 +17,23 @@ const MyPageBoxButtonListItem = ({
   text,
   count,
   unit,
+  href,
   onClick,
 }: IMyPageBoxButtonListItem) => {
   return (
-    <StyledMyPageBoxButtonListItem onClick={onClick}>
-      <SquareBox>
-        <Icon name={iconName} size={iconName === 'Heart' ? 30 : 20} color="white" />
-      </SquareBox>
-      <Content>{text}</Content>
-      <Count>
-        {count}
-        {unit}
-      </Count>
-      <Icon name="Next" size={16} />
-    </StyledMyPageBoxButtonListItem>
+    <Link href={href} passHref>
+      <StyledMyPageBoxButtonListItem onClick={onClick}>
+        <SquareBox>
+          <Icon name={iconName} size={iconName === 'Heart' ? 30 : 20} color="white" />
+        </SquareBox>
+        <Content>{text}</Content>
+        <Count>
+          {count}
+          {unit}
+        </Count>
+        <Icon name="Next" size={16} />
+      </StyledMyPageBoxButtonListItem>
+    </Link>
   );
 };
 

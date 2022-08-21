@@ -1,4 +1,6 @@
-import { BEER_TYPE, IRecord } from '@/types';
+import { IMyPageBoxButtonListItem } from '@/components/mypage/MyPageBoxButtonListItem';
+import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
+import { BEER_TYPE, ILevel, IRecord } from '@/types';
 
 export const beer = {
   id: 1,
@@ -106,3 +108,71 @@ export const record: IRecord = {
   },
   recordCount: 13,
 };
+
+export const level: ILevel = {
+  id: 1,
+  tier: 1,
+  imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+  req: 5,
+};
+
+export const levels: ILevel[] = [
+  {
+    id: 1,
+    tier: 1,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 0,
+  },
+  {
+    id: 2,
+    tier: 2,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 1,
+  },
+  {
+    id: 3,
+    tier: 3,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 5,
+  },
+  {
+    id: 4,
+    tier: 4,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 12,
+  },
+  {
+    id: 5,
+    tier: 5,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 20,
+  },
+];
+
+export const MYPAGE_BOX_BUTTON_LIST_DATA: IMyPageBoxButtonListItem[] = [
+  {
+    iconName: 'Heart',
+    text: '내가 반한 맥주',
+    count: 3,
+    unit: '개',
+    href: '/beer/recommend-and-liked?tab="liked"',
+  },
+  {
+    iconName: 'PlusCircle',
+    text: '요청한 맥주 현황',
+    count: 3,
+    unit: '개',
+    href: '/beer/requests',
+  },
+  {
+    iconName: 'ThreeDot',
+    text: '기타',
+    href: '/my/etc',
+  },
+];
+
+export const MYPAGE_INFO_LIST_DATA: IMyPageInfoListItem[] = [
+  { count: 1, unit: '캔', title: '마신 맥주' },
+  { count: 2, unit: '개', title: '기록한 티켓' },
+  { count: 3, unit: '개국', title: '여행한 나라' },
+];
