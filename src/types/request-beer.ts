@@ -12,6 +12,6 @@ export interface IRequestBeer {
   beerName: string;
   createdAt: string;
   requestCompletedAt: string;
-  requestRejectionReason: string;
+  requestRejectionReason?: string;
   status: IRequestBeerStatus;
 }
