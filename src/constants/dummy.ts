@@ -1,6 +1,7 @@
-import { IMyPageBoxButtonListItem } from '@/components/mypage/MyPageBoxButtonListItem';
-import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
 import { BEER_TYPE, ILevel, IRecord } from '@/types';
+
+import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
+import { MyPageBoxButtonListItemProps } from '@/components/mypage/MyPageBoxButtonListItem';
 
 export const beer = {
   id: 1,
@@ -149,7 +150,7 @@ export const levels: ILevel[] = [
   },
 ];
 
-export const MYPAGE_BOX_BUTTON_LIST_DATA: IMyPageBoxButtonListItem[] = [
+export const MYPAGE_BOX_BUTTON_LIST_DATA: MyPageBoxButtonListItemProps[] = [
   {
     iconName: 'Heart',
     text: '내가 반한 맥주',
