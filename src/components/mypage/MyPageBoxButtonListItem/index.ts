@@ -1,2 +1,2 @@
 export { default } from './MyPageBoxButtonListItem';
-export type { IMyPageBoxButtonListItem } from './MyPageBoxButtonListItem';
+export type { MyPageBoxButtonListItemProps } from './MyPageBoxButtonListItem';
