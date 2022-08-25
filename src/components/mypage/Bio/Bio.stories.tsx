@@ -1,3 +1,4 @@
+import { level } from '@/constants/dummy';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Bio from './Bio';
@@ -7,12 +8,7 @@ export default {
   component: Bio,
   args: {
     remainRecordCount: 1,
-    userLevel: {
-      id: 1,
-      tier: 1,
-      imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-      req: 5,
-    },
+    userLevel: level,
     nickname: '비어에어',
     email: 'beerair.official@gmail.com',
   },

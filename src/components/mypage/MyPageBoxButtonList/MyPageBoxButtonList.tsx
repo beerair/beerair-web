@@ -1,21 +1,16 @@
+import MyPageBoxButtonListItem, { MyPageBoxButtonListItemProps } from '../MyPageBoxButtonListItem';
+
 import styled from '@emotion/styled';
-import MyPageBoxButtonListItem, { IMyPageBoxButtonListItem } from '../MyPageBoxButtonListItem';
 
 interface MyPageBoxButtonListProps {
-  myPageBoxButtonListItems: IMyPageBoxButtonListItem[];
+  myPageBoxButtonListItems: MyPageBoxButtonListItemProps[];
 }
 
 const MyPageBoxButtonList = ({ myPageBoxButtonListItems }: MyPageBoxButtonListProps) => {
   return (
     <StyledMyPageBoxButtonList>
       {myPageBoxButtonListItems.map((item) => (
-        <MyPageBoxButtonListItem
-          key={item.text}
-          iconName={item.iconName}
-          text={item.text}
-          count={item.count}
-          unit={item.unit}
-        />
+        <MyPageBoxButtonListItem key={item.text} {...item} />
       ))}
     </StyledMyPageBoxButtonList>
   );
@@ -27,4 +22,5 @@ const StyledMyPageBoxButtonList = styled.section`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 `;
