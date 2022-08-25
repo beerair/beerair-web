@@ -4,7 +4,7 @@ interface SpacingProps {
   size: number;
 }
 
-const Spacing = ({ size }: SpacingProps) => {
+const Spacing: React.FC<SpacingProps> = ({ size }) => {
   return <StyledSpacing size={size} />;
 };
 
