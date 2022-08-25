@@ -1,4 +1,4 @@
-import { BEER_TYPE, ILevel, IRecord } from '@/types';
+import { BEER_TYPE, ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types';
 
 import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
 import { MyPageBoxButtonListItemProps } from '@/components/mypage/MyPageBoxButtonListItem';
@@ -108,6 +108,15 @@ export const record: IRecord = {
     isLiked: true,
   },
   recordCount: 13,
+};
+
+export const requestBeer: IRequestBeer = {
+  beerId: 1,
+  beerImageUrls: [],
+  beerName: '하이네켄 벚꽃 맥주',
+  createdAt: '2022-06-21T02:55:12.151Z',
+  requestCompletedAt: '2022-06-21T02:55:12.151Z',
+  status: REQUEST_BEER_STATUS.APPROVED,
 };
 
 export const level: ILevel = {
