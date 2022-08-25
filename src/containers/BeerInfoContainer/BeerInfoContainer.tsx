@@ -2,7 +2,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { BackButton, ShareButton } from '@/components/commons/Header/extras';
 import { beer, flavorList, reviews } from '@/constants/dummy';
-import { useEffect, useState } from 'react';
 
 import AirPort from '@/components/record/AirPort';
 import BeerInfoBox from '@/components/beer/BeerInfoBox';
@@ -19,6 +18,7 @@ import { ToastContainer } from 'react-toastify';
 import { share } from '@/utils/share';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
+import { useScroll } from '@/hooks/commons';
 
 interface BeerInfoContainerProps {}
 
@@ -27,26 +27,7 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = (
     /** @todo api 연동 인터페이스 및 로직 작성 */
   },
 ) => {
-  useEffect(() => {
-    const scrollEventListener = () => {
-      const scrollY = window.scrollY ?? window.pageYOffset;
-
-      if (scrollY > 30) {
-        setScroll(true);
-        setIsTransparent(false);
-      } else if (scrollY < 30) {
-        setScroll(false);
-        setIsTransparent(true);
-      }
-    };
-    window.addEventListener('scroll', scrollEventListener, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', scrollEventListener);
-    };
-  }, []);
-
-  const [scroll, setScroll] = useState(false);
-  const [isTransparent, setIsTransparent] = useState(true);
+  const { scroll, isTransparent } = useScroll();
 
   const router = useRouter();
   const beerId = Number(router.query.id);
