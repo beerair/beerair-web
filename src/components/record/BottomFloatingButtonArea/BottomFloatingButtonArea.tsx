@@ -1,7 +1,7 @@
+import BottomFloatingLayout from '@/components/layouts/BottomFloatingLayout';
 import type { HTMLAttributes } from 'react';
 import Icon from '@/components/commons/Icon';
 import Link from 'next/link';
-import Spacing from '@/components/commons/Spacing';
 import styled from '@emotion/styled';
 
 export const BOTTOM_FLOATING_BUTTON_AREA_HEIGHT = 100;
@@ -24,39 +24,21 @@ const BottomFloatingButtonArea: React.FC<BottomFloatingButtonAreaProps> = ({
   children,
 }) => {
   return (
-    <>
-      <Spacing size={BOTTOM_FLOATING_BUTTON_AREA_HEIGHT + bottomOffset} />
-      <StyledBottomFloatingButton className={className} bottomOffset={bottomOffset}>
-        {children}
-        {!isOnlyHomeButton && button}
-        {withHomeButton && (
-          <Link href="/" passHref>
-            <StyledHomeIconButton>
-              <Icon name="Home" size={30} color="blue" />
-            </StyledHomeIconButton>
-          </Link>
-        )}
-      </StyledBottomFloatingButton>
-    </>
+    <BottomFloatingLayout bottomOffset={bottomOffset} className={className}>
+      {children}
+      {!isOnlyHomeButton && button}
+      {withHomeButton && (
+        <Link href="/" passHref>
+          <StyledHomeIconButton>
+            <Icon name="Home" size={30} color="blue" />
+          </StyledHomeIconButton>
+        </Link>
+      )}
+    </BottomFloatingLayout>
   );
 };
 
 export default BottomFloatingButtonArea;
-
-const StyledBottomFloatingButton = styled.div<{ bottomOffset: number }>`
-  position: fixed;
-  bottom: ${({ bottomOffset }) => bottomOffset}px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-  height: ${BOTTOM_FLOATING_BUTTON_AREA_HEIGHT}px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 40.1%);
-  z-index: 1;
-`;
 
 const StyledHomeIconButton = styled.a`
   display: flex;
