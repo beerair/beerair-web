@@ -1,26 +1,32 @@
-import styled from '@emotion/styled';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { NextPage } from 'next';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { NextSeo } from 'next-seo';
 
-import BeerInfoBox from '@/components/beer/BeerInfoBox';
-import AirPort from '@/components/record/AirPort';
-import FlavorList from '@/components/record/FlavorList';
-import Button from '@/components/commons/Button';
-import Icon from '@/components/commons/Icon';
-import ReviewList from '@/components/record/ReviewList';
-import Header from '@/components/commons/Header';
-import BottomFloatingButtonArea from '@/components/record/BottomFloatingButtonArea';
-import { ShareButton, LikeBeerToggleButton, BackButton } from '@/components/commons/Header/extras';
-import { share } from '@/utils/share';
+import { BackButton, ShareButton } from '@/components/commons/Header/extras';
 import { beer, flavorList, reviews } from '@/constants/dummy';
+import { useEffect, useState } from 'react';
+
+import AirPort from '@/components/record/AirPort';
+import BeerInfoBox from '@/components/beer/BeerInfoBox';
+import BottomFloatingButtonArea from '@/components/record/BottomFloatingButtonArea';
+import Button from '@/components/commons/Button';
+import FlavorList from '@/components/record/FlavorList';
+import Header from '@/components/commons/Header';
+import Icon from '@/components/commons/Icon';
+import LikeBeerToggleButton from '@/components/beer/LikeBeerToggleButton';
+import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import ReviewList from '@/components/record/ReviewList';
+import { ToastContainer } from 'react-toastify';
+import { share } from '@/utils/share';
+import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 
 interface BeerInfoContainerProps {}
 
-const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({}) => {
+const BeerInfoContainer: NextPage<BeerInfoContainerProps> = (
+  {
+    /** @todo api 연동 인터페이스 및 로직 작성 */
+  },
+) => {
   useEffect(() => {
     const scrollEventListener = () => {
       const scrollY = window.scrollY ?? window.pageYOffset;
