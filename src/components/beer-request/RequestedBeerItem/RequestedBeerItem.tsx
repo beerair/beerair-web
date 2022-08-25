@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
 
@@ -21,7 +21,6 @@ const RequestedBeerItem: React.FC<RequestedBeerItemProps> = ({
   requestCompletedAt,
   requestRejectionReason,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -44,7 +43,7 @@ const RequestedBeerItem: React.FC<RequestedBeerItemProps> = ({
         )}
       </div>
       {status === REQUEST_BEER_STATUS.REJECTED && (
-        <StyledDetailInfo ref={ref} isOpen={isOpen}>
+        <StyledDetailInfo isOpen={isOpen}>
           {isOpen && (
             <>
               <Icon name="CheckCircleOutline" color="black100" size={24} />
