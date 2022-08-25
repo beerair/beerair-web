@@ -1,4 +1,4 @@
-import { BEER_TYPE, IRecord } from '@/types';
+import { BEER_TYPE, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types';
 
 export const beer = {
   id: 1,
@@ -105,4 +105,13 @@ export const record: IRecord = {
     isLiked: true,
   },
   recordCount: 13,
+};
+
+export const requestBeer: IRequestBeer = {
+  beerId: 1,
+  beerImageUrls: [],
+  beerName: '하이네켄 벚꽃 맥주',
+  createdAt: '2022-06-21T02:55:12.151Z',
+  requestCompletedAt: '2022-06-21T02:55:12.151Z',
+  status: REQUEST_BEER_STATUS.APPROVED,
 };
