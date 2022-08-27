@@ -1,4 +1,4 @@
-import { BEER_TYPE, ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types';
+import { BEER_TYPE, ILevel, IRecord, IRequestBeer, IReview, REQUEST_BEER_STATUS } from '@/types';
 
 import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
 import { MyPageBoxButtonListItemProps } from '@/components/mypage/MyPageBoxButtonListItem';
@@ -32,10 +32,10 @@ export const beer = {
     nameEng: 'usa',
   },
   nameKor: '제주 위트 에일',
-  nameEng: 'Jeju Wit Ale Jeju Wit Ale Jeju Wit Ale Jeju Wit Ale Jeju Wit Ale Jeju Wit Ale',
+  nameEng: 'Jeju Wit Ale',
   imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/samples/kumiho_peach_ale.png',
   content:
-    '‘제주 위트 에일’은 제주 청정 재료인 유기농 제주 감귤 껍질을 사용해 은은한 감귤 향의 산뜻한 끝 맛이 특징이다. 독일산 보리 맥아와 밀 맥아를 함께 사용해 부드러운 음용감으로 에일 맥주 입문자들도 편하게 즐길 수 있다.',
+    '‘제주 위트 에일’은 제주 청정 재료인 유기농 제주 감귤 껍질을 사용해 은은한 감귤 향의 산뜻한 끝 맛이 특징이다.',
   alcohol: 5.5,
   price: 4200,
   volume: 50,
@@ -185,4 +185,51 @@ export const MYPAGE_INFO_LIST_DATA: IMyPageInfoListItem[] = [
   { count: 1, unit: '캔', title: '마신 맥주' },
   { count: 2, unit: '개', title: '기록한 티켓' },
   { count: 3, unit: '개국', title: '여행한 나라' },
+];
+
+export const flavorList = [
+  {
+    flavor: record.flavorDtos[0],
+    count: 11,
+  },
+  {
+    flavor: record.flavorDtos[1],
+    count: 8,
+  },
+  {
+    flavor: record.flavorDtos[2],
+    count: 5,
+  },
+];
+
+export const reviews: IReview[] = [
+  {
+    content:
+      '날씨도 좋은데 놀러가지도 못하고..! 기분 내려고 한 잔 한다. 이순간 만큼은 제주다 이거야~',
+    feel: 5,
+    createdAt: '2022-07-22T02:55:12.151Z',
+    member: { id: 1, name: '호딩' },
+    flavors: [
+      { id: 1, content: '목넘김이 부드러워요' },
+      { id: 2, content: '목넘김이 안부드러워요' },
+      { id: 3, content: '목넘김이 짱부드러워요' },
+    ],
+  },
+  {
+    content: '리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰',
+    feel: 4,
+    createdAt: '2022-07-20T02:55:12.151Z',
+    member: { id: 1, name: '호딩2' },
+    flavors: [
+      { id: 1, content: '단 맛이 나요' },
+      { id: 2, content: '짱 맛있어요' },
+    ],
+  },
+  {
+    content: '테스트테스트테스트',
+    feel: 3,
+    createdAt: '2022-06-22T02:55:12.151Z',
+    member: { id: 1, name: '호딩3' },
+    flavors: [{ id: 1, content: '목넘김이 부드러워요' }],
+  },
 ];

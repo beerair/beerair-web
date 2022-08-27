@@ -3,6 +3,7 @@ import { isNil } from 'lodash';
 
 import Icon from '@/components/commons/Icon';
 import { ICountry } from '@/types';
+import { sliceAndUpperCase } from '@/utils/string';
 
 interface AirPortItemProps {
   title: string;
@@ -15,7 +16,7 @@ const AirPortItem = (props: AirPortItemProps) => {
   return (
     <StyledAirPortItem>
       <Title>{title}</Title>
-      <Eng>{!isNil(eng) && eng}</Eng>
+      <Eng>{!isNil(eng) && sliceAndUpperCase(eng, 3)}</Eng>
       <Kor>{!isNil(kor) && kor}</Kor>
     </StyledAirPortItem>
   );
@@ -70,4 +71,5 @@ const StyledAirPort = styled.div`
   justify-content: center;
   gap: 20px;
   width: 100%;
+  height: 136px;
 `;

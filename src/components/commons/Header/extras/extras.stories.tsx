@@ -1,7 +1,7 @@
+import { BackButton, CloseButton, ShareButton } from '.';
+
 import { ReactNode } from 'react';
 import styled from '@emotion/styled';
-
-import { BackButton, CloseButton } from '.';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -51,6 +51,7 @@ export const extras = () => {
       <h1>Header extras</h1>
       {renderExtra('BackButton', <BackButton />)}
       {renderExtra('CloseButton', <CloseButton />)}
+      {renderExtra('ShareButton', <ShareButton />)}
     </StyledContainer>
   );
 };

@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil';
 
 interface Props {
   reviews: IReview[];
-  lastItemRef?: Ref<HTMLDivElement>;
+  lastItemRef?: Ref<HTMLDivElement> | null;
 }
 
 const TITLE = '이 맥주는 어땠냐면,';
@@ -25,7 +25,7 @@ const ReviewList = ({ reviews, lastItemRef }: Props) => {
       <Title>{TITLE}</Title>
       {reviews.map((review, idx) => (
         <ReviewListItem
-          key={review.id}
+          key={idx}
           ref={idx === reviews.length - 1 ? lastItemRef : undefined}
           content={review.content}
           feel={review.feel}
