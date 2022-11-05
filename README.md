@@ -165,12 +165,12 @@
   </td>
   
   <td align=center>
-  <a href="https://github.com/Ting-Kim">
-  <img src="https://avatars.githubusercontent.com/u/59888684?v=4" width="100px"  />
+  <a href="https://github.com/hoo00nn">
+  <img src="https://avatars.githubusercontent.com/u/52775389?v=4" width="100px"  />
   <br/>
-  BE 💾
+  FE 🖥
   <br/>
-  김태호
+  오지훈
   </a>
   </td>
 
@@ -179,22 +179,22 @@
   <tr>
     
   <td align=center>
-  <a href="https://github.com/RyooChan">
-  <img src="https://avatars.githubusercontent.com/u/53744363?v=4" width="100px"  />
+  <a href="https://github.com/darkant99">
+  <img src="https://avatars.githubusercontent.com/u/35737046?v=4" width="100px"  />
   <br/>
   BE 💾
   <br/>
-  류찬
+  김재원
   </a>
   </td>
 
 <td align=center>
-  <a href="https://www.behance.net/dudtj92081bdd9/moodboards">
-  <img src="https://user-images.githubusercontent.com/39763891/175975227-23034d1f-fb1d-44b7-84da-a627a081b5e6.png" width="100px"  />
+  <a href="https://www.behance.net/dudtj92081bdd9/DongGeon0908">
+  <img src="https://avatars.githubusercontent.com/u/50691225?v=4" width="100px"  />
   <br/>
-  Design 🎨
+BE 💾
   <br/>
-  김영서
+  김동건
   </a>
   </td>
   
