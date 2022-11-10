@@ -1,22 +1,21 @@
 import styled from '@emotion/styled';
 
 import FlavorListItem from '@/components/record/FlavorListItem';
-import { IFlavorListItem } from '../FlavorListItem';
+import { IFlavor } from '@/apis';
 
-interface Props {
-  flavors: IFlavorListItem[];
-  limit?: number;
+interface FlavorListProps {
+  flavors: IFlavor[];
 }
 
-const FlavorList = ({ flavors, limit = 3 }: Props) => {
+const FlavorList = ({ flavors }: FlavorListProps) => {
   if (!flavors?.length) {
     return null;
   }
 
   return (
     <StyledFlavorList>
-      {flavors?.slice(0, limit).map(({ flavor, count }) => (
-        <FlavorListItem key={flavor.id} flavor={flavor} count={count} />
+      {flavors?.map((flavor) => (
+        <FlavorListItem key={flavor.id} content={flavor.content} count={flavor.count} />
       ))}
     </StyledFlavorList>
   );

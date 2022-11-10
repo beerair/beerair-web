@@ -8,5 +8,5 @@ export default {
 } as ComponentMeta<typeof LikeBeerToggleButton>;
 
 export const 좋아요_버튼 = () => {
-  return <LikeBeerToggleButton isLiked={true} id={2} />;
+  return <LikeBeerToggleButton liked={true} id={2} />;
 };

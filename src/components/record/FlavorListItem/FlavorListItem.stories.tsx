@@ -5,10 +5,7 @@ import FlavorListItem from './FlavorListItem';
 export default {
   title: 'Components/record/FlavorListItem',
   component: FlavorListItem,
-  args: {
-    flavor: { id: 1, content: '목넘김이 부드러워요' },
-    count: 12,
-  },
+  args: { content: '단 맛이나요', count: 1 },
 } as ComponentMeta<typeof FlavorListItem>;
 
 const Template: ComponentStory<typeof FlavorListItem> = ({ ...args }) => (

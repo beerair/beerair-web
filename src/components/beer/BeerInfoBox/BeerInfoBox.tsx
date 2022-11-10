@@ -1,17 +1,17 @@
-import { IBeer } from '@/types';
 import styled from '@emotion/styled';
 import React from 'react';
+import { IBeer } from '@/apis';
 
 interface Props {
   beerData: IBeer;
 }
 
 const BeerInfoBox = ({ beerData }: Props) => {
-  const { country, type, nameKor, nameEng, imageUrl, alcohol, price, volume } = beerData;
+  const { country, type, korName, engName, imageUrl, alcohol, price, volume } = beerData;
 
   const beerInfo = [
-    { key: '종류', value: type?.nameKor },
-    { key: '원산지', value: country?.nameKor },
+    { key: '종류', value: type?.korName },
+    { key: '원산지', value: country?.korName },
     { key: '도수', value: `${alcohol}%` },
     { key: '용량', value: `${volume}ml` },
     { key: '가격', value: `${price}원` },
@@ -19,8 +19,8 @@ const BeerInfoBox = ({ beerData }: Props) => {
 
   return (
     <StyledBeerDetail>
-      <BeerName>{nameKor}</BeerName>
-      <BeerNameEng>{nameEng}</BeerNameEng>
+      <BeerName>{korName}</BeerName>
+      <BeerNameEng>{engName}</BeerNameEng>
 
       <FlexContainer>
         <BeerImage src={imageUrl} />

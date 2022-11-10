@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { IBeer } from '@/types';
+import { IBeer } from '@/apis';
 import Icon from '@/components/commons/Icon';
 import { sliceAndUpperCase } from '@/utils/string';
 
@@ -35,15 +35,15 @@ const BeerPhotoLabel: React.FC<BeerPhotoLabelProps> = ({
         </div>
         <div className="beer-photo-title">
           <span className="beer-country">
-            {sliceAndUpperCase(beer.country?.nameEng || 'non', 3)}
+            {sliceAndUpperCase(beer.country?.engName || 'non', 3)}
           </span>
           <div className="beer-label-detail">
             {`${beer.alcohol.toFixed(1)}%`}
             <span className="beer-label-detail-split-dot">{'•'}</span>
-            {beer.type?.nameKor}
+            {beer.type?.korName}
           </div>
         </div>
-        <span className="beer-name">{beer.nameKor}</span>
+        <span className="beer-name">{beer.korName}</span>
       </div>
     </StyledBeerPhotoLabel>
   );

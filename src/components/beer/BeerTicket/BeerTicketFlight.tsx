@@ -3,34 +3,31 @@ import styled from '@emotion/styled';
 
 import Icon from '@/components/commons/Icon';
 import { sliceAndUpperCase } from '@/utils/string';
+import { ICountry } from '@/apis';
 
 interface BeerTicketFlightProps {
-  prevCountryNameEng: string;
-  prevCountryNameKor: string;
-  nextCountryNameEng: string;
-  nextCountryNameKor: string;
+  departuresCountry: ICountry;
+  arrivalCountry: ICountry;
 }
 
 const BeerTicketFlight: React.FC<BeerTicketFlightProps> = ({
-  prevCountryNameEng,
-  prevCountryNameKor,
-  nextCountryNameEng,
-  nextCountryNameKor,
+  departuresCountry,
+  arrivalCountry,
 }) => {
   return (
     <StyledBeerTicketFlight>
       <div>
         <div className="ticket-country-eng">
-          {sliceAndUpperCase(prevCountryNameEng || 'non', 3)}
+          {sliceAndUpperCase(departuresCountry.engName || 'non', 3)}
         </div>
-        <div className="ticket-country-kor">{prevCountryNameKor}</div>
+        <div className="ticket-country-kor">{departuresCountry.korName}</div>
       </div>
       <Icon name="Airplane" size={20} />
       <div>
         <div className="ticket-country-eng">
-          {sliceAndUpperCase(nextCountryNameEng || 'non', 3)}
+          {sliceAndUpperCase(arrivalCountry.engName || 'non', 3)}
         </div>
-        <div className="ticket-country-kor">{nextCountryNameKor}</div>
+        <div className="ticket-country-kor">{arrivalCountry.korName}</div>
       </div>
     </StyledBeerTicketFlight>
   );

@@ -1,7 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import { BackButton, ShareButton } from '@/components/commons/Header/extras';
-import { beer, flavorList, reviews } from '@/constants/dummy';
 
 import AirPort from '@/components/record/AirPort';
 import BeerInfoBox from '@/components/beer/BeerInfoBox';
@@ -11,7 +10,7 @@ import FlavorList from '@/components/record/FlavorList';
 import Header from '@/components/commons/Header';
 import Icon from '@/components/commons/Icon';
 import LikeBeerToggleButton from '@/components/beer/LikeBeerToggleButton';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import ReviewList from '@/components/record/ReviewList';
 import { ToastContainer } from 'react-toastify';
@@ -19,20 +18,36 @@ import { share } from '@/utils/share';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { useScroll } from '@/hooks/commons';
+import { IBeer, getBeer, IFlavor, getFlavors, getReviewsByBeer, IReview } from '@/apis';
+import { useGetBeer, useGetFlavors, useGetReviewsByBeer } from '@/queries';
 
-interface BeerInfoContainerProps {}
+const FLAVORS_LIMIT = 3;
 
-const BeerInfoContainer: NextPage<BeerInfoContainerProps> = (
-  {
-    /** @todo api 연동 인터페이스 및 로직 작성 */
-  },
-) => {
+interface BeerInfoContainerProps {
+  beerResponse: IBeer;
+  flavorsResponse: IFlavor[];
+  reviewsResponse: IReview[];
+}
+
+const BeerInfoContainer: NextPage<BeerInfoContainerProps> = ({
+  beerResponse: initialBeerResponse,
+  flavorsResponse: initialFlavorsResponse,
+  reviewsResponse: initialReviewsByBeerResponse,
+}) => {
   const { scroll, isTransparent } = useScroll();
 
   const router = useRouter();
   const beerId = Number(router.query.id);
 
-  const { country, nameKor, startCountry, endCountry, content, isLiked } = beer;
+  const { data: beer } = useGetBeer(beerId, initialBeerResponse);
+  const { data: flavors } = useGetFlavors(beerId, FLAVORS_LIMIT, initialFlavorsResponse);
+  const { data: reviews } = useGetReviewsByBeer(beerId, initialReviewsByBeerResponse);
+
+  if (!beer || !flavors) {
+    return null;
+  }
+
+  const { country, korName, content, liked } = beer;
 
   return (
     <>
@@ -52,27 +67,27 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = (
                 onClick={() =>
                   share({
                     title: `[비어에어] 같이 떠나요!`,
-                    text: `‘${nameKor}’ 이 맥주가 궁금하신가요? 지금 바로 비어에어에서 확인해 보세요!`,
+                    text: `‘${korName}’ 이 맥주가 궁금하신가요? 지금 바로 비어에어에서 확인해 보세요!`,
                     url: window.location.href,
                   })
                 }
               />
-              <LikeBeerToggleButton isLiked={isLiked} id={beerId} />
+              <LikeBeerToggleButton liked={liked} id={beerId} />
             </>
           }
           isTransparent={isTransparent}
         >
-          {nameKor}
+          {korName}
         </Header>
         <ToastContainer />
         <BackgroundImage scroll={scroll}>
-          <img src={country?.backgroundImageUrl} alt={country?.nameKor} />
+          <img src={country?.backgroundImageUrl} alt={country?.korName} />
         </BackgroundImage>
         <section className="container">
           <BeerInfoBox beerData={beer} />
-          <AirPort startCountry={startCountry} endCountry={endCountry} />
+          {/*<AirPort startCountry={startCountry} endCountry={endCountry} />*/}
           <BeerContent>{content}</BeerContent>
-          <FlavorList flavors={flavorList} />
+          <FlavorList flavors={flavors} />
         </section>
         {!!reviews?.length && (
           <>
@@ -100,6 +115,20 @@ const BeerInfoContainer: NextPage<BeerInfoContainerProps> = (
 };
 
 export default BeerInfoContainer;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  if (context.query.id && typeof context.query.id === 'string' && Number(context.query.id)) {
+    const { id } = context.query;
+
+    const beerResponse = await getBeer(Number(id));
+    const flavorsResponse = await getFlavors(Number(id), FLAVORS_LIMIT);
+    const reviewsResponse = await getReviewsByBeer(Number(id));
+
+    return { props: { beerResponse, flavorsResponse, reviewsResponse } };
+  }
+
+  return { props: {} };
+};
 
 const StyledBeerInfoPage = styled.div`
   position: relative;

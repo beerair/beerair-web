@@ -3,10 +3,21 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import FlavorList from './FlavorList';
 
 const FLAVORS = [
-  { flavor: { id: 1, content: '목넘김이 부드러워요' }, count: 12 },
-  { flavor: { id: 1, content: '목넘김이 부드러워요' }, count: 13 },
-  { flavor: { id: 1, content: '목넘김이 부드러워요' }, count: 14 },
-  { flavor: { id: 1, content: '목넘김이 부드러워요' }, count: 15 },
+  {
+    id: 1,
+    content: '단 맛이나요',
+    count: 1,
+  },
+  {
+    id: 2,
+    content: '단 맛이나요2',
+    count: 2,
+  },
+  {
+    id: 3,
+    content: '단 맛이나요3',
+    count: 3,
+  },
 ];
 
 export default {
