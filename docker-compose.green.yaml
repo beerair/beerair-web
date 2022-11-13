@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  beerair-web-green:
+    image: beerair/beerair-web:dev
+
+    container_name: beerair-web-green
+
+    ports:
+      - '8081:3000'

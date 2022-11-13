@@ -3,7 +3,7 @@ name: beerair-web-beta-cicd
 on:
   push:
     branches:
-      - develop
+      - chore/build-configuration
   workflow_dispatch:
     inputs:
       log:
@@ -13,69 +13,76 @@ env:
   DOCKER_CONTAINER: beerair-web-dev
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{secrets.DOCKER_HUB_USERNAME}}
-          password: ${{secrets.DOCKER_HUB_TOKEN}}
+  #     - name: Login to DockerHub
+  #       uses: docker/login-action@v1
+  #       with:
+  #         username: ${{secrets.DOCKER_HUB_USERNAME}}
+  #         password: ${{secrets.DOCKER_HUB_TOKEN}}
 
-      - name: Docker build & push to push
-        run: |
-          docker build -t ${{secrets.DOCKER_REPO}} .
-          docker tag ${{secrets.DOCKER_REPO}}:latest ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
-          docker push ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
+  #     - name: Docker build & push to push
+  #       run: |
+  #         docker build -t ${{secrets.DOCKER_REPO}} .
+  #         docker tag ${{secrets.DOCKER_REPO}}:latest ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
+  #         docker push ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
 
-      - uses: ravsamhq/notify-slack-action@v1
-        if: ${{ failure() }}
-        with:
-          notification_title: '*[beta] execute ${{ github.job }} by ${{ github.actor }}*'
-          notify_when: 'failure,warnings'
-          icon_success: ':white_check_mark:'
-          message_format: |-
-            *workflow*: {workflow}
-            *status*: {emoji} {status_message} 
-            *branch*: <{repo_url}|{branch}>
-            *commit*: <{commit_url}|{commit_sha}>
-            *commit message*: ${{ github.event.head_commit.message }}
-          status: ${{ job.status }}
-          footer: '<{run_url}|View Github Actions>'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  #     - uses: ravsamhq/notify-slack-action@v1
+  #       if: ${{ failure() }}
+  #       with:
+  #         notification_title: '*[beta] execute ${{ github.job }} by ${{ github.actor }}*'
+  #         notify_when: 'failure,warnings'
+  #         icon_success: ':white_check_mark:'
+  #         message_format: |-
+  #           *workflow*: {workflow}
+  #           *status*: {emoji} {status_message}
+  #           *branch*: <{repo_url}|{branch}>
+  #           *commit*: <{commit_url}|{commit_sha}>
+  #           *commit message*: ${{ github.event.head_commit.message }}
+  #         status: ${{ job.status }}
+  #         footer: '<{run_url}|View Github Actions>'
+  #       env:
+  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
   deploy:
-    needs: build
+    # needs: build
     name: Deploy
     runs-on: [self-hosted]
     steps:
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{secrets.DOCKER_HUB_USERNAME}}
-          password: ${{secrets.DOCKER_HUB_TOKEN}}
+      # checkout branch
+      - uses: actions/checkout@v3
 
-      - name: Docker run
-        run: |
-          CONTAINERS=$(docker ps -qa)
-          if [ -z "$CONTAINERS" ];
-          then
-            echo "container not exist"
-          else
-            docker rm -f $(docker ps -q -a)
-          fi
-          docker pull ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
-          docker run -dit -p 3001:3000 --name $DOCKER_CONTAINER ${{secrets.DOCKER_HUB_USERNAME}}/${{secrets.DOCKER_REPO}}:dev
+      # copy docker-compose.* , deploy scripts
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          source: 'docker-compose.blue.yaml,docker-compose.green.yaml,deploy.sh,nginx.blue.conf,nginx.green.conf'
+          target: '/root/app'
+          rm: true
+
+      # move nginx config files, execute deploy scripts
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: |
+            cd /root/app/
+            ./deploy.sh
 
       - uses: ravsamhq/notify-slack-action@v1
         with:
@@ -83,7 +90,7 @@ jobs:
           icon_success: ':white_check_mark:'
           message_format: |-
             *workflow*: {workflow}
-            *status*: {emoji} {status_message} 
+            *status*: {emoji} {status_message}
             *branch*: <{repo_url}|{branch}>
             *commit*: <{commit_url}|{commit_sha}>
             *commit message*: ${{ github.event.head_commit.message }}

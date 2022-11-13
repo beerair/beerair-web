@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  beerair-web-blue:
+    image: beerair/beerair-web:dev
+
+    container_name: beerair-web-blue
+
+    ports:
+      - '8080:3000'
