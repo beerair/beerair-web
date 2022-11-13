@@ -29,7 +29,6 @@ const nextConfig = {
     lodash: {
       transform: 'lodash/{{member}}',
     },
-    outputStandalone: true,
   },
   rewrites,
   webpack(config) {
