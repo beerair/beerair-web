@@ -1,1 +1,1 @@
-export { default } from '@/containers/BeerInfoContainer';
+export { default, getServerSideProps } from '@/containers/BeerInfoContainer';

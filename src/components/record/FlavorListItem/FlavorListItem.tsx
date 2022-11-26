@@ -2,17 +2,17 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import LikeBadge from './LikeBadge';
-import { IFlavor } from '@/types';
+import { IFlavor } from '@/apis';
 
-export interface IFlavorListItem {
-  flavor: IFlavor;
-  count: number;
+export interface IFlavorProps {
+  content: IFlavor['content'];
+  count: IFlavor['count'];
 }
 
-const FlavorListItem = ({ flavor, count }: IFlavorListItem) => {
+const FlavorListItem = ({ content, count }: IFlavorProps) => {
   return (
     <StyledFlavorListItem>
-      {flavor.content}
+      {content}
       <LikeBadge count={count} />
     </StyledFlavorListItem>
   );

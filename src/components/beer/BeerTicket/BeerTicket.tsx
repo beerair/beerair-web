@@ -7,23 +7,24 @@ import BeerTicketFlight from './BeerTicketFlight';
 import BeerTicketStamp from './BeerTicketStamp';
 import BeerTicketSection from './BeerTicketSection';
 
-import { IRecord } from '@/types';
+import { IReview } from '@/apis';
 import Icon from '@/components/commons/Icon';
 import { FEEL_MESSAGES } from '@/constants/messages';
 import BeerPhotoLabel from '@/components/beer/BeerPhotoLabel';
 import Emoji from '@/components/commons/Emoji';
+import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
 
 export const BEER_TICKET_WIDTH = 300;
 
 interface BeerTicketProps {
-  record: IRecord;
+  review: IReview;
   type?: 'default' | 'stamp';
   id?: string;
   className?: string;
 }
 
 const BeerTicket: React.FC<BeerTicketProps> = ({
-  record,
+  review,
   type = 'default',
   id = '',
   className,
@@ -32,23 +33,21 @@ const BeerTicket: React.FC<BeerTicketProps> = ({
     <StyledBeerTicket className={className} id={id}>
       <header className="beer-ticket-header">
         <Icon name="Logo" semanticColor="primary" size={60} />
-        <span className="barlow-small">{`BR118${record.id.toString().padStart(3, '0')}`}</span>
+        <span className="barlow-small">{`BR118${review.id.toString().padStart(3, '0')}`}</span>
       </header>
-      <BeerPhotoLabel scale={0.8} beer={record.beerResponseDto} background={record.imageUrl} />
+      <BeerPhotoLabel scale={0.8} beer={review.beer} background={review.imageUrl} />
       <BeerTicketSection>
         <BeerTicketFlight
-          prevCountryNameEng={record.startCountryEng}
-          prevCountryNameKor={record.startCountryKor}
-          nextCountryNameEng={record.endCountryEng}
-          nextCountryNameKor={record.endCountryKor}
+          departuresCountry={review.departuresCountry}
+          arrivalCountry={review.arrivalCountry}
         />
       </BeerTicketSection>
       <BeerTicketSection bottomBorder>
         <BeerTicketField title="date" className="beer-ticket-date">
-          {format(parseISO(record.createdAt), 'dd/LLL/yyyy')}
+          {format(parseISO(review.createdAt), 'dd/LLL/yyyy')}
         </BeerTicketField>
         <BeerTicketField title="boarding time" className="beer-ticket-date">
-          {format(parseISO(record.createdAt), 'p')}
+          {format(parseISO(review.createdAt), 'p')}
         </BeerTicketField>
         {type === 'stamp' && (
           <>
@@ -59,17 +58,24 @@ const BeerTicket: React.FC<BeerTicketProps> = ({
       </BeerTicketSection>
       {type === 'stamp' ? (
         <BeerTicketSection>
-          <BeerTicketStamp feel={record.feel} recordedAt={record.createdAt} />
+          <BeerTicketStamp
+            feel={getNumberByFeelStatus(review.feelStatus)}
+            recordedAt={review.createdAt}
+          />
         </BeerTicketSection>
       ) : (
         <>
           <BeerTicketSection bottomBorder>
             <BeerTicketField title="feel" className="beer-ticket-feel">
-              <Emoji feel={record.feel} size={24} className="ticket-feel-emoji" />
-              <p>{FEEL_MESSAGES[record.feel]}</p>
+              <Emoji
+                feel={getNumberByFeelStatus(review.feelStatus)}
+                size={24}
+                className="ticket-feel-emoji"
+              />
+              <p>{FEEL_MESSAGES[getNumberByFeelStatus(review.feelStatus)]}</p>
             </BeerTicketField>
             <BeerTicketField title="taste">
-              {record.flavorDtos.map((flavor) => (
+              {review.flavors.map((flavor) => (
                 <span key={flavor.id} className="beer-ticket-flavor">
                   {flavor.content}
                 </span>
@@ -80,7 +86,7 @@ const BeerTicket: React.FC<BeerTicketProps> = ({
           </BeerTicketSection>
           <BeerTicketSection>
             <BeerTicketField title="impression" size="max" className="beer-ticket-content">
-              {record.content}
+              {review.content}
             </BeerTicketField>
           </BeerTicketSection>
         </>

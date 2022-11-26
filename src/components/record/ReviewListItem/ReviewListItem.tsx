@@ -5,20 +5,21 @@ import { parseISO } from 'date-fns';
 import Emoji from '@/components/commons/Emoji';
 import Badge from '@/components/commons/Chip';
 import { formatDateDiff } from '@/utils/formatDateDiff';
-import { IReview } from '@/types';
+import { IReview } from '@/apis';
 
 import { isNil } from 'lodash';
+import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
 
-export interface Props extends IReview {
+export interface Props extends Partial<IReview> {
   isMe?: boolean;
 }
 
 const ReviewListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { content, feel, member, createdAt, flavors, isMe } = props;
+  const { content, feelStatus, member, createdAt, flavors, isMe } = props;
 
   return (
     <StyledReview ref={ref}>
-      <StyledEmoji feel={feel} />
+      <StyledEmoji feel={getNumberByFeelStatus(feelStatus)} />
       <ReviewContainer>
         <UserAndDate>
           <User>
@@ -29,7 +30,7 @@ const ReviewListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
         </UserAndDate>
         <Content>{content}</Content>
         <BadgeList>
-          {flavors.map((tag) => (
+          {flavors?.map((tag) => (
             <Badge key={tag.id} label={tag.content} />
           ))}
         </BadgeList>

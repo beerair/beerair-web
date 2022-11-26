@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Emoji from './Emoji';

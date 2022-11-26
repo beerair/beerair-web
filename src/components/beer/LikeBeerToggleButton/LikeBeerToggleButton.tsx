@@ -3,11 +3,11 @@ import { MouseEvent, useState } from 'react';
 import Icon from '@/components/commons/Icon';
 
 interface LikeBeerToggleButtonProps {
-  isLiked: boolean;
+  liked: boolean;
   id: number;
 }
 
-const LikeBeerToggleButton = ({ id, isLiked: defaultIsLiked }: LikeBeerToggleButtonProps) => {
+const LikeBeerToggleButton = ({ id, liked: defaultIsLiked }: LikeBeerToggleButtonProps) => {
   const [isLiked, setIsLiked] = useState(defaultIsLiked);
 
   const handleLike = async (e: MouseEvent) => {

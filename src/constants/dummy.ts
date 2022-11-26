@@ -1,49 +1,85 @@
-import { BEER_TYPE, ILevel, IRecord, IRequestBeer, IReview, REQUEST_BEER_STATUS } from '@/types';
+import { BEER_TYPE, ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types';
 
 import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
 import { MyPageBoxButtonListItemProps } from '@/components/mypage/MyPageBoxButtonListItem';
+import { IBeer, ICountry, IFlavor, IReview } from '@/apis';
 
-export const beer = {
+export const beer: IBeer = {
   id: 1,
   country: {
     id: 1,
-    nameKor: '한국',
-    nameEng: 'korea',
-    imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/samples/korea.png',
+    korName: '대한민국',
+    engName: 'korea',
     backgroundImageUrl:
-      'https://beerair-service.s3.ap-northeast-2.amazonaws.com/samples/korea-bg.png',
-    continent: {
-      id: 1,
-      name: '아시아',
-    },
+      'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/background/korea.png',
+    imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/korea.png',
   },
   type: {
-    nameEng: BEER_TYPE.LIGHT_ALE,
-    nameKor: '위트 에일',
-    imageUrl: '',
-    description: '투명한 황금빛으로 단 맛과 쓴 맛이 어우러진 깔끔한 맛',
+    id: 3,
+    korName: 'IPA',
+    engName: 'IPA',
+    content: '탄산이 비교적 약하고 강렬한 홉향과 강하고 텁텁한 쓴 맛이 나는 맥주',
+    imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/BEER/TYPE/ipa.png',
   },
-  startCountry: {
-    nameKor: '한국',
-    nameEng: 'korea',
-  },
-  endCountry: {
-    nameKor: '미국',
-    nameEng: 'usa',
-  },
-  nameKor: '제주 위트 에일',
-  nameEng: 'Jeju Wit Ale',
-  imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/samples/kumiho_peach_ale.png',
-  content:
-    '‘제주 위트 에일’은 제주 청정 재료인 유기농 제주 감귤 껍질을 사용해 은은한 감귤 향의 산뜻한 끝 맛이 특징이다.',
-  alcohol: 5.5,
-  price: 4200,
-  volume: 50,
-  feel: 4,
-  isLiked: false,
-  createdAt: Date.now(),
-  updatedAt: Date.now(),
+  myReview: null,
+  korName: '빅슬라이스 IPA',
+  engName: 'Big Slice Ipa',
+  imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/BEER/big_slice_ipa.png',
+  content: '열대 과일향과 몰트의 고소함',
+  alcohol: 5.4,
+  price: 3500,
+  volume: 500,
+  liked: false,
 };
+
+export const requestBeer: IRequestBeer = {
+  beerId: 1,
+  beerImageUrls: [],
+  beerName: '하이네켄 벚꽃 맥주',
+  createdAt: '2022-06-21T02:55:12.151Z',
+  requestCompletedAt: '2022-06-21T02:55:12.151Z',
+  status: REQUEST_BEER_STATUS.APPROVED,
+};
+
+export const level: ILevel = {
+  id: 1,
+  tier: 1,
+  imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+  req: 5,
+};
+
+export const levels: ILevel[] = [
+  {
+    id: 1,
+    tier: 1,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 0,
+  },
+  {
+    id: 2,
+    tier: 2,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 1,
+  },
+  {
+    id: 3,
+    tier: 3,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 5,
+  },
+  {
+    id: 4,
+    tier: 4,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 12,
+  },
+  {
+    id: 5,
+    tier: 5,
+    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
+    req: 20,
+  },
+];
 
 export const record: IRecord = {
   id: 20,
@@ -110,55 +146,6 @@ export const record: IRecord = {
   recordCount: 13,
 };
 
-export const requestBeer: IRequestBeer = {
-  beerId: 1,
-  beerImageUrls: [],
-  beerName: '하이네켄 벚꽃 맥주',
-  createdAt: '2022-06-21T02:55:12.151Z',
-  requestCompletedAt: '2022-06-21T02:55:12.151Z',
-  status: REQUEST_BEER_STATUS.APPROVED,
-};
-
-export const level: ILevel = {
-  id: 1,
-  tier: 1,
-  imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-  req: 5,
-};
-
-export const levels: ILevel[] = [
-  {
-    id: 1,
-    tier: 1,
-    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-    req: 0,
-  },
-  {
-    id: 2,
-    tier: 2,
-    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-    req: 1,
-  },
-  {
-    id: 3,
-    tier: 3,
-    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-    req: 5,
-  },
-  {
-    id: 4,
-    tier: 4,
-    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-    req: 12,
-  },
-  {
-    id: 5,
-    tier: 5,
-    imageUrl: 'https://cdn.pixabay.com/photo/2016/04/24/14/19/paper-1349664_1280.png',
-    req: 20,
-  },
-];
-
 export const MYPAGE_BOX_BUTTON_LIST_DATA: MyPageBoxButtonListItemProps[] = [
   {
     iconName: 'Heart',
@@ -187,49 +174,93 @@ export const MYPAGE_INFO_LIST_DATA: IMyPageInfoListItem[] = [
   { count: 3, unit: '개국', title: '여행한 나라' },
 ];
 
-export const flavorList = [
+export const flavorList: IFlavor[] = [
   {
-    flavor: record.flavorDtos[0],
-    count: 11,
+    id: 1,
+    content: '단 맛이나요',
+    count: 1,
   },
   {
-    flavor: record.flavorDtos[1],
-    count: 8,
+    id: 2,
+    content: '목넘김이 부드러워요',
+    count: 1,
   },
   {
-    flavor: record.flavorDtos[2],
-    count: 5,
+    id: 3,
+    content: '쓴 맛이 나요',
+    count: 1,
   },
 ];
 
-export const reviews: IReview[] = [
+export const country: ICountry = {
+  id: 1,
+  korName: '대한민국',
+  engName: 'korea',
+  backgroundImageUrl:
+    'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/background/korea.png',
+  imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/korea.png',
+};
+
+export const review: IReview = {
+  id: 'c3a3251a56bb4440ab04b0b0f64a196f',
+  content: '리뷰리뷰',
+  feelStatus: 'GOOD',
+  imageUrl: '',
+  createdAt: '2022-09-17T12:42:30',
+  member: {
+    id: '9a7cc50525eb4df286e0096b96874c38',
+    email: null,
+    profileUrl: null,
+    nickname: '재원잉',
+    authorities: null,
+    tier: null,
+    levelImage: null,
+  },
+  beer: beer,
+  departuresCountry: country,
+  arrivalCountry: country,
+  flavors: flavorList,
+};
+
+export const reviewList: IReview[] = [
   {
-    content:
-      '날씨도 좋은데 놀러가지도 못하고..! 기분 내려고 한 잔 한다. 이순간 만큼은 제주다 이거야~',
-    feel: 5,
-    createdAt: '2022-07-22T02:55:12.151Z',
-    member: { id: 1, name: '호딩' },
-    flavors: [
-      { id: 1, content: '목넘김이 부드러워요' },
-      { id: 2, content: '목넘김이 안부드러워요' },
-      { id: 3, content: '목넘김이 짱부드러워요' },
-    ],
+    id: 'c3a3251a56bb4440ab04b0b0f64a196f',
+    content: '리뷰리뷰',
+    feelStatus: 'GOOD',
+    imageUrl: '',
+    createdAt: '2022-09-17T12:42:30',
+    member: {
+      id: '9a7cc50525eb4df286e0096b96874c38',
+      email: null,
+      profileUrl: null,
+      nickname: '재원잉',
+      authorities: null,
+      tier: null,
+      levelImage: null,
+    },
+    beer: beer,
+    departuresCountry: country,
+    arrivalCountry: country,
+    flavors: flavorList,
   },
   {
-    content: '리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰',
-    feel: 4,
-    createdAt: '2022-07-20T02:55:12.151Z',
-    member: { id: 1, name: '호딩2' },
-    flavors: [
-      { id: 1, content: '단 맛이 나요' },
-      { id: 2, content: '짱 맛있어요' },
-    ],
-  },
-  {
-    content: '테스트테스트테스트',
-    feel: 3,
-    createdAt: '2022-06-22T02:55:12.151Z',
-    member: { id: 1, name: '호딩3' },
-    flavors: [{ id: 1, content: '목넘김이 부드러워요' }],
+    id: 'ea8bb35a04c2423a95ac11e46531fb73',
+    content: 'string',
+    feelStatus: 'BAD',
+    imageUrl: '',
+    createdAt: '2022-09-09T17:48:16',
+    member: {
+      id: '9a7cc50525eb4df286e0096b96874c38',
+      email: null,
+      profileUrl: null,
+      nickname: '재원잉',
+      authorities: null,
+      tier: null,
+      levelImage: null,
+    },
+    beer: beer,
+    departuresCountry: country,
+    arrivalCountry: country,
+    flavors: flavorList,
   },
 ];

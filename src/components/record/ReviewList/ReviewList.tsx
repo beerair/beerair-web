@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import ReviewListItem from '@/components/record/ReviewListItem';
-import { IReview } from '@/types';
+import { IReview } from '@/apis';
 import { Ref } from 'react';
 import { $userSession } from '@/recoil/atoms';
 import { useRecoilValue } from 'recoil';
@@ -28,7 +28,7 @@ const ReviewList = ({ reviews, lastItemRef }: Props) => {
           key={idx}
           ref={idx === reviews.length - 1 ? lastItemRef : undefined}
           content={review.content}
-          feel={review.feel}
+          feelStatus={review.feelStatus}
           createdAt={review.createdAt}
           member={review.member}
           flavors={review.flavors}

@@ -16,5 +16,5 @@ Default.args = {
   iconName: 'Heart',
   text: '내가 반한 맥주',
   count: 3,
-  unit:'개'
+  unit: '개',
 };
