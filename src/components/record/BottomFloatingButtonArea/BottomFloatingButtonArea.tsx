@@ -1,6 +1,6 @@
 import BottomFloatingLayout from '@/components/layouts/BottomFloatingLayout';
 import type { HTMLAttributes } from 'react';
-import Icon from '@/components/commons/Icon';
+import Icon from '@/components/Icon';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 

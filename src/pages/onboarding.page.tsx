@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
 
-import Button from '@/components/commons/Button';
+import Button from '@/components/Button';
 import BeginningLayout from '@/components/layouts/BeginningLayout';
-import Icon from '@/components/commons/Icon';
+import Icon from '@/components/Icon';
 
 const HERO_IMAGE_URL =
   'https://beerair-service.s3.ap-northeast-2.amazonaws.com/static/onboarding-hero.png';

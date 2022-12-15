@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import React, { ReactNode } from 'react';
 
 import ModalLayout from '@/components/layouts/ModalLayout';
-import Icon from '@/components/commons/Icon';
+import Icon from '@/components/Icon';
 
 interface ModalProps {
   open: boolean;

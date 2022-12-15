@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import Header, { HEADER_HEIGHT } from '@/components/commons/Header';
-import { BackButton } from '@/components/commons/Header/extras';
+import Header, { HEADER_HEIGHT } from '@/components/Header';
+import { BackButton } from '@/components/Header/extras';
 
 const EtcPage = () => {
   return (

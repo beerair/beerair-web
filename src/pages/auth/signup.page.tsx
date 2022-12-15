@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 
 import BeginningLayout from '@/components/layouts/BeginningLayout';
-import Button from '@/components/commons/Button';
+import Button from '@/components/Button';
 
 /** @todo api 연동 */
 const SignUpPage = () => {

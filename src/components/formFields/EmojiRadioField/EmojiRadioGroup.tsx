@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import EmojiTransitionViewer from './EmojiTransitionViewer';
 
-import Emoji from '@/components/commons/Emoji';
+import Emoji from '@/components/Emoji';
 import { FEEL_MESSAGES } from '@/constants/messages';
 
 interface EmojiRadioGroupProps {

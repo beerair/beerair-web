@@ -1,8 +1,8 @@
 import { NextPage, GetStaticProps } from 'next';
 import styled from '@emotion/styled';
 
-import Header from '@/components/commons/Header';
-import { BackButton } from '@/components/commons/Header/extras';
+import Header from '@/components/Header';
+import { BackButton } from '@/components/Header/extras';
 import { parseMarkdown } from '@/utils/parseMarkdown';
 import Markdown from '@/components/Markdown';
 

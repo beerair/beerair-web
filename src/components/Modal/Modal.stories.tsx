@@ -1,11 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
-import Button from '@/components/commons/Button';
+import Button from '@/components/Button';
 
 import Modal from './Modal';
 
 export default {
-  title: 'Components/Modal',
   component: Modal,
   argTypes: {
     title: { control: 'text', name: 'title' },

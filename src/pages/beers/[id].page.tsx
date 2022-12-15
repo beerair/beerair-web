@@ -1,25 +1,26 @@
+import { GetServerSideProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { BackButton, ShareButton } from '@/components/commons/Header/extras';
+import { BackButton, ShareButton } from '@/components/Header/extras';
 
 import AirPort from '@/components/record/AirPort';
-import BeerInfoBox from '@/components/beer/BeerInfoBox';
+import BeerInfoBox from '@/pages/beers/components/BeerInfoBox';
 import BottomFloatingButtonArea from '@/components/record/BottomFloatingButtonArea';
-import Button from '@/components/commons/Button';
+import Button from '@/components/Button';
 import FlavorList from '@/components/record/FlavorList';
-import Header from '@/components/commons/Header';
-import Icon from '@/components/commons/Icon';
-import LikeBeerToggleButton from '@/components/beer/LikeBeerToggleButton';
-import { GetServerSideProps, NextPage } from 'next';
-import { NextSeo } from 'next-seo';
+import Header from '@/components/Header';
+import Icon from '@/components/Icon';
 import ReviewList from '@/components/record/ReviewList';
 import { ToastContainer } from 'react-toastify';
 import { share } from '@/utils/share';
 import styled from '@emotion/styled';
-import { useRouter } from 'next/router';
 import { useScroll } from '@/hooks/commons';
 import { IBeer, getBeer, IFlavor, getFlavors, getReviewsByBeer, IReview } from '@/apis';
 import { useGetBeer, useGetFlavors, useGetReviewsByBeer } from '@/queries';
+
+import LikeBeerToggleButton from './components/LikeBeerToggleButton';
 
 const FLAVORS_LIMIT = 3;
 

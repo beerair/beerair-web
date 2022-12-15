@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 
 import BottomNavigation from '@/components/BottomNavigation';
-import Bio from '@/components/mypage/Bio';
-import MyPageInfoList from '@/components/mypage/MyPageInfoList';
-import MyPageBoxButtonList from '@/components/mypage/MyPageBoxButtonList';
-import Spacing from '@/components/commons/Spacing';
+import Spacing from '@/components/Spacing';
 import { level, MYPAGE_BOX_BUTTON_LIST_DATA, MYPAGE_INFO_LIST_DATA } from '@/constants/dummy';
+
+import Bio from './components/Bio';
+import MyPageInfoList from './components/MyPageInfoList';
+import MyPageBoxButtonList from './components/MyPageBoxButtonList';
 
 interface MyPagePageProps {}
 

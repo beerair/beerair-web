@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 import BeginningLayout from '@/components/layouts/BeginningLayout';
-import KakaoLoginButton from '@/components/auth/KakaoLoginButton';
-import NaverLoginButton from '@/components/auth/NaverLoginButton';
+import KakaoLoginButton from './components/KakaoLoginButton';
+import NaverLoginButton from './components/NaverLoginButton';
 
 const LoginPage: React.FC = () => {
   return (

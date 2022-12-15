@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
 
 import { IRecord } from '@/types';
-import Icon from '@/components/commons/Icon';
+import Icon from '@/components/Icon';
 import BeerTicketField from '@/components/beer/BeerTicket/BeerTicketField';
-import Emoji from '@/components/commons/Emoji';
+import Emoji from '@/components/Emoji';
 import { sliceAndUpperCase } from '@/utils/string';
 
 interface RecordListItemProps {

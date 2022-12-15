@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { isNil } from 'lodash';
 
-import Icon from '@/components/commons/Icon';
+import Icon from '@/components/Icon';
 import { ICountry } from '@/types';
 import { sliceAndUpperCase } from '@/utils/string';
 

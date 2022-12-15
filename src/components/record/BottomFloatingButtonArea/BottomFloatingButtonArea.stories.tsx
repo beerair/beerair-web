@@ -1,11 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from '@/components/commons/Button';
-import Icon from '@/components/commons/Icon';
+import Button from '@/components/Button';
+import Icon from '@/components/Icon';
 import BottomFloatingButtonArea from './BottomFloatingButtonArea';
 
 export default {
-  title: 'Components/record/BottomFloatingButtonArea',
   component: BottomFloatingButtonArea,
   argTypes: {
     withHomeButton: { control: 'boolean' },
