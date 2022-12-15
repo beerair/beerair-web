@@ -4,7 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ReviewList from './ReviewList';
 
 export default {
-  title: 'Components/record/ReviewList',
   component: ReviewList,
   args: { reviews: reviewList },
 } as ComponentMeta<typeof ReviewList>;

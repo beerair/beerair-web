@@ -10,7 +10,6 @@ const colorOptions = Object.keys(theme.color);
 const semanticColorOptions = Object.keys(theme.semanticColor);
 
 export default {
-  title: 'Commons/Icon',
   argTypes: {
     name: { control: 'select', options: nameOptions },
     color: { control: 'select', options: colorOptions },

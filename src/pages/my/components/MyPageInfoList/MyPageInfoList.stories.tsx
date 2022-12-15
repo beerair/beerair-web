@@ -4,7 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MyPageInfoList from './MyPageInfoList';
 
 export default {
-  title: 'Components/mypage/MyPageInfoList',
   component: MyPageInfoList,
   args: { data: MYPAGE_INFO_LIST_DATA },
 } as ComponentMeta<typeof MyPageInfoList>;

@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: 'Commons/Header/extras',
   argTypes: {
     type: { control: 'radio', options: ['grid', 'list'] },
   },

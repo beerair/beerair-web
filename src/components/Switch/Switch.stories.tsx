@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Switch from './Switch';
 
 export default {
-  title: 'Commons/Switch',
   component: Switch,
   argTypes: {
     defaultValue: { control: 'boolean' },

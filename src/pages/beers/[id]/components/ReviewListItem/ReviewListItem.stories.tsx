@@ -4,7 +4,6 @@ import ReviewListItem from './ReviewListItem';
 import { review } from '@/constants/dummy';
 
 export default {
-  title: 'Components/record/ReviewListItem',
   component: ReviewListItem,
   argTypes: {
     content: { control: 'text' },

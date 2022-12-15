@@ -2,7 +2,6 @@ import { ComponentMeta } from '@storybook/react';
 import LikeBeerToggleButton from '.';
 
 export default {
-  title: 'Components/beer/LikeBeerToggleButton',
   component: LikeBeerToggleButton,
   args: {},
 } as ComponentMeta<typeof LikeBeerToggleButton>;

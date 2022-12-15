@@ -5,7 +5,6 @@ import Header from './Header';
 import { BackButton, CloseButton } from './extras';
 
 export default {
-  title: 'Commons/Header',
   component: Header,
   argTypes: {
     isTransparent: { control: 'boolean' },

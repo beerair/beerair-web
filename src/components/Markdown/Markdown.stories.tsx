@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Markdown from './Markdown';
 
 export default {
-  title: 'Components/Markdown',
   argTypes: {
     markdown: { control: 'text' },
   },

@@ -5,7 +5,6 @@ import Icon from '@/components/Icon';
 import Button from './Button';
 
 export default {
-  title: 'Commons/Button',
   component: Button,
   argTypes: {
     children: { control: 'text', name: 'text' },

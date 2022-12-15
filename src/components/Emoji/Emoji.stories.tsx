@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Emoji from './Emoji';
 
 export default {
-  title: 'Commons/Emoji',
   component: Emoji,
   argTypes: {
     feel: { control: 'radio', options: [5, 4, 3, 2, 1, null] },

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import NicknameModifyModal from './NicknameModifyModal';
 
 export default {
-  title: 'Components/mypage/NicknameModifyModal',
   component: NicknameModifyModal,
 } as ComponentMeta<typeof NicknameModifyModal>;
 

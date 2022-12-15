@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import Swiper from './Swiper';
 
 export default {
-  title: 'Commons/Swiper',
   component: Swiper,
 } as ComponentMeta<typeof Swiper>;
 

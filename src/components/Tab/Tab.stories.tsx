@@ -6,7 +6,6 @@ import Tab from './Tab';
 import Swiper from '../Swiper';
 
 export default {
-  title: 'Commons/Tab',
   component: Tab,
   argTypes: {
     isGhost: { control: 'boolean' },

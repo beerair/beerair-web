@@ -6,7 +6,6 @@ import EntityForm from '@/components/EntityForm';
 import MultiSelectField from './MultiSelectField';
 
 export default {
-  title: 'FormFields/MultiSelectField',
   component: MultiSelectField,
   decorators: [
     (Story) => (

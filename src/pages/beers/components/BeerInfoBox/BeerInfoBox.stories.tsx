@@ -32,7 +32,6 @@ const BEER: IBeer = {
 };
 
 export default {
-  title: 'Components/beer/BeerInfoBox',
   component: BeerInfoBox,
   args: { beerData: BEER },
 } as ComponentMeta<typeof BeerInfoBox>;

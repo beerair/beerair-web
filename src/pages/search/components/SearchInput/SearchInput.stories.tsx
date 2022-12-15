@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SearchInput from './SearchInput';
 
 export default {
-  title: 'Components/search/SearchInput',
   component: SearchInput,
   argTypes: {
     defaultSearchText: { control: 'readonly' },

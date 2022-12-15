@@ -4,7 +4,6 @@ import LevelModal from './LevelModal';
 import { levels } from '@/constants/dummy';
 
 export default {
-  title: 'Components/mypage/LevelModal',
   component: LevelModal,
 } as ComponentMeta<typeof LevelModal>;
 

@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MyPageBoxButtonListItem from './MyPageBoxButtonListItem';
 
 export default {
-  title: 'Components/mypage/MyPageBoxButtonListItem',
   component: MyPageBoxButtonListItem,
 } as ComponentMeta<typeof MyPageBoxButtonListItem>;
 

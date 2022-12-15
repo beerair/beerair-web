@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SearchItem from './SearchItem';
 
 export default {
-  title: 'Components/search/SearchItem',
   component: SearchItem,
   argTypes: {
     type: { control: 'radio', options: ['search', 'history'] },

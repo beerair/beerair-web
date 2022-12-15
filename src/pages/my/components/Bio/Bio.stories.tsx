@@ -4,7 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Bio from './Bio';
 
 export default {
-  title: 'Components/mypage/Bio',
   component: Bio,
   args: {
     remainRecordCount: 1,

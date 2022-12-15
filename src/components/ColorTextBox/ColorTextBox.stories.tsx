@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ColorTextBox from './ColorTextBox';
 
 export default {
-  title: 'Commons/ColorTextBox',
   component: ColorTextBox,
   argTypes: {
     children: { control: 'text', name: 'text' },

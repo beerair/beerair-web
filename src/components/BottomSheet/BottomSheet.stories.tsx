@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import BottomSheet from './BottomSheet';
 
 export default {
-  title: 'Components/BottomSheet',
   component: BottomSheet,
   argTypes: {
     open: { control: 'boolean' },

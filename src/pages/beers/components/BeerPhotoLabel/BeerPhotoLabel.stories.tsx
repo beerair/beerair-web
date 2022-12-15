@@ -5,7 +5,6 @@ import { beer } from '@/constants/dummy';
 import BeerPhotoLabel from './BeerPhotoLabel';
 
 export default {
-  title: 'Components/beer/BeerPhotoLabel',
   component: BeerPhotoLabel,
   argTypes: {
     beer: { control: 'readonly' },

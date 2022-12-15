@@ -5,7 +5,6 @@ import { review } from '@/constants/dummy';
 import BeerTicket from './BeerTicket';
 
 export default {
-  title: 'Components/beer/BeerTicket',
   component: BeerTicket,
 } as ComponentMeta<typeof BeerTicket>;
 

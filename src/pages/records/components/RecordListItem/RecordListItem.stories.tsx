@@ -5,7 +5,6 @@ import { record } from '@/constants/dummy';
 import RecordListItem from './RecordListItem';
 
 export default {
-  title: 'Components/record/RecordListItem',
   component: RecordListItem,
   argTypes: {},
 } as ComponentMeta<typeof RecordListItem>;

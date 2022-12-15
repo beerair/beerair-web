@@ -6,7 +6,6 @@ import EntityForm from '@/components/EntityForm';
 import TextAreaField from './TextAreaField';
 
 export default {
-  title: 'FormFields/TextAreaField',
   component: TextAreaField,
   decorators: [
     (Story) => (
