@@ -26,10 +26,10 @@ const OnBoardingPage = () => {
         </StyledWrapper>
       </BeginningLayout>
       <Link href="/" passHref>
-        <StyledTextButton>
-          <p>둘러보기</p>
+        <StyledLinkButton>
+          <span>둘러보기</span>
           <Icon name="ArrowRight" size={30} />
-        </StyledTextButton>
+        </StyledLinkButton>
       </Link>
     </>
   );
@@ -66,7 +66,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledTextButton = styled.button`
+const StyledLinkButton = styled.a`
   display: flex;
   position: absolute;
   align-items: center;
@@ -74,6 +74,13 @@ const StyledTextButton = styled.button`
   bottom: 24px;
   ${(p) => p.theme.fonts.SubTitle2};
   color: ${(p) => p.theme.color.grey4};
+  z-index: 1;
+
+  &:active {
+    padding: 2px 2px 2px 6px;
+    border-radius: 12px;
+    background-color: ${(p) => p.theme.color.grey0};
+  }
 
   svg {
     margin-left: 4px;
