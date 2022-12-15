@@ -24,6 +24,10 @@ const StyledButton = styled.a`
   background-color: ${BACKGROUND_COLOR};
   color: ${TEXT_COLOR};
 
+  &:active {
+    filter: brightness(80%);
+  }
+
   > img {
     width: 18px;
     height: 18px;

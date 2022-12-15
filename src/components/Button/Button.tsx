@@ -27,6 +27,7 @@ export interface ButtonProps {
   leftAddon?: React.ReactNode;
   rightAddon?: React.ReactNode;
   disabled?: boolean;
+  hasAnimation?: boolean;
   children?: React.ReactNode;
   className?: string;
   iconMargin?: number;
@@ -38,6 +39,7 @@ interface StyledButtonProps {
   buttonWidth?: string;
   buttonMaxWidth?: string;
   iconMargin: number;
+  hasAnimation?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -45,6 +47,7 @@ const Button: React.FC<ButtonProps> = ({
   htmlType = 'button',
   line = false,
   disabled = false,
+  hasAnimation = false,
   width: _width,
   maxWidth,
   count,
@@ -64,6 +67,7 @@ const Button: React.FC<ButtonProps> = ({
       buttonWidth={width}
       buttonMaxWidth={maxWidth}
       disabled={disabled}
+      hasAnimation={hasAnimation}
       className={cx([className, line && 'common-button-line'])}
       iconMargin={iconMargin}
       onClick={onClick}
@@ -130,7 +134,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: filter 0.2s;
+  transition: filter transform 0.2s;
   ${({ buttonWidth }) => (buttonWidth ? ` width: ${buttonWidth};` : '')}
   ${({ buttonMaxWidth }) => (buttonMaxWidth ? ` max-width: ${buttonMaxWidth};` : '')}
   & > .common-button-icon-wrapper {
@@ -168,9 +172,15 @@ const StyledButton = styled.button<StyledButtonProps>`
     color: ${({ theme, buttonType }) => getColorByType(buttonType, theme)};
     background-color: ${({ theme, buttonType }) => getLineColorByType(buttonType, theme)};
   }
-  &:active {
-    filter: brightness(80%);
-  }
+
+  ${(p) =>
+    !p.disabled &&
+    `
+    &:active {
+      filter: brightness(80%);
+      ${p.hasAnimation ? 'transform: scale(1.1)' : ''}
+    }
+    `}
   &:disabled {
     cursor: not-allowed;
     color: ${({ theme }) => theme.color.grey2};

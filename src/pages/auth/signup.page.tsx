@@ -45,7 +45,13 @@ const SignUpPage = () => {
           maxLength={15}
         />
         <p className="helper-text">최대 15글자까지 입력 할 수 있습니다.</p>
-        <Button width="244px" type="primary" disabled={!nickname} onClick={handleComplete}>
+        <Button
+          width="244px"
+          type="primary"
+          disabled={!nickname}
+          onClick={handleComplete}
+          hasAnimation
+        >
           완료
         </Button>
       </StyledWrapper>

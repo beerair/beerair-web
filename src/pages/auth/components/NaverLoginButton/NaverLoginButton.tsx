@@ -26,6 +26,10 @@ const StyledButton = styled.a`
   background-color: ${BACKGROUND_COLOR};
   color: ${TEXT_COLOR};
 
+  &:active {
+    filter: brightness(80%);
+  }
+
   > p {
     flex: 1;
     font-size: 15px;
