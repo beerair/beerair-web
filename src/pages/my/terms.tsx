@@ -1,4 +1,4 @@
-import { NextPage, GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import styled from '@emotion/styled';
 
 import Header from '@/components/commons/Header';
@@ -6,22 +6,22 @@ import { BackButton } from '@/components/commons/Header/extras';
 import { parseMarkdown } from '@/utils/parseMarkdown';
 import Markdown from '@/components/Markdown';
 
-interface PrivacyPolicyContainerProps {
+interface TermsOfServicePageProps {
   html: string;
 }
 
-const PrivacyPolicyContainer: NextPage<PrivacyPolicyContainerProps> = ({
-  html: privacyPolicyHtml,
-}) => {
+const TermsOfServicePage: NextPage<TermsOfServicePageProps> = ({ html: termsOfServiceHtml }) => {
   return (
-    <StyledPrivacyPolicyContainer>
-      <Header leftExtras={<BackButton />}>개인정보 처리방침</Header>
-      <StyledMarkdown markdown={privacyPolicyHtml} />
-    </StyledPrivacyPolicyContainer>
+    <StyledTermsOfServicePage>
+      <Header leftExtras={<BackButton />}>서비스 정책 약관</Header>
+      <StyledMarkdown markdown={termsOfServiceHtml} />
+    </StyledTermsOfServicePage>
   );
 };
 
-const StyledPrivacyPolicyContainer = styled.div`
+export default TermsOfServicePage;
+
+const StyledTermsOfServicePage = styled.div`
   white-space: pre-line;
   & > section {
     padding: 0 20px;
@@ -41,16 +41,14 @@ const StyledMarkdown = styled(Markdown)`
   padding: 20px;
 `;
 
-export default PrivacyPolicyContainer;
-
-export const getPrivacyPolicyHtml = async () => {
-  const { default: markdown } = await import('contents/privacy-policy.md');
+export const getTermsOfServiceHtml = async () => {
+  const { default: markdown } = await import('contents/terms-of-service.md');
   const { html } = parseMarkdown(markdown);
   return html;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const html = await getPrivacyPolicyHtml();
+  const html = await getTermsOfServiceHtml();
 
   return {
     props: {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header, { HEADER_HEIGHT } from '@/components/commons/Header';
 import { BackButton } from '@/components/commons/Header/extras';
 
-const EtcContainer = () => {
+const EtcPage = () => {
   return (
     <>
       <Header leftExtras={<BackButton />}>기타</Header>
@@ -28,7 +28,7 @@ const EtcContainer = () => {
   );
 };
 
-export default EtcContainer;
+export default EtcPage;
 
 const ListRowContainer = styled.div`
   display: flex;

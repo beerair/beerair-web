@@ -8,12 +8,12 @@ import MyPageBoxButtonList from '@/components/mypage/MyPageBoxButtonList';
 import Spacing from '@/components/commons/Spacing';
 import { level, MYPAGE_BOX_BUTTON_LIST_DATA, MYPAGE_INFO_LIST_DATA } from '@/constants/dummy';
 
-interface MyPageContainerProps {}
+interface MyPagePageProps {}
 
-const MyPageContainer: NextPage<MyPageContainerProps> = () => {
+const MyPagePage: NextPage<MyPagePageProps> = () => {
   return (
     <>
-      <StyledMyPageContainer>
+      <StyledMyPagePage>
         <Spacing size={60} />
         <Bio
           remainRecordCount={0}
@@ -25,15 +25,15 @@ const MyPageContainer: NextPage<MyPageContainerProps> = () => {
         <MyPageInfoList myPageInfoListItems={MYPAGE_INFO_LIST_DATA} />
         <Spacing size={50} />
         <MyPageBoxButtonList myPageBoxButtonListItems={MYPAGE_BOX_BUTTON_LIST_DATA} />
-      </StyledMyPageContainer>
+      </StyledMyPagePage>
       <BottomNavigation />
     </>
   );
 };
 
-export default MyPageContainer;
+export default MyPagePage;
 
-const StyledMyPageContainer = styled.div`
+const StyledMyPagePage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

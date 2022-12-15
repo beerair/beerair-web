@@ -5,21 +5,20 @@ import styled from '@emotion/styled';
 
 import Header from '@/components/commons/Header';
 import { BackButton } from '@/components/commons/Header/extras';
+import SearchInput from '@/components/search/SearchInput';
 
-import SearchInput from './SearchInput/SearchInput';
-
-const SearchList = dynamic(() => import('@/containers/SearchContainer/SearchList'), {
+const SearchList = dynamic(() => import('@/components/search/SearchList'), {
   ssr: false,
 });
 
-const StyledSearchContainer = styled.div`
+const StyledSearchPage = styled.div`
   & > .search-page-header {
     border-bottom: 1px solid ${(p) => p.theme.semanticColor.secondary};
     margin-bottom: 15px;
   }
 `;
 
-const SearchContainer: React.FC = () => {
+const SearchPage: React.FC = () => {
   const [highlightingText, setHighlightingText] = useState('');
   const [, startTransition] = useTransition();
 
@@ -33,14 +32,14 @@ const SearchContainer: React.FC = () => {
 
   return (
     <RecoilRoot>
-      <StyledSearchContainer>
+      <StyledSearchPage>
         <Header leftExtras={<BackButton />} className="search-page-header">
           <SearchInput onChangeHighlightingText={handleChangeHighlightingText} />
         </Header>
         <SearchList type="history" highlightingText={highlightingText} />
-      </StyledSearchContainer>
+      </StyledSearchPage>
     </RecoilRoot>
   );
 };
 
-export default SearchContainer;
+export default SearchPage;
