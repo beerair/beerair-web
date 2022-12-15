@@ -1,8 +1,8 @@
-import { BEER_TYPE, ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types';
+import { ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types-old';
 
-import { IMyPageInfoListItem } from '@/components/mypage/MyPageInfoList';
-import { MyPageBoxButtonListItemProps } from '@/components/mypage/MyPageBoxButtonListItem';
-import { IBeer, ICountry, IFlavor, IReview } from '@/apis';
+import { IBeer, ICountry, IFlavor, IReview } from '@/types';
+import { MyPageBoxButtonListItemProps } from '@/pages/my/components/MyPageBoxButtonListItem';
+import { IMyPageInfoListItem } from '@/pages/my/components/MyPageInfoList';
 
 export const beer: IBeer = {
   id: 1,

@@ -1,13 +1,19 @@
-export type { IMember } from './member';
-export type { IFlavor } from './flavor';
-export type { IUser, IUserLevel } from './user';
-export type { IFeel } from './feel';
-export type { IReview } from './review';
-export type { ILevel } from './level';
-export type { IBeer, IBeerType, BeerType, IBeerListFilter } from './beer';
-export { BEER_TYPE } from './beer';
-export type { IContinent } from './continent';
-export type { ICountry } from './country';
-export type { IRecord } from './record';
-export type { IRequestBeer, IRequestBeerStatus } from './request-beer';
-export { REQUEST_BEER_STATUS } from './request-beer';
+export * from './beers';
+export * from './flavors';
+export * from './country';
+export * from './reviews';
+
+export interface IError {
+  name: string;
+  message: string;
+  reason: number;
+}
+export interface IBaseResponse<T> {
+  data: T;
+}
+
+export interface IBasePaginationResponse<T> extends IBaseResponse<T> {
+  hasNext: boolean;
+  nextCursor: number;
+  resultCount: number;
+}

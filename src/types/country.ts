@@ -1,10 +1,7 @@
-import { IContinent } from ".";
-
 export interface ICountry {
   id: number;
-  nameKor: string;
-  nameEng: string;
-  imageUrl: string;
+  korName: string;
+  engName: string;
   backgroundImageUrl: string;
-  continent?: IContinent;
+  imageUrl: string;
 }

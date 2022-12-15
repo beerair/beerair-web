@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import ModalLayout from './ModalLayout';
 
 export default {
-  title: 'Layouts/ModalLayout',
   component: ModalLayout,
 } as ComponentMeta<typeof ModalLayout>;
 

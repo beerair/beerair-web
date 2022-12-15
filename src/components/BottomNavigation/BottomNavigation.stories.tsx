@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import BottomNavigation from './BottomNavigation';
 
 export default {
-  title: 'Components/BottomNavigation',
   component: BottomNavigation,
 } as ComponentMeta<typeof BottomNavigation>;
 

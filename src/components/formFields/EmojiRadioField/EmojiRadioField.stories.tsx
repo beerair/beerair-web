@@ -6,7 +6,6 @@ import EntityForm from '@/components/EntityForm';
 import EmojiRadioField from './EmojiRadioField';
 
 export default {
-  title: 'FormFields/EmojiRadioField',
   component: EmojiRadioField,
   decorators: [
     (Story) => (

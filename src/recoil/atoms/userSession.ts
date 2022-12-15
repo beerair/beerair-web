@@ -1,4 +1,4 @@
-import { IUser } from '@/types/user';
+import { IUser } from '@/types-old/user';
 import { atom } from 'recoil';
 
 const ATOM_KEY = 'user-session';

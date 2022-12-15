@@ -6,7 +6,6 @@ import EntityForm from '@/components/EntityForm';
 import SwitchField from './SwitchField';
 
 export default {
-  title: 'FormFields/SwitchField',
   component: SwitchField,
   decorators: [
     (Story) => (

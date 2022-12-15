@@ -5,7 +5,7 @@ import { keyframes } from '@emotion/react';
 
 import { EmojiValue } from './EmojiRadioGroup';
 
-import Emoji from '@/components/commons/Emoji';
+import Emoji from '@/components/Emoji';
 
 interface EmojiTransitionViewerProps {
   value: EmojiValue;
