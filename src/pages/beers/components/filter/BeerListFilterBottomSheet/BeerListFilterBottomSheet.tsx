@@ -11,7 +11,7 @@ import { BeerListFilterChipType } from '../BeerListFilterChipList';
 import Tab from '@/components/Tab';
 import BottomSheet from '@/components/BottomSheet';
 import Icon from '@/components/Icon';
-import { IBeerListFilter } from '@/types';
+import { IBeerListFilter } from '@/types-old';
 
 const TAB_ITEMS = ['종류', '나라'];
 

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import Icon from '@/components/Icon';
 import { ellipsis } from '@/styles/common';
-import { IBeerType } from '@/types';
+import { IBeerType } from '@/types-old';
 
 const IMAGE_WIDTH = '70px';
 const CHECK_ICON_WIDTH = '30px';

@@ -5,8 +5,8 @@ import BeerCountryFilterItem from './BeerCountryFilterItem';
 import { $nextBeerListFilterChips } from '../recoil/atoms';
 import { $selectedBeerCountryIds } from '../recoil/selectors';
 
-import { IContinent, ICountry } from '@/types';
-import { useGetCountries } from '@/hooks/queries/country';
+import { IContinent, ICountry } from '@/types-old';
+import { useGetCountries } from '@/apis/countries/getCountries';
 
 interface BeerCountryFilterListProps {
   continentId?: IContinent['id'];

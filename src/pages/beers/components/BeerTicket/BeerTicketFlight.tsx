@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import Icon from '@/components/Icon';
 import { sliceAndUpperCase } from '@/utils/string';
-import { ICountry } from '@/apis';
+import { ICountry } from '@/types';
 
 interface BeerTicketFlightProps {
   departuresCountry: ICountry;

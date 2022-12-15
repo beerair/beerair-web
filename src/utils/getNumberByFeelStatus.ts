@@ -1,4 +1,4 @@
-import { IReview } from '@/apis';
+import { IReview } from '@/types';
 
 export const getNumberByFeelStatus = (feelStatus?: IReview['feelStatus']) => {
   switch (feelStatus) {

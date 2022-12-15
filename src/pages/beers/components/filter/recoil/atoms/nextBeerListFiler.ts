@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 import { BeerListFilterChipType } from '../../BeerListFilterChipList';
 
-import { IBeerListFilter } from '@/types/beer';
+import { IBeerListFilter } from '@/types-old/beer';
 
 export const $nextBeerListFilter = atom<IBeerListFilter>({
   key: 'next-beer-list-filter',

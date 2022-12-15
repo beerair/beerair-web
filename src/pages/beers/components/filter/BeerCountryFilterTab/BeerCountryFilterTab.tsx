@@ -5,7 +5,7 @@ import BeerCountryFilterList from '../BeerCountryFilterList';
 
 import Tab from '@/components/Tab';
 import Swiper from '@/components/Swiper';
-import { useGetContinents } from '@/hooks/queries/continent';
+import { useGetContinents } from '@/apis/continents/getContinents';
 
 const BeerCountryFilterTab = () => {
   const [activatedIndex, setActivatedIndex] = useState(0);

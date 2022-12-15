@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';
 import LoadingIcon from '@/components/LoadingIcon';
 import { requestBeer } from '@/constants/dummy';
-import { REQUEST_BEER_STATUS } from '@/types';
+import { REQUEST_BEER_STATUS } from '@/types-old';
 import RequestedBeerItem from './components/RequestedBeerItem';
 
 const BeerRequestListPage = () => {

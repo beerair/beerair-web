@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { parseISO } from 'date-fns';
 
 import Icon from '@/components/Icon';
-import { IFeel } from '@/types';
+import { IFeel } from '@/types-old';
 
 interface BeerTicketStampProps {
   feel: IFeel;

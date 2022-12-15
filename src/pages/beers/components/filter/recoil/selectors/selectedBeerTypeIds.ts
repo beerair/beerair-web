@@ -2,7 +2,7 @@ import { DefaultValue, selector } from 'recoil';
 
 import { $nextBeerListFilter } from '../atoms';
 
-import { BeerType } from '@/types';
+import { BeerType } from '@/types-old';
 
 const SELECTOR_KEY = 'selected-beer-type-ids';
 

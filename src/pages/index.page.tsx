@@ -2,8 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { prefetchWithSSR } from '@/commons/prefetch';
-import { useGetTest } from '@/hooks/queries/test';
-import { getTest } from '@/networks/test';
+import { getTest, useGetTest } from '@/apis/test/getTest';
 
 const Home: NextPage = () => {
   const { data } = useGetTest();

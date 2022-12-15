@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import BeerInfoBox from './BeerInfoBox';
-import { IBeer } from '@/apis';
+import { IBeer } from '@/types';
 
 const BEER: IBeer = {
   id: 1,

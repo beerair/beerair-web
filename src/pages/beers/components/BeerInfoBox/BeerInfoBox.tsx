@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { IBeer } from '@/apis';
+import { IBeer } from '@/types';
 
 interface Props {
   beerData: IBeer;

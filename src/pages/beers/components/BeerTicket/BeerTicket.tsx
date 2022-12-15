@@ -7,12 +7,12 @@ import BeerTicketFlight from './BeerTicketFlight';
 import BeerTicketStamp from './BeerTicketStamp';
 import BeerTicketSection from './BeerTicketSection';
 
-import { IReview } from '@/apis';
+import { IReview } from '@/types';
 import Icon from '@/components/Icon';
 import { FEEL_MESSAGES } from '@/constants/messages';
-import BeerPhotoLabel from '@/components/beer/BeerPhotoLabel';
 import Emoji from '@/components/Emoji';
 import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
+import BeerPhotoLabel from '../BeerPhotoLabel';
 
 export const BEER_TICKET_WIDTH = 300;
 

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { useSearchHistory } from '../hooks';
+import { useSearchHistory } from '../../hooks';
 
 import SearchList from './SearchList';
 

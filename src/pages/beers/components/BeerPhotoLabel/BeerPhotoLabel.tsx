@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { IBeer } from '@/apis';
+import { IBeer } from '@/types';
 import Icon from '@/components/Icon';
 import { sliceAndUpperCase } from '@/utils/string';
 
