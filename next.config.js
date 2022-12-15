@@ -27,6 +27,7 @@ const nextConfig = {
     },
     outputStandalone: true,
   },
+  pageExtensions: ['page.tsx', 'page.ts'],
   rewrites,
   webpack(config) {
     config.module.rules.push({ test: /\.svg$/, use: ['@svgr/webpack'] });
