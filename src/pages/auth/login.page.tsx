@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import BeginningLayout from '@/components/layouts/BeginningLayout';
+
 import KakaoLoginButton from './components/KakaoLoginButton';
 import NaverLoginButton from './components/NaverLoginButton';
 

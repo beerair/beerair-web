@@ -1,6 +1,6 @@
-import React from 'react';
-import cx from 'classnames';
 import styled from '@emotion/styled';
+import cx from 'classnames';
+import React from 'react';
 
 interface BeerTicketSectionProps {
   bottomBorder?: boolean;

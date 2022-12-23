@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
 import styled from '@emotion/styled';
 import { isNil } from 'lodash';
+import React, { useCallback } from 'react';
 
 import ColorTextBox from '@/components/ColorTextBox';
 import { hideScrollbar } from '@/styles/common';

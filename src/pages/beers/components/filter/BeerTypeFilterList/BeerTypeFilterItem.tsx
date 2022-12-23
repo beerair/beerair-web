@@ -1,5 +1,5 @@
-import { MouseEvent } from 'react';
 import styled from '@emotion/styled';
+import { MouseEvent } from 'react';
 
 import Icon from '@/components/Icon';
 import { ellipsis } from '@/styles/common';

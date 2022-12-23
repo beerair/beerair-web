@@ -1,11 +1,12 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
 import { useRecoilState } from 'recoil';
+
+import Button from '@/components/Button';
 
 import BeerListFilterChipList, { BeerListFilterChipType } from '../BeerListFilterChipList';
 import { $nextBeerListFilter, $nextBeerListFilterChips } from '../recoil/atoms';
 
-import Button from '@/components/Button';
 
 interface BeerListFilterFooterProps {
   onApplyClick: () => void;

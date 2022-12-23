@@ -1,8 +1,10 @@
+import styled from '@emotion/styled';
+import { useState } from 'react';
+
 import Icon from '@/components/Icon';
 import { levels } from '@/constants/dummy';
 import { ILevel } from '@/types-old';
-import styled from '@emotion/styled';
-import { useState } from 'react';
+
 import LevelModal from '../LevelModal';
 import NicknameModifyModal from '../NicknameModifyModal';
 

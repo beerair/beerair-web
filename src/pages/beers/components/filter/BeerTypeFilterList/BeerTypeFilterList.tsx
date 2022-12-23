@@ -1,12 +1,14 @@
-import { useRecoilState } from 'recoil';
 import styled from '@emotion/styled';
+import { useRecoilState } from 'recoil';
+
+import { useGetBeerTypes } from '@/apis/beerTypes/getBeerTypes';
+import { IBeerType } from '@/types-old';
 
 import { $nextBeerListFilterChips } from '../recoil/atoms';
 import { $selectedBeerTypeIds } from '../recoil/selectors';
+
 import BeerTypeFilterItem from './BeerTypeFilterItem';
 
-import { IBeerType } from '@/types-old';
-import { useGetBeerTypes } from '@/apis/beerTypes/getBeerTypes';
 
 /** @note beerType.nameEng이 id의 역할로 사용됨 */
 const BeerTypeFilterList = () => {

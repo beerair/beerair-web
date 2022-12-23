@@ -1,5 +1,6 @@
-import { reviewList } from '@/constants/dummy';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { reviewList } from '@/constants/dummy';
 
 import ReviewList from './ReviewList';
 

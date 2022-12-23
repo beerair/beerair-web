@@ -1,9 +1,9 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
 
+import Icon from '@/components/Icon';
 import { ellipsis } from '@/styles/common';
 import { ICountry } from '@/types-old';
-import Icon from '@/components/Icon';
 
 interface BeerCountryFilterItemProps {
   country: ICountry;

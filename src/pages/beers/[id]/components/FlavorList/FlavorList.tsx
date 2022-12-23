@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { IFlavor } from '@/types';
+
 import FlavorListItem from '../FlavorListItem';
 
 interface FlavorListProps {

@@ -1,7 +1,8 @@
+import styled from '@emotion/styled';
+import Link from 'next/link';
+
 import Icon, { IconNameType } from '@/components/Icon';
 
-import Link from 'next/link';
-import styled from '@emotion/styled';
 
 export interface MyPageBoxButtonListItemProps {
   iconName: IconNameType;

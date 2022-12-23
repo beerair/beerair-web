@@ -6,8 +6,8 @@ import Spacing from '@/components/Spacing';
 import { level, MYPAGE_BOX_BUTTON_LIST_DATA, MYPAGE_INFO_LIST_DATA } from '@/constants/dummy';
 
 import Bio from './components/Bio';
-import MyPageInfoList from './components/MyPageInfoList';
 import MyPageBoxButtonList from './components/MyPageBoxButtonList';
+import MyPageInfoList from './components/MyPageInfoList';
 
 interface MyPagePageProps {}
 

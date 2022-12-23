@@ -1,8 +1,8 @@
 import type { GetServerSideProps, NextPage } from 'next';
 
-import { queryKeyFactory } from '@/commons/queryKeyFactory';
-import { prefetchWithSSR } from '@/commons/prefetch';
 import { getTest, useGetTest } from '@/apis/test/getTest';
+import { prefetchWithSSR } from '@/commons/prefetch';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 
 const Home: NextPage = () => {
   const { data } = useGetTest();

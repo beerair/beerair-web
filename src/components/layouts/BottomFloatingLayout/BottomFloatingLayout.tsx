@@ -1,6 +1,7 @@
-import type { HTMLAttributes } from 'react';
-import Spacing from '@/components/Spacing';
 import styled from '@emotion/styled';
+import type { HTMLAttributes } from 'react';
+
+import Spacing from '@/components/Spacing';
 
 export const BOTTOM_FLOATING_BUTTON_AREA_HEIGHT = 100;
 

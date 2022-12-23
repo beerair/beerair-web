@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import styled from '@emotion/styled';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import Swiper from './Swiper';
 

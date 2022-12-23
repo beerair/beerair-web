@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import { useRecoilState } from 'recoil';
 
-import BeerCountryFilterItem from './BeerCountryFilterItem';
+import { useGetCountries } from '@/apis/countries/getCountries';
+import { IContinent, ICountry } from '@/types-old';
+
 import { $nextBeerListFilterChips } from '../recoil/atoms';
 import { $selectedBeerCountryIds } from '../recoil/selectors';
 
-import { IContinent, ICountry } from '@/types-old';
-import { useGetCountries } from '@/apis/countries/getCountries';
+import BeerCountryFilterItem from './BeerCountryFilterItem';
+
 
 interface BeerCountryFilterListProps {
   continentId?: IContinent['id'];

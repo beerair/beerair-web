@@ -1,5 +1,6 @@
-import { level } from '@/constants/dummy';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { level } from '@/constants/dummy';
 
 import Bio from './Bio';
 

@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Icon from '@/components/Icon';
+
 import Chip from './Chip';
 
 export default {

@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import Modal from '@/components/Modal';
-
 import { ILevel } from '@/types-old';
 
 interface Props {

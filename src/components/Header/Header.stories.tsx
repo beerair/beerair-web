@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 import styled from '@emotion/styled';
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 
-import Header from './Header';
 import { BackButton, CloseButton } from './extras';
+import Header from './Header';
 
 export default {
   component: Header,
