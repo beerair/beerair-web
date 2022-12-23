@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 
 import { IBaseResponse, IBeer, IReview } from '@/types';
+import request from '@/commons/axios';
 
 export interface IGetRecordsByBeer extends IBaseResponse<IReview[]> {}
 
@@ -10,10 +11,15 @@ export interface IGetRecordsByBeer extends IBaseResponse<IReview[]> {}
  */
 
 export const getReviewsByBeer = async (beerId: number) => {
-  const res = await axios.get<IGetRecordsByBeer>(
-    `https://api.beerair.kr/api/v1/reviews?beerId=${beerId}`,
-  );
-  return res.data.data;
+  const res = await request<IGetRecordsByBeer>({
+    method: 'get',
+    url: '/api/v1/reviews',
+    params: {
+      beerId,
+    },
+  });
+
+  return res.data;
 };
 
 // @todo: 페이지네이션 구현
@@ -22,6 +28,7 @@ export const useGetReviewsByBeer = (beerId: IBeer['id'], initialData?: IReview[]
   const result = useQuery(['reviews', beerId], () => getReviewsByBeer(beerId), {
     cacheTime: Infinity,
     initialData,
+    enabled: !!beerId,
   });
 
   return result;
