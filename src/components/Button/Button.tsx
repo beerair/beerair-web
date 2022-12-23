@@ -1,8 +1,11 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import cx from 'classnames';
 import { isNil } from 'lodash';
+import Link from 'next/link';
 import React from 'react';
 
+import { EmotionTheme } from '@/themes';
 import { ColorTheme } from '@/themes/types';
 
 type ButtonType =
@@ -31,15 +34,8 @@ export interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
   iconMargin?: number;
+  href?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-interface StyledButtonProps {
-  buttonType: ButtonType;
-  buttonWidth?: string;
-  buttonMaxWidth?: string;
-  iconMargin: number;
-  hasAnimation?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -57,28 +53,49 @@ const Button: React.FC<ButtonProps> = ({
   iconMargin = 6,
   children,
   onClick,
+  href,
 }) => {
   const width = getWidth(_width);
 
+  const commonProps: StyledButtonProps & Pick<ButtonProps, 'children'> = {
+    buttonType: type,
+    buttonWidth: width,
+    buttonMaxWidth: maxWidth,
+    iconMargin,
+    hasAnimation,
+    disabled,
+    children: (
+      <>
+        {leftAddon && <span className="common-button-icon-wrapper margin-right">{leftAddon}</span>}
+        <span className="common-button-text">{children}</span>
+        {!isNil(count) && <span className="common-button-count">{count}</span>}
+        {rightAddon && <span className="common-button-icon-wrapper margin-left">{rightAddon}</span>}
+      </>
+    ),
+  };
+
+  if (href) {
+    return (
+      <Link href={href} passHref>
+        <StyledLinkButton
+          className={cx([className, line && 'common-button-line'])}
+          {...commonProps}
+        />
+      </Link>
+    );
+  }
+
   return (
     <StyledButton
-      buttonType={type}
-      type={htmlType}
-      buttonWidth={width}
-      buttonMaxWidth={maxWidth}
-      disabled={disabled}
-      hasAnimation={hasAnimation}
       className={cx([className, line && 'common-button-line'])}
-      iconMargin={iconMargin}
+      type={htmlType}
+      {...commonProps}
       onClick={onClick}
-    >
-      {leftAddon && <span className="common-button-icon-wrapper margin-right">{leftAddon}</span>}
-      <span className="common-button-text">{children}</span>
-      {!isNil(count) && <span className="common-button-count">{count}</span>}
-      {rightAddon && <span className="common-button-icon-wrapper margin-left">{rightAddon}</span>}
-    </StyledButton>
+    />
   );
 };
+
+export default Button;
 
 const getWidth = (width?: 'small' | 'large' | string) => {
   switch (width) {
@@ -122,9 +139,18 @@ const getLineColorByType = (type: ButtonType, theme: ColorTheme) => {
 const getFontColorByType = (type: ButtonType, theme: ColorTheme) =>
   ['secondary', 'default'].includes(type) ? theme.color.black100 : theme.color.white;
 
-const StyledButton = styled.button<StyledButtonProps>`
-  background-color: ${({ theme, buttonType }) => getColorByType(buttonType, theme)};
-  color: ${({ theme, buttonType }) => getFontColorByType(buttonType, theme)};
+interface StyledButtonProps {
+  buttonType: ButtonType;
+  buttonWidth?: string;
+  buttonMaxWidth?: string;
+  iconMargin: number;
+  hasAnimation?: boolean;
+  disabled?: boolean;
+}
+
+const buttonStyles = (p: StyledButtonProps & { theme: EmotionTheme }) => css`
+  background-color: ${getColorByType(p.buttonType, p.theme)};
+  color: ${getFontColorByType(p.buttonType, p.theme)};
   min-width: 125px;
   height: 48px;
   border-radius: 200px;
@@ -135,14 +161,14 @@ const StyledButton = styled.button<StyledButtonProps>`
   justify-content: center;
   align-items: center;
   transition: filter transform 0.2s;
-  ${({ buttonWidth }) => (buttonWidth ? ` width: ${buttonWidth};` : '')}
-  ${({ buttonMaxWidth }) => (buttonMaxWidth ? ` max-width: ${buttonMaxWidth};` : '')}
+  ${p.buttonWidth ? ` width: ${p.buttonWidth};` : ''}
+  ${p.buttonMaxWidth ? ` max-width: ${p.buttonMaxWidth};` : ''}
   & > .common-button-icon-wrapper {
     &.margin-right {
-      margin-right: ${({ iconMargin }) => iconMargin}px;
+      margin-right: ${p.iconMargin}px;
     }
     &.margin-left {
-      margin-left: ${({ iconMargin }) => iconMargin}px;
+      margin-left: ${p.iconMargin}px;
     }
     & svg {
       width: 20px;
@@ -164,18 +190,17 @@ const StyledButton = styled.button<StyledButtonProps>`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${({ theme, buttonType }) => getColorByType(buttonType, theme)};
-    color: ${({ theme }) => theme.color.white};
+    background-color: ${getColorByType(p.buttonType, p.theme)};
+    color: ${p.theme.color.white};
   }
   &.common-button-line:not(:disabled) {
-    box-shadow: 0 0 0 2px ${({ theme, buttonType }) => getColorByType(buttonType, theme)};
-    color: ${({ theme, buttonType }) => getColorByType(buttonType, theme)};
-    background-color: ${({ theme, buttonType }) => getLineColorByType(buttonType, theme)};
+    box-shadow: 0 0 0 2px ${getColorByType(p.buttonType, p.theme)};
+    color: ${getColorByType(p.buttonType, p.theme)};
+    background-color: ${getLineColorByType(p.buttonType, p.theme)};
   }
 
-  ${(p) =>
-    !p.disabled &&
-    `
+  ${!p.disabled &&
+  `
     &:active {
       filter: brightness(80%);
       ${p.hasAnimation ? 'transform: scale(1.1)' : ''}
@@ -183,9 +208,16 @@ const StyledButton = styled.button<StyledButtonProps>`
     `}
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme }) => theme.color.grey2};
-    background-color: ${({ theme }) => theme.color.grey4};
+    color: ${p.theme.color.grey2};
+    background-color: ${p.theme.color.grey4};
   }
 `;
 
-export default Button;
+const StyledButton = styled.button<StyledButtonProps>`
+  ${(p) => buttonStyles(p)}
+`;
+
+const StyledLinkButton = styled.a<StyledButtonProps>`
+  ${(p) => buttonStyles(p)}
+  ${(p) => p.disabled && `pointer-events: none;`}
+`;
