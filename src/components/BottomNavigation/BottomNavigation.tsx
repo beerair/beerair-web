@@ -5,51 +5,48 @@ import { useRouter } from 'next/router';
 
 import Icon from '@/components/Icon';
 
-const BOTTOM_NAVIGATION_HEIGHT = 64;
+export const BOTTOM_NAVIGATION_HEIGHT = 64;
 
 export default function BottomNavigation() {
   const router = useRouter();
 
   return (
-    <>
-      <div style={{ height: `${BOTTOM_NAVIGATION_HEIGHT}px` }} />
-      <StyledBottomNavigation>
-        <Link href="/">
-          <a className={cx(`nav-link`, `${router.pathname === '/' && 'active'}`)}>
-            <Icon name={router.pathname === '/' ? 'NavHomeActive' : 'NavHome'} size={36} />
-            <span>홈</span>
-          </a>
-        </Link>
-        <Link href="/beers">
-          <a className={cx(`nav-link`, `${router.pathname === '/beers' && 'active'}`)}>
-            <Icon name={router.pathname === '/beers' ? 'NavBeerActive' : 'NavBeer'} size={36} />
-            <span>맥주목록</span>
-          </a>
-        </Link>
-        <StyledPlusIconButton onClick={() => router.push('/search')}>
-          <Icon name="Plus" size={14} />
-        </StyledPlusIconButton>
+    <StyledBottomNavigation>
+      <Link href="/">
+        <a className={cx(`nav-link`, `${['/', '/home'].includes(router.pathname) && 'active'}`)}>
+          <Icon
+            name={['/', '/home'].includes(router.pathname) ? 'NavHomeActive' : 'NavHome'}
+            size={36}
+          />
+          <span>홈</span>
+        </a>
+      </Link>
+      <Link href="/beers">
+        <a className={cx(`nav-link`, `${router.pathname === '/beers' && 'active'}`)}>
+          <Icon name={router.pathname === '/beers' ? 'NavBeerActive' : 'NavBeer'} size={36} />
+          <span>맥주목록</span>
+        </a>
+      </Link>
+      <StyledPlusIconButton onClick={() => router.push('/search')}>
+        <Icon name="Plus" size={14} />
+      </StyledPlusIconButton>
 
-        <Link href="/records/my">
-          <a className={cx(`nav-link`, `${router.pathname === '/records/my' && 'active'}`)}>
-            <Icon
-              name={router.pathname === '/records/my' ? 'NavTravelActive' : 'NavTravel'}
-              size={36}
-            />
-            <span>여행목록</span>
-          </a>
-        </Link>
-        <Link href="/profile">
-          <a className={cx(`nav-link`, `${router.pathname === '/profile' && 'active'}`)}>
-            <Icon
-              name={router.pathname === '/profile' ? 'NavMyPageActive' : 'NavMyPage'}
-              size={36}
-            />
-            <span>프로필</span>
-          </a>
-        </Link>
-      </StyledBottomNavigation>
-    </>
+      <Link href="/records/my">
+        <a className={cx(`nav-link`, `${router.pathname === '/records/my' && 'active'}`)}>
+          <Icon
+            name={router.pathname === '/records/my' ? 'NavTravelActive' : 'NavTravel'}
+            size={36}
+          />
+          <span>여행목록</span>
+        </a>
+      </Link>
+      <Link href="/profile">
+        <a className={cx(`nav-link`, `${router.pathname === '/profile' && 'active'}`)}>
+          <Icon name={router.pathname === '/profile' ? 'NavMyPageActive' : 'NavMyPage'} size={36} />
+          <span>프로필</span>
+        </a>
+      </Link>
+    </StyledBottomNavigation>
   );
 }
 
