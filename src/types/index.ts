@@ -1,6 +1,8 @@
 export * from './beers';
-export * from './flavors';
 export * from './country';
+export * from './flavors';
+export * from './levels';
+export * from './members';
 export * from './reviews';
 
 export interface IError {
