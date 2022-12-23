@@ -1,10 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
 import styled from '@emotion/styled';
 import cx from 'classnames';
+import Link from 'next/link';
+import React from 'react';
 import { InViewHookResponse } from 'react-intersection-observer';
 
 import { IRecord } from '@/types-old';
+
 import RecordListItem from '../RecordListItem';
 
 interface RecordListProps {

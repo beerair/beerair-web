@@ -1,12 +1,12 @@
 import { ThemeProvider } from '@emotion/react';
-import { RecoilRoot } from 'recoil';
 import type { AppProps } from 'next/app';
 import { Hydrate } from 'react-query';
+import { RecoilRoot } from 'recoil';
 
+import MainLayout from '@/components/layouts/MainLayout';
+import ReactQueryClientProvider from '@/components/QueryClientProvider';
 import { theme, GlobalStyle } from '@/themes';
 import awesome from '@/utils/awesome';
-import ReactQueryClientProvider from '@/components/QueryClientProvider';
-import MainLayout from '@/components/layouts/MainLayout';
 
 awesome();
 

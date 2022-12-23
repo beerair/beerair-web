@@ -1,8 +1,10 @@
-import BottomFloatingLayout from '@/components/layouts/BottomFloatingLayout';
-import type { HTMLAttributes } from 'react';
-import Icon from '@/components/Icon';
-import Link from 'next/link';
 import styled from '@emotion/styled';
+import Link from 'next/link';
+import type { HTMLAttributes } from 'react';
+
+import Icon from '@/components/Icon';
+import BottomFloatingLayout from '@/components/layouts/BottomFloatingLayout';
+
 
 export const BOTTOM_FLOATING_BUTTON_AREA_HEIGHT = 100;
 

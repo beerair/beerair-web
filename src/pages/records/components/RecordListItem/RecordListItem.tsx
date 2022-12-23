@@ -1,12 +1,12 @@
-import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
+import React, { forwardRef } from 'react';
 
-import { IRecord } from '@/types-old';
-import Icon from '@/components/Icon';
 import Emoji from '@/components/Emoji';
-import { sliceAndUpperCase } from '@/utils/string';
+import Icon from '@/components/Icon';
 import BeerTicketField from '@/pages/beers/components/BeerTicket/BeerTicketField';
+import { IRecord } from '@/types-old';
+import { sliceAndUpperCase } from '@/utils/string';
 
 interface RecordListItemProps {
   record: IRecord;

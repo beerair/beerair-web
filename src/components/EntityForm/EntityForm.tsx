@@ -1,3 +1,4 @@
+import { DevTool } from '@hookform/devtools';
 import React, { useCallback, useEffect } from 'react';
 import {
   FormProvider,
@@ -7,7 +8,6 @@ import {
   SubmitHandler,
   UseFormProps,
 } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
 
 export interface EntityFormProps extends UseFormProps {
   onlyModifiedFields?: boolean;

@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 
-import Icon from '@/components/Icon';
 import Button from '@/components/Button';
+import Icon from '@/components/Icon';
 
 const BeerRequestCompletePage = () => {
   const router = useRouter();

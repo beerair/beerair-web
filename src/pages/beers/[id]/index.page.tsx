@@ -1,28 +1,28 @@
+import styled from '@emotion/styled';
 import { GetServerSideProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { BackButton, ShareButton } from '@/components/Header/extras';
-
-import BeerInfoBox from '@/pages/beers/components/BeerInfoBox';
 import BottomFloatingButtonArea from '@/components/BottomFloatingButtonArea';
 import Button from '@/components/Button';
 import Header from '@/components/Header';
+import { BackButton, ShareButton } from '@/components/Header/extras';
 import Icon from '@/components/Icon';
-import { ToastContainer } from 'react-toastify';
-import { share } from '@/utils/share';
-import styled from '@emotion/styled';
 import { useScroll } from '@/hooks';
+import BeerInfoBox from '@/pages/beers/components/BeerInfoBox';
 import { IBeer, IFlavor, IReview } from '@/types';
+import { share } from '@/utils/share';
 
-import LikeBeerToggleButton from '../components/LikeBeerToggleButton';
 import { getBeer, useGetBeer } from '../../../apis/beers/getBeer';
 import { getFlavors, useGetFlavors } from '../../../apis/flavors/getFlavors';
 import { getReviewsByBeer, useGetReviewsByBeer } from '../../../apis/review/getReviewsByBeer';
+import LikeBeerToggleButton from '../components/LikeBeerToggleButton';
+
 import AirPort from './components/AirPort';
-import ReviewList from './components/ReviewList';
 import FlavorList from './components/FlavorList';
+import ReviewList from './components/ReviewList';
 
 const FLAVORS_LIMIT = 3;
 

@@ -1,6 +1,6 @@
+import { isNil } from 'lodash';
 import React, { useMemo } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { isNil } from 'lodash';
 
 import MultiSelect, { SelectOption } from './MultiSelect';
 

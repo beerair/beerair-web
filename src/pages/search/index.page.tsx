@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
+import dynamic from 'next/dynamic';
 import React, { useCallback, useState, useTransition } from 'react';
 import { RecoilRoot } from 'recoil';
-import dynamic from 'next/dynamic';
-import styled from '@emotion/styled';
 
 import Header from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';

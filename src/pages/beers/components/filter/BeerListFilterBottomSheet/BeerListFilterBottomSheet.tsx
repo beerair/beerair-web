@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
 import styled from '@emotion/styled';
+import { useEffect } from 'react';
 import { RecoilRoot, useRecoilState, useResetRecoilState } from 'recoil';
 
-import BeerListFilterFooter from '../BeerListFilterFooter';
-import BeerTypeFilterList from '../BeerTypeFilterList';
-import BeerCountryFilterTab from '../BeerCountryFilterTab';
-import { $nextBeerListFilter, $nextBeerListFilterChips } from '../recoil/atoms';
-import { BeerListFilterChipType } from '../BeerListFilterChipList';
-
-import Tab from '@/components/Tab';
 import BottomSheet from '@/components/BottomSheet';
 import Icon from '@/components/Icon';
+import Tab from '@/components/Tab';
 import { IBeerListFilter } from '@/types-old';
+
+import BeerCountryFilterTab from '../BeerCountryFilterTab';
+import { BeerListFilterChipType } from '../BeerListFilterChipList';
+import BeerListFilterFooter from '../BeerListFilterFooter';
+import BeerTypeFilterList from '../BeerTypeFilterList';
+import { $nextBeerListFilter, $nextBeerListFilterChips } from '../recoil/atoms';
+
 
 const TAB_ITEMS = ['종류', '나라'];
 

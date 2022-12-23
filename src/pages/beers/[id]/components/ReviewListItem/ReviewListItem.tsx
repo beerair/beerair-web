@@ -1,13 +1,12 @@
-import { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { parseISO } from 'date-fns';
-
-import Emoji from '@/components/Emoji';
-import Badge from '@/components/Chip';
-import { formatDateDiff } from '@/utils/formatDateDiff';
-import { IReview } from '@/types';
-
 import { isNil } from 'lodash';
+import { forwardRef } from 'react';
+
+import Badge from '@/components/Chip';
+import Emoji from '@/components/Emoji';
+import { IReview } from '@/types';
+import { formatDateDiff } from '@/utils/formatDateDiff';
 import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
 
 export interface Props extends Partial<IReview> {

@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { BEER_TYPE } from '@/types-old/beer';
+
 import BeerListFilterChipList from './BeerListFilterChipList';
 
-import { BEER_TYPE } from '@/types-old/beer';
 
 export default {
   component: BeerListFilterChipList,

@@ -1,9 +1,9 @@
-import { ChangeEvent, useState } from 'react';
-import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
+import { ChangeEvent, useState } from 'react';
 
-import BeginningLayout from '@/components/layouts/BeginningLayout';
 import Button from '@/components/Button';
+import BeginningLayout from '@/components/layouts/BeginningLayout';
 
 /** @todo api 연동 */
 const SignUpPage = () => {

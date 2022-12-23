@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
-import LevelModal from './LevelModal';
+
 import { levels } from '@/constants/dummy';
+
+import LevelModal from './LevelModal';
 
 export default {
   component: LevelModal,

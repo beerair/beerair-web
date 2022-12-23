@@ -1,5 +1,6 @@
-import { MYPAGE_BOX_BUTTON_LIST_DATA } from '@/constants/dummy';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { MYPAGE_BOX_BUTTON_LIST_DATA } from '@/constants/dummy';
 
 import MyPageBoxButtonList from './MyPageBoxButtonList';
 

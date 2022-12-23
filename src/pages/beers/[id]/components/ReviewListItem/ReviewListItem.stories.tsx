@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ReviewListItem from './ReviewListItem';
 import { review } from '@/constants/dummy';
+
+import ReviewListItem from './ReviewListItem';
 
 export default {
   component: ReviewListItem,

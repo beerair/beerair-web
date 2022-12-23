@@ -1,10 +1,11 @@
+import styled from '@emotion/styled';
 import { useCallback, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import styled from '@emotion/styled';
+
+import { EmotionTheme } from '@/themes';
 
 import { TabProps } from './Tab';
 
-import { EmotionTheme } from '@/themes';
 
 export const TAB_ITEM_MARGIN_LEFT = 10;
 

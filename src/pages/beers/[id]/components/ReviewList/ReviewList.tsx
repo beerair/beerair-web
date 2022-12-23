@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-
-import { IReview } from '@/types';
 import { Ref } from 'react';
-import { $userSession } from '@/recoil/atoms';
 import { useRecoilValue } from 'recoil';
+
+import { $userSession } from '@/recoil/atoms';
+import { IReview } from '@/types';
 
 import ReviewListItem from '../ReviewListItem';
 

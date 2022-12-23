@@ -1,11 +1,12 @@
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+
+import Emoji from '@/components/Emoji';
 
 import { EmojiValue } from './EmojiRadioGroup';
 
-import Emoji from '@/components/Emoji';
 
 interface EmojiTransitionViewerProps {
   value: EmojiValue;

@@ -1,4 +1,5 @@
 import { ComponentMeta } from '@storybook/react';
+
 import LikeBeerToggleButton from '.';
 
 export default {

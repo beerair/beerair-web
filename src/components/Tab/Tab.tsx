@@ -1,10 +1,11 @@
-import { useState, useEffect, ReactNode } from 'react';
 import styled from '@emotion/styled';
+import { useState, useEffect, ReactNode } from 'react';
+
+import { hideScrollbar } from '@/styles/common';
 
 import { useScrollToTabItem } from './hooks';
 import TabItem from './TabItem';
 
-import { hideScrollbar } from '@/styles/common';
 
 type TabType = 'primary' | 'secondary';
 type TabSize = 'small' | 'large';

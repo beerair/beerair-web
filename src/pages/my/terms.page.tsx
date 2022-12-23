@@ -1,10 +1,10 @@
-import { GetStaticProps, NextPage } from 'next';
 import styled from '@emotion/styled';
+import { GetStaticProps, NextPage } from 'next';
 
 import Header from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';
-import { parseMarkdown } from '@/utils/parseMarkdown';
 import Markdown from '@/components/Markdown';
+import { parseMarkdown } from '@/utils/parseMarkdown';
 
 interface TermsOfServicePageProps {
   html: string;

@@ -1,8 +1,9 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
+
+import { IFlavor } from '@/types';
 
 import LikeBadge from './LikeBadge';
-import { IFlavor } from '@/types';
 
 export interface IFlavorProps {
   content: IFlavor['content'];

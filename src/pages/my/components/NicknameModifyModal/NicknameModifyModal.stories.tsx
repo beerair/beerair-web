@@ -11,7 +11,13 @@ const Template: ComponentStory<typeof NicknameModifyModal> = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <NicknameModifyModal open={isOpen} closeModal={() => setIsOpen(false)} onSubmit={() => {}} />
+    <NicknameModifyModal
+      open={isOpen}
+      closeModal={() => setIsOpen(false)}
+      onSubmit={() => {
+        // TODO
+      }}
+    />
   );
 };
 

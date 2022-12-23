@@ -1,9 +1,9 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
 
 import Icon from '@/components/Icon';
-import { sliceAndUpperCase } from '@/utils/string';
 import { ICountry } from '@/types';
+import { sliceAndUpperCase } from '@/utils/string';
 
 interface BeerTicketFlightProps {
   departuresCountry: ICountry;

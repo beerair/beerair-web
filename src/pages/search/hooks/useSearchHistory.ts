@@ -1,9 +1,10 @@
+import { uniq } from 'lodash';
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-import { uniq } from 'lodash';
+
+import { config } from '@/constants/config';
 
 import { $searchHistories } from '../atoms';
-import { config } from '@/constants/config';
 
 const useSearchHistory = () => {
   const [searchHistories, setSearchHistories] = useRecoilState($searchHistories);

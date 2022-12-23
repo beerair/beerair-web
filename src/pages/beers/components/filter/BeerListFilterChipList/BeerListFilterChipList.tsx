@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
+import { hideScrollbar } from '@/styles/common';
+
 import BeerListFilterChip from './BeerListFilterChip';
 
-import { hideScrollbar } from '@/styles/common';
 
 export type BeerListFilterChipType = {
   id: number | string;

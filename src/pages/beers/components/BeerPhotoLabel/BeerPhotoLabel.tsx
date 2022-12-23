@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
 
-import { IBeer } from '@/types';
 import Icon from '@/components/Icon';
+import { IBeer } from '@/types';
 import { sliceAndUpperCase } from '@/utils/string';
 
 interface BeerPhotoLabelProps {

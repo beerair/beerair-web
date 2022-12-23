@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useState } from 'react';
+
+import Swiper from '../Swiper';
 
 import Tab from './Tab';
-import Swiper from '../Swiper';
 
 export default {
   component: Tab,

@@ -1,18 +1,20 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
+import React from 'react';
+
+
+import Emoji from '@/components/Emoji';
+import Icon from '@/components/Icon';
+import { FEEL_MESSAGES } from '@/constants/messages';
+import { IReview } from '@/types';
+import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
+
+import BeerPhotoLabel from '../BeerPhotoLabel';
 
 import BeerTicketField from './BeerTicketField';
 import BeerTicketFlight from './BeerTicketFlight';
-import BeerTicketStamp from './BeerTicketStamp';
 import BeerTicketSection from './BeerTicketSection';
-
-import { IReview } from '@/types';
-import Icon from '@/components/Icon';
-import { FEEL_MESSAGES } from '@/constants/messages';
-import Emoji from '@/components/Emoji';
-import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
-import BeerPhotoLabel from '../BeerPhotoLabel';
+import BeerTicketStamp from './BeerTicketStamp';
 
 export const BEER_TICKET_WIDTH = 300;
 

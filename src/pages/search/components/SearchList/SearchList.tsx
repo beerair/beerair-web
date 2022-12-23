@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-import SearchItem, { SearchIconType, DEFAULT_ICON_TYPE } from '../SearchItem';
-import { useSearchHistory } from '../../hooks';
 import { $addSearchHistory } from '../../atoms';
+import { useSearchHistory } from '../../hooks';
+import SearchItem, { SearchIconType, DEFAULT_ICON_TYPE } from '../SearchItem';
 
 interface SearchListProps {
   type?: SearchIconType;

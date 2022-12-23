@@ -1,11 +1,12 @@
-import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
+import { useMemo, useState } from 'react';
+
+import { useGetContinents } from '@/apis/continents/getContinents';
+import Swiper from '@/components/Swiper';
+import Tab from '@/components/Tab';
 
 import BeerCountryFilterList from '../BeerCountryFilterList';
 
-import Tab from '@/components/Tab';
-import Swiper from '@/components/Swiper';
-import { useGetContinents } from '@/apis/continents/getContinents';
 
 const BeerCountryFilterTab = () => {
   const [activatedIndex, setActivatedIndex] = useState(0);

@@ -1,5 +1,6 @@
-import { REQUEST_BEER_STATUS } from '@/types-old';
 import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { REQUEST_BEER_STATUS } from '@/types-old';
 
 import RequestedBeerItem from './RequestedBeerItem';
 

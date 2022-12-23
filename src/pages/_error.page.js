@@ -1,5 +1,5 @@
-import NextErrorComponent from 'next/error';
 import { captureException, flush } from '@sentry/nextjs';
+import NextErrorComponent from 'next/error';
 
 const AppError = ({ statusCode, hasGetInitialPropsRun, err }) => {
   if (!hasGetInitialPropsRun && err) {

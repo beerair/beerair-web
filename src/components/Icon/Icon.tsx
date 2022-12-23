@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import { SVGProps } from 'react';
 import { css } from '@emotion/react';
+import { SVGProps } from 'react';
 
 import * as icon from '@/assets/icon';
-import { ColorTheme } from '@/themes/types';
 import { theme } from '@/themes';
+import { ColorTheme } from '@/themes/types';
 
 export type IconNameType = keyof typeof icon;
 export type ColorThemeNameType = keyof ColorTheme['color'];
