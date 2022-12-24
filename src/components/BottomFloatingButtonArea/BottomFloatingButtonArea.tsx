@@ -5,7 +5,6 @@ import type { HTMLAttributes } from 'react';
 import Icon from '@/components/Icon';
 import BottomFloatingLayout from '@/components/layouts/BottomFloatingLayout';
 
-
 export const BOTTOM_FLOATING_BUTTON_AREA_HEIGHT = 100;
 
 interface BottomFloatingButtonAreaProps extends HTMLAttributes<HTMLDivElement> {

@@ -1,9 +1,10 @@
-import { IUser } from '@/types-old/user';
 import { atom } from 'recoil';
+
+import { IMember } from '@/types';
 
 const ATOM_KEY = 'user-session';
 
-const $userSession = atom<IUser | undefined>({
+const $userSession = atom<IMember | undefined>({
   key: ATOM_KEY,
   default: undefined,
 });

@@ -1,8 +1,16 @@
-import { ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types-old';
-
-import { IBeer, ICountry, IFlavor, IReview } from '@/types';
 import { MyPageBoxButtonListItemProps } from '@/pages/my/components/MyPageBoxButtonListItem';
 import { IMyPageInfoListItem } from '@/pages/my/components/MyPageInfoList';
+import { IBeer, ICountry, IFlavor, IMember, IReview } from '@/types';
+import { ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types-old';
+
+export const user: IMember = {
+  email: 'beerair.official@gmail.com',
+  id: 'c4328f0675834f8687b17f0718146fa9',
+  levelImage: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/MEMBER/LEVEL/5.png',
+  nickname: '맥주아저씨',
+  profileUrl: 'https://picsum.photos/200/300',
+  tier: 5,
+};
 
 export const beer: IBeer = {
   id: 1,

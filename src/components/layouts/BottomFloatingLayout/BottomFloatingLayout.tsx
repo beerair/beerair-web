@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import type { HTMLAttributes } from 'react';
 
-import Spacing from '@/components/Spacing';
-
 export const BOTTOM_FLOATING_BUTTON_AREA_HEIGHT = 100;
 
 interface BottomFloatingLayoutProps extends HTMLAttributes<HTMLDivElement> {
@@ -18,12 +16,9 @@ const BottomFloatingLayout: React.FC<BottomFloatingLayoutProps> = ({
   ...rest
 }) => {
   return (
-    <>
-      <Spacing size={BOTTOM_FLOATING_BUTTON_AREA_HEIGHT + bottomOffset} />
-      <StyledBottomFloatingButton className={className} bottomOffset={bottomOffset} {...rest}>
-        {children}
-      </StyledBottomFloatingButton>
-    </>
+    <StyledBottomFloatingButton className={className} bottomOffset={bottomOffset} {...rest}>
+      {children}
+    </StyledBottomFloatingButton>
   );
 };
 
