@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { useQuery } from 'react-query';
 
-import { IBaseResponse, IBeer, IFlavor } from '@/types';
 import request from '@/commons/axios';
+import { IBaseResponse, IBeer, IFlavor } from '@/types';
 
 export type IGetFlavorsResponseData = IBaseResponse<IFlavor[]>;
 

@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { useQuery } from 'react-query';
 
-import { IBaseResponse, IBeer } from '@/types';
 import request from '@/commons/axios';
+import { IBaseResponse, IBeer } from '@/types';
 
 interface IGetBeerResponseData extends IBaseResponse<IBeer> {}
 
