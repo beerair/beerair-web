@@ -2,11 +2,10 @@ import styled from '@emotion/styled';
 import { parseISO } from 'date-fns';
 import React, { useMemo } from 'react';
 
-import Icon from '@/components/Icon';
-import { IFeel } from '@/types-old';
+import Icon, { IconNameType } from '@/components/Icon';
 
 interface BeerTicketStampProps {
-  feel: IFeel;
+  feel: number;
   recordedAt: string;
 }
 
@@ -26,7 +25,7 @@ const BeerTicketStamp: React.FC<BeerTicketStampProps> = ({ feel, recordedAt }) =
   return (
     <StyledBeerTicketStamp iconTop={top} iconLeft={left}>
       <Icon name="World" width="160px" height="80px" />
-      <Icon name={`Stamp${feel}`} size={124} className="ticket-stamp" />
+      <Icon name={`Stamp${feel}` as IconNameType} size={124} className="ticket-stamp" />
     </StyledBeerTicketStamp>
   );
 };

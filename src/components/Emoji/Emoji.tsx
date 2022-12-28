@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { isNil } from 'lodash';
 
 import Icon from '@/components/Icon';
+import { IFeelStatus } from '@/types';
 
 const getEmoji = (feel?: number) => {
   switch (feel) {
@@ -19,7 +20,7 @@ const getEmoji = (feel?: number) => {
 };
 
 interface EmojiProps {
-  feel?: number;
+  feel?: IFeelStatus;
   className?: string;
   size?: number;
 }

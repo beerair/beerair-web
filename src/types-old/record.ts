@@ -1,11 +1,10 @@
 import { IBeer } from './beer';
-import { IFeel } from './feel';
 import { IFlavor } from './flavor';
 
 export interface IRecord {
   id: number;
   content: string;
-  feel: IFeel;
+  feel: 1 | 2 | 3 | 4 | 5;
   imageUrl: string;
   memberRecordDto: any;
   createdAt: string;

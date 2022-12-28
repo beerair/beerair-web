@@ -23,6 +23,6 @@ export const 티켓이랑도장 = Template.bind({});
 
 export const 티켓이랑도장2 = Template.bind({});
 티켓이랑도장2.args = {
-  review: { ...review, feel: 5, recodedAt: new Date(2022, 1, 1) } as any,
+  review: { ...review, feelStatus: 1, createdAt: new Date(2022, 1, 1).toISOString() },
   type: 'stamp',
 };

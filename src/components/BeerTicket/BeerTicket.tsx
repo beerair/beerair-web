@@ -2,12 +2,10 @@ import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
 import React from 'react';
 
-
 import Emoji from '@/components/Emoji';
 import Icon from '@/components/Icon';
 import { FEEL_MESSAGES } from '@/constants/messages';
 import { IReview } from '@/types';
-import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
 
 import BeerPhotoLabel from '../BeerPhotoLabel';
 
@@ -25,17 +23,25 @@ interface BeerTicketProps {
   className?: string;
 }
 
+// TODO: 반응형 너비 대응
 const BeerTicket: React.FC<BeerTicketProps> = ({
   review,
   type = 'default',
   id = '',
   className,
 }) => {
+  const getBeerTicketCode = () => {
+    const length = 3;
+    return `BR118${
+      review.id.length > length ? review.id.slice(0, length) : review.id.padStart(length, '0')
+    }`;
+  };
+
   return (
     <StyledBeerTicket className={className} id={id}>
       <header className="beer-ticket-header">
         <Icon name="Logo" semanticColor="primary" size={60} />
-        <span className="barlow-small">{`BR118${review.id.toString().padStart(3, '0')}`}</span>
+        <span className="beer-ticket-code">{getBeerTicketCode()}</span>
       </header>
       <BeerPhotoLabel scale={0.8} beer={review.beer} background={review.imageUrl} />
       <BeerTicketSection>
@@ -60,21 +66,14 @@ const BeerTicket: React.FC<BeerTicketProps> = ({
       </BeerTicketSection>
       {type === 'stamp' ? (
         <BeerTicketSection>
-          <BeerTicketStamp
-            feel={getNumberByFeelStatus(review.feelStatus)}
-            recordedAt={review.createdAt}
-          />
+          <BeerTicketStamp feel={review.feelStatus} recordedAt={review.createdAt} />
         </BeerTicketSection>
       ) : (
         <>
           <BeerTicketSection bottomBorder>
             <BeerTicketField title="feel" className="beer-ticket-feel">
-              <Emoji
-                feel={getNumberByFeelStatus(review.feelStatus)}
-                size={24}
-                className="ticket-feel-emoji"
-              />
-              <p>{FEEL_MESSAGES[getNumberByFeelStatus(review.feelStatus)]}</p>
+              <Emoji feel={review.feelStatus} size={24} className="ticket-feel-emoji" />
+              <p>{FEEL_MESSAGES[review.feelStatus]}</p>
             </BeerTicketField>
             <BeerTicketField title="taste">
               {review.flavors.map((flavor) => (
@@ -104,8 +103,7 @@ const StyledBeerTicket = styled.article`
   width: ${BEER_TICKET_WIDTH}px;
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 16px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 
   & .beer-ticket-header {
     display: flex;
@@ -113,7 +111,7 @@ const StyledBeerTicket = styled.article`
     align-items: center;
     padding: 11px 24px 10px 24px;
 
-    & .barlow-small {
+    & .beer-ticket-code {
       ${({ theme }) => theme.fonts.BarlowSmall}
       color: ${({ theme }) => theme.semanticColor.primary};
     }

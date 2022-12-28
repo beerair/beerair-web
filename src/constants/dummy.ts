@@ -212,7 +212,7 @@ export const country: ICountry = {
 export const review: IReview = {
   id: 'c3a3251a56bb4440ab04b0b0f64a196f',
   content: '리뷰리뷰',
-  feelStatus: 'GOOD',
+  feelStatus: 5,
   imageUrl: '',
   createdAt: '2022-09-17T12:42:30',
   member: {
@@ -234,7 +234,7 @@ export const reviewList: IReview[] = [
   {
     id: 'c3a3251a56bb4440ab04b0b0f64a196f',
     content: '리뷰리뷰',
-    feelStatus: 'GOOD',
+    feelStatus: 5,
     imageUrl: '',
     createdAt: '2022-09-17T12:42:30',
     member: {
@@ -254,7 +254,7 @@ export const reviewList: IReview[] = [
   {
     id: 'ea8bb35a04c2423a95ac11e46531fb73',
     content: 'string',
-    feelStatus: 'BAD',
+    feelStatus: 3,
     imageUrl: '',
     createdAt: '2022-09-09T17:48:16',
     member: {

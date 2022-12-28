@@ -33,6 +33,8 @@ const BeerTicketFlight: React.FC<BeerTicketFlightProps> = ({
   );
 };
 
+export default BeerTicketFlight;
+
 const StyledBeerTicketFlight = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.color.grey0};
@@ -56,5 +58,3 @@ const StyledBeerTicketFlight = styled.div`
     text-align: center;
   }
 `;
-
-export default BeerTicketFlight;

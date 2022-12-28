@@ -1,6 +1,4 @@
 export type { IFlavor } from './flavor';
-export type { IFeel } from './feel';
-export type { IReview } from './review';
 export type { ILevel } from './level';
 export type { IBeer, IBeerType, BeerType, IBeerListFilter } from './beer';
 export { BEER_TYPE } from './beer';

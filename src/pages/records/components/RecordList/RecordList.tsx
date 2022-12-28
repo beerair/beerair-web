@@ -13,6 +13,7 @@ interface RecordListProps {
   lastItemRef?: InViewHookResponse['ref'];
 }
 
+// TODO: Record -> Review로 수정
 const RecordList: React.FC<RecordListProps> = ({ records, lastItemRef }) => {
   return (
     <StyledRecordList>

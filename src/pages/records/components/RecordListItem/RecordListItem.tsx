@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import { format, parseISO } from 'date-fns';
 import React, { forwardRef } from 'react';
 
+import BeerTicketField from '@/components/BeerTicket/BeerTicketField';
 import Emoji from '@/components/Emoji';
 import Icon from '@/components/Icon';
-import BeerTicketField from '@/pages/beers/components/BeerTicket/BeerTicketField';
 import { IRecord } from '@/types-old';
 import { sliceAndUpperCase } from '@/utils/string';
 
@@ -17,6 +17,7 @@ interface StyledRecordListItemProps {
   ticketBackground?: string;
 }
 
+// TODO: Record -> Review로 수정
 const RecordListItem = forwardRef<HTMLDivElement, RecordListItemProps>(
   ({ record, className }, ref) => {
     return (
