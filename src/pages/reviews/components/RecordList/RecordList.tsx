@@ -18,7 +18,8 @@ const RecordList: React.FC<RecordListProps> = ({ records, lastItemRef }) => {
   return (
     <StyledRecordList>
       {records.map((record, i) => (
-        <Link href={`/record/ticket/${record.id}`} passHref key={record.id}>
+        // TODO : ROUTE_PATH로 수정
+        <Link href={`/reviews/ticket/${record.id}`} passHref key={record.id}>
           <a
             className={cx(['records-list-item', i === 0 && records.length === 1 && 'single-item'])}
           >

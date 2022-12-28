@@ -4,6 +4,7 @@ import React, { useCallback, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import Icon from '@/components/Icon';
+import { ROUTE_PATH } from '@/constants/routes';
 
 import { $addSearchHistory } from '../../atoms';
 
@@ -65,9 +66,13 @@ const SearchInput: React.FC<SearchInputProps> = ({
          * TODO: 기존 beer list 페이지에서 설정한 filter 유지되도록 refactoring 필요
          * https://github.com/beerair/beerair-web/issues/100
          */
-        router.push(`/beers?query=${encodeURI(searchText)}`).then(() => {
-          // TODO
-        });
+        router
+          .push(ROUTE_PATH.BEERS.HOME, {
+            query: encodeURI(searchText),
+          })
+          .then(() => {
+            // TODO
+          });
       }
     },
     [searchText, addSearchHistory, router],

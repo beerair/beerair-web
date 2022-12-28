@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import Header, { HEADER_HEIGHT } from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const EtcPage = () => {
   return (
@@ -15,12 +16,12 @@ const EtcPage = () => {
           </a>
         </ListRow>
         <ListRow>
-          <Link href="/profile/terms" passHref>
+          <Link href={ROUTE_PATH.MY.TERMS} passHref>
             <a>서비스 정책 약관</a>
           </Link>
         </ListRow>
         <ListRow>
-          <Link href="/profile/privacy-policy" passHref>
+          <Link href={ROUTE_PATH.MY.PRIVACY_POLICY} passHref>
             <a>개인정보 처리방침</a>
           </Link>
         </ListRow>

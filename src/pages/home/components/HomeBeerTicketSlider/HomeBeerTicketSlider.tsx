@@ -18,6 +18,7 @@ const HomeBeerTicketSlider = ({ reviews, className }: HomeBeerTicketSliderProps)
   if (reviews.length === 1) {
     return (
       <StyledHomeBeerTicketWrapper className={className}>
+        {/* TODO: ROUTE_PATH 상수로 수정 */}
         <Link href={`/review/ticket/${reviews[0].id}`} passHref>
           <a>
             <BeerTicket review={reviews[0]} type="stamp" className="beer-ticket" />
@@ -40,6 +41,7 @@ const HomeBeerTicketSlider = ({ reviews, className }: HomeBeerTicketSliderProps)
     >
       {reviews.map((review: IReview) => (
         <StyledHomeBeerTicketWrapper key={review.id}>
+          {/* TODO: ROUTE_PATH 상수로 수정 */}
           <Link href={`/review/ticket/${review.id}`}>
             <a>
               <BeerTicket review={review} type="stamp" className="beer-ticket" />

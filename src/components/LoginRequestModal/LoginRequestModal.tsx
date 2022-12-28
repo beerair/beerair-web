@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
+import { ROUTE_PATH } from '@/constants/routes';
+
 import Button from '../Button';
 import Modal from '../Modal';
 
@@ -20,7 +22,7 @@ const LoginRequestModal: React.FC<LoginRequestModalProps> = ({
   const router = useRouter();
 
   const handleClick = () => {
-    router.replace('/login');
+    router.replace(ROUTE_PATH.AUTH.LOGIN);
   };
 
   return (

@@ -4,6 +4,7 @@ import type { HTMLAttributes } from 'react';
 
 import Icon from '@/components/Icon';
 import BottomFloatingLayout from '@/components/layouts/BottomFloatingLayout';
+import { ROUTE_PATH } from '@/constants/routes';
 
 export const BOTTOM_FLOATING_BUTTON_AREA_HEIGHT = 100;
 
@@ -29,7 +30,7 @@ const BottomFloatingButtonArea: React.FC<BottomFloatingButtonAreaProps> = ({
       {children}
       {!isOnlyHomeButton && button}
       {withHomeButton && (
-        <Link href="/" passHref>
+        <Link href={ROUTE_PATH.HOME} passHref>
           <StyledHomeIconButton>
             <Icon name="Home" size={30} color="blue" />
           </StyledHomeIconButton>
