@@ -54,7 +54,7 @@ const HomePage: NextPage = () => {
             <img
               className="no-review-ticket"
               src="images/no-review-ticket.png"
-              width={250}
+              width={300}
               height="auto"
               alt="기록된 티켓 없음"
             />
