@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Button from '@/components/Button';
 import Icon from '@/components/Icon';
 import BeginningLayout from '@/components/layouts/BeginningLayout';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const HERO_IMAGE_URL =
   'https://beerair-service.s3.ap-northeast-2.amazonaws.com/static/onboarding-hero.png';
@@ -16,7 +17,7 @@ const OnBoardingPage = () => {
           <img src={HERO_IMAGE_URL} alt="" />
           <p>세계 맥주, 어디까지 마셔봤나요?{'\n'}Beer Air와 함께 세계 맥주를 정복해보세요!</p>
           <b>맥주로 떠나는 세계 여행</b>
-          <Link href="/login">
+          <Link href={ROUTE_PATH.AUTH.LOGIN}>
             <a>
               <Button type="primary" width="244px" hasAnimation>
                 시작하기
@@ -25,7 +26,7 @@ const OnBoardingPage = () => {
           </Link>
         </StyledWrapper>
       </BeginningLayout>
-      <Link href="/" passHref>
+      <Link href={ROUTE_PATH.HOME} passHref>
         <StyledLinkButton>
           <span>둘러보기</span>
           <Icon name="ArrowRight" size={30} />

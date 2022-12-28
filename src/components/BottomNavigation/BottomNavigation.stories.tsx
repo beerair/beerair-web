@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { ROUTE_PATH } from '@/constants/routes';
+
 import BottomNavigation from './BottomNavigation';
 
 export default {
@@ -29,7 +31,7 @@ Default.args = {};
 Default.story = {
   parameters: {
     nextRouter: {
-      path: '/',
+      path: ROUTE_PATH.HOME,
     },
   },
 };

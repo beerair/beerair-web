@@ -6,6 +6,7 @@ import { useRecoilValue } from 'recoil';
 import Icon from '@/components/Icon';
 
 import { $addSearchHistory } from '../../atoms';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const PLACEHOLDER_TEXT = '맥주 이름, 특징 검색';
 
@@ -65,9 +66,13 @@ const SearchInput: React.FC<SearchInputProps> = ({
          * TODO: 기존 beer list 페이지에서 설정한 filter 유지되도록 refactoring 필요
          * https://github.com/beerair/beerair-web/issues/100
          */
-        router.push(`/beers?query=${encodeURI(searchText)}`).then(() => {
-          // TODO
-        });
+        router
+          .push(ROUTE_PATH.BEERS.HOME, {
+            query: encodeURI(searchText),
+          })
+          .then(() => {
+            // TODO
+          });
       }
     },
     [searchText, addSearchHistory, router],

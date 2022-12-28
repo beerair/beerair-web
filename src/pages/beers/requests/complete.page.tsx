@@ -3,11 +3,12 @@ import { useRouter } from 'next/router';
 
 import Button from '@/components/Button';
 import Icon from '@/components/Icon';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const BeerRequestCompletePage = () => {
   const router = useRouter();
 
-  const goToHome = () => router.push('/');
+  const goToHome = () => router.push(ROUTE_PATH.HOME);
 
   return (
     <StyledWrapper>

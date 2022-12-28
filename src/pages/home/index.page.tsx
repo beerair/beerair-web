@@ -13,6 +13,7 @@ import Button from '@/components/Button';
 import Icon, { IconNameType } from '@/components/Icon';
 import LoginRequestModal from '@/components/LoginRequestModal';
 import { reviewList } from '@/constants/dummy';
+import { ROUTE_PATH } from '@/constants/routes';
 import { useModal } from '@/hooks';
 import { $userSession } from '@/recoil/atoms';
 import { IReview } from '@/types';
@@ -44,7 +45,7 @@ const HomePage: NextPage = () => {
         </div>
         <div className="home-contents">
           {!user || !myReviews?.length ? (
-            <Link href="/beers">
+            <Link href={ROUTE_PATH.BEERS.HOME}>
               <a>
                 <img
                   className="no-review-ticket"
