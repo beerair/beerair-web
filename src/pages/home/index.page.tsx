@@ -1,34 +1,29 @@
 import styled from '@emotion/styled';
+import classNames from 'classnames';
 import type { GetServerSideProps, NextPage } from 'next';
-import Link from 'next/link';
 import { useState } from 'react';
-import Slider from 'react-slick';
 import { useRecoilValue } from 'recoil';
 
 import { getTest, useGetTest } from '@/apis/test/getTest';
 import { prefetchWithSSR } from '@/commons/prefetch';
 import { queryKeyFactory } from '@/commons/queryKeyFactory';
-import BeerTicket from '@/components/BeerTicket/BeerTicket';
 import BottomNavigation from '@/components/BottomNavigation';
 import { BOTTOM_NAVIGATION_HEIGHT } from '@/components/BottomNavigation/BottomNavigation';
 import Button from '@/components/Button';
 import Icon, { IconNameType } from '@/components/Icon';
 import LoginRequestModal from '@/components/LoginRequestModal';
-import { review } from '@/constants/dummy';
+import { reviewList } from '@/constants/dummy';
 import { $userSession } from '@/recoil/atoms';
 import { IReview } from '@/types';
+
+import HomeBeerTicketSlider from './components/HomeBeerTicketSlider';
 
 // TODO: test api 호출 제거
 const HomePage: NextPage = () => {
   const { data } = useGetTest();
 
   const user = useRecoilValue($userSession);
-  const myReviews: IReview[] = [
-    review,
-    // { ...review, feelStatus: 1, createdAt: new Date(2022, 1, 1).toISOString() },
-    // { ...review, feelStatus: 2, createdAt: new Date(2022, 1, 1).toISOString() },
-    // { ...review, feelStatus: 3, createdAt: new Date(2022, 1, 1).toISOString() },
-  ];
+  const myReviews: IReview[] = reviewList;
 
   const [isLoginRequestModalOpen, setIsLoginRequestModalOpen] = useState(false);
 
@@ -55,44 +50,19 @@ const HomePage: NextPage = () => {
           </span>
         </div>
         <div className="home-contents">
-          {!user || myReviews?.length === 0 ? (
+          {!user || !myReviews?.length ? (
             <img
               className="no-review-ticket"
               src="images/no-review-ticket.png"
-              width={300}
+              width={250}
               height="auto"
               alt="기록된 티켓 없음"
             />
-          ) : myReviews.length === 1 ? (
-            <div className="home-review-item--single">
-              <Link href={`/review/ticket/${myReviews[0].id}`} passHref>
-                <a>
-                  <BeerTicket review={myReviews[0]} type="stamp" className="beer-ticket" />
-                </a>
-              </Link>
-            </div>
           ) : (
-            <Slider
-              arrows={false}
-              infinite={false}
-              slidesToShow={1}
-              slidesToScroll={1}
-              variableWidth
-              swipeToSlide
-              centerMode
-              centerPadding="0"
-              className="home-review-slider"
-            >
-              {myReviews.map((review: IReview) => (
-                <div key={review.id} className="home-review-item">
-                  <Link href={`/review/ticket/${review.id}`} passHref>
-                    <a>
-                      <BeerTicket review={review} type="stamp" className="beer-ticket" />
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </Slider>
+            <HomeBeerTicketSlider
+              className={classNames({ 'beer-ticket-slider--single': myReviews.length === 1 })}
+              reviews={myReviews}
+            />
           )}
           <Button
             className="beer-recommend-button"
@@ -175,7 +145,7 @@ const StyledHomeContainer = styled.div`
       margin: 0 auto;
     }
 
-    & .home-review-item--single {
+    & .beer-ticket-slider--single {
       width: fit-content;
       margin: 0 auto;
     }
@@ -183,9 +153,5 @@ const StyledHomeContainer = styled.div`
     & > .beer-recommend-button {
       margin: 28px auto 0;
     }
-  }
-
-  & .home-review-item {
-    padding: 0 15px;
   }
 `;
