@@ -20,8 +20,8 @@ export const ROUTE_PATH = {
     PRIVACY_POLICY: '/my/privacy-policy',
     TERMS: '/my/terms',
   },
-  RECORDS: {
-    HOME: '/records',
+  REVIEWS: {
+    HOME: '/reviews',
   },
   SEARCH: {
     HOME: '/search',

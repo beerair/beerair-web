@@ -23,7 +23,7 @@ const NAVIGATION_LIST: {
   },
   {
     label: '여행목록',
-    href: ROUTE_PATH.RECORDS.HOME,
+    href: ROUTE_PATH.REVIEWS.HOME,
     iconName: 'NavTravel',
     activeIconName: 'NavTravelActive',
   },

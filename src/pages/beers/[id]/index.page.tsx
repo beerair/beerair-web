@@ -107,7 +107,7 @@ const BeerInfoPage: NextPage<BeerInfoPageProps> = ({
               width="large"
               rightAddon={<Icon name="FlightTakeOff" />}
               // TODO: ROUTE_PATH 상수로 수정
-              onClick={() => router.push(`/record/create/${beerId}`)}
+              onClick={() => router.push(`/reviews/create/${beerId}`)}
             >
               기록하기
             </Button>
