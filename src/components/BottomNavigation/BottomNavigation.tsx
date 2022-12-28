@@ -27,9 +27,9 @@ export default function BottomNavigation() {
           <span>맥주목록</span>
         </a>
       </Link>
-      <StyledPlusIconButton onClick={() => router.push('/search')}>
+      {/* <StyledPlusIconButton onClick={() => router.push('/search')}>
         <Icon name="Plus" size={14} />
-      </StyledPlusIconButton>
+      </StyledPlusIconButton> */}
 
       <Link href="/records/my">
         <a className={cx(`nav-link`, `${router.pathname === '/records/my' && 'active'}`)}>
@@ -91,13 +91,13 @@ const StyledBottomNavigation = styled.div`
   }
 `;
 
-const StyledPlusIconButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.semanticColor.primary};
-  cursor: pointer;
-`;
+// const StyledPlusIconButton = styled.button`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   background-color: ${({ theme }) => theme.semanticColor.primary};
+//   cursor: pointer;
+// `;
