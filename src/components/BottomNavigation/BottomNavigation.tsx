@@ -3,49 +3,54 @@ import cx from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Icon from '@/components/Icon';
+import Icon, { IconNameType } from '@/components/Icon';
+import { ROUTE_PATH } from '@/constants/routes';
 
 export const BOTTOM_NAVIGATION_HEIGHT = 64;
+
+const NAVIGATION_LIST: {
+  label: string;
+  href: string;
+  iconName: IconNameType;
+  activeIconName: IconNameType;
+}[] = [
+  { label: '홈', href: ROUTE_PATH.HOME, iconName: 'NavHome', activeIconName: 'NavHomeActive' },
+  {
+    label: '맥주목록',
+    href: ROUTE_PATH.BEERS.HOME,
+    iconName: 'NavBeer',
+    activeIconName: 'NavBeerActive',
+  },
+  {
+    label: '여행목록',
+    href: ROUTE_PATH.RECORDS.HOME,
+    iconName: 'NavTravel',
+    activeIconName: 'NavTravelActive',
+  },
+  {
+    label: '프로필',
+    href: ROUTE_PATH.MY.HOME,
+    iconName: 'NavMyPage',
+    activeIconName: 'NavMyPageActive',
+  },
+];
 
 export default function BottomNavigation() {
   const router = useRouter();
 
   return (
     <StyledBottomNavigation>
-      <Link href="/">
-        <a className={cx(`nav-link`, `${['/', '/home'].includes(router.pathname) && 'active'}`)}>
-          <Icon
-            name={['/', '/home'].includes(router.pathname) ? 'NavHomeActive' : 'NavHome'}
-            size={36}
-          />
-          <span>홈</span>
-        </a>
-      </Link>
-      <Link href="/beers">
-        <a className={cx(`nav-link`, `${router.pathname === '/beers' && 'active'}`)}>
-          <Icon name={router.pathname === '/beers' ? 'NavBeerActive' : 'NavBeer'} size={36} />
-          <span>맥주목록</span>
-        </a>
-      </Link>
-      {/* <StyledPlusIconButton onClick={() => router.push('/search')}>
-        <Icon name="Plus" size={14} />
-      </StyledPlusIconButton> */}
-
-      <Link href="/records/my">
-        <a className={cx(`nav-link`, `${router.pathname === '/records/my' && 'active'}`)}>
-          <Icon
-            name={router.pathname === '/records/my' ? 'NavTravelActive' : 'NavTravel'}
-            size={36}
-          />
-          <span>여행목록</span>
-        </a>
-      </Link>
-      <Link href="/profile">
-        <a className={cx(`nav-link`, `${router.pathname === '/profile' && 'active'}`)}>
-          <Icon name={router.pathname === '/profile' ? 'NavMyPageActive' : 'NavMyPage'} size={36} />
-          <span>프로필</span>
-        </a>
-      </Link>
+      {NAVIGATION_LIST.map(({ label, href, iconName, activeIconName }) => {
+        const isActive = router.pathname === href;
+        return (
+          <Link href={href} key={label}>
+            <a className={cx(`nav-link`, `${isActive && 'active'}`)}>
+              <Icon name={isActive ? activeIconName : iconName} size={36} />
+              <span>{label}</span>
+            </a>
+          </Link>
+        );
+      })}
     </StyledBottomNavigation>
   );
 }
@@ -90,14 +95,3 @@ const StyledBottomNavigation = styled.div`
     }
   }
 `;
-
-// const StyledPlusIconButton = styled.button`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   background-color: ${({ theme }) => theme.semanticColor.primary};
-//   cursor: pointer;
-// `;
