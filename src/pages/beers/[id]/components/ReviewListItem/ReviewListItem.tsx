@@ -7,8 +7,6 @@ import Badge from '@/components/Chip';
 import Emoji from '@/components/Emoji';
 import { IReview } from '@/types';
 import { formatDateDiff } from '@/utils/formatDateDiff';
-import { getNumberByFeelStatus } from '@/utils/getNumberByFeelStatus';
-
 export interface Props extends Partial<IReview> {
   isMe?: boolean;
 }
@@ -18,7 +16,7 @@ const ReviewListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   return (
     <StyledReview ref={ref}>
-      <StyledEmoji feel={getNumberByFeelStatus(feelStatus)} />
+      <StyledEmoji feel={feelStatus} />
       <ReviewContainer>
         <UserAndDate>
           <User>

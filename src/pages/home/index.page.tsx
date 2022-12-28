@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import classNames from 'classnames';
 import type { GetServerSideProps, NextPage } from 'next';
 import { useState } from 'react';
-import Slider from 'react-slick';
 import { useRecoilValue } from 'recoil';
 
 import { getTest, useGetTest } from '@/apis/test/getTest';
@@ -12,14 +12,18 @@ import { BOTTOM_NAVIGATION_HEIGHT } from '@/components/BottomNavigation/BottomNa
 import Button from '@/components/Button';
 import Icon, { IconNameType } from '@/components/Icon';
 import LoginRequestModal from '@/components/LoginRequestModal';
+import { reviewList } from '@/constants/dummy';
 import { $userSession } from '@/recoil/atoms';
+import { IReview } from '@/types';
+
+import HomeBeerTicketSlider from './components/HomeBeerTicketSlider';
 
 // TODO: test api 호출 제거
 const HomePage: NextPage = () => {
   const { data } = useGetTest();
 
   const user = useRecoilValue($userSession);
-  const myRecords = [] as any;
+  const myReviews: IReview[] = reviewList;
 
   const [isLoginRequestModalOpen, setIsLoginRequestModalOpen] = useState(false);
 
@@ -46,29 +50,18 @@ const HomePage: NextPage = () => {
           </span>
         </div>
         <div className="home-contents">
-          {myRecords?.length > 0 ? (
-            <Slider
-              arrows={false}
-              infinite={false}
-              slidesToShow={1}
-              slidesToScroll={1}
-              variableWidth
-              swipeToSlide
-              className="home-record-slider"
-            >
-              {myRecords.map((record: any) => (
-                <div key={record.id} className="home-record-item">
-                  {/* TODO: HomeBeerTicket 추가 */}
-                  {/* {record && <HomeBeerTicket record={record} type="stamp" className="beer-ticket" />} */}
-                </div>
-              ))}
-            </Slider>
-          ) : (
+          {!user || !myReviews?.length ? (
             <img
-              src="images/no-record-ticket.png"
+              className="no-review-ticket"
+              src="images/no-review-ticket.png"
               width={250}
               height="auto"
               alt="기록된 티켓 없음"
+            />
+          ) : (
+            <HomeBeerTicketSlider
+              className={classNames({ 'beer-ticket-slider--single': myReviews.length === 1 })}
+              reviews={myReviews}
             />
           )}
           <Button
@@ -125,6 +118,7 @@ const StyledHomeContainer = styled.div`
     max-width: 768px;
     height: 50px;
     background-color: ${(p) => p.theme.color.black100};
+    z-index: 1;
   }
 
   & > .home-welcome-wrapper {
@@ -144,27 +138,20 @@ const StyledHomeContainer = styled.div`
   }
 
   & > .home-contents {
-    margin: auto;
+    width: 100%;
+    margin: auto 0;
+
+    & > .no-review-ticket {
+      margin: 0 auto;
+    }
+
+    & .beer-ticket-slider--single {
+      width: fit-content;
+      margin: 0 auto;
+    }
 
     & > .beer-recommend-button {
-      margin-top: 28px;
+      margin: 28px auto 0;
     }
-  }
-
-  & .home-record-slider {
-    padding-left: calc(50vw - 140px);
-    overflow: hidden;
-
-    & .slick-list {
-      overflow: visible;
-    }
-
-    @media (min-width: 768px) {
-      padding-left: 244px;
-    }
-  }
-
-  & .home-record-item {
-    padding: 0 15px;
   }
 `;
