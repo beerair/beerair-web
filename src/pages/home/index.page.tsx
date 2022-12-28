@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import classNames from 'classnames';
 import type { GetServerSideProps, NextPage } from 'next';
-import { useState } from 'react';
+import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 
 import { getTest, useGetTest } from '@/apis/test/getTest';
@@ -13,6 +13,7 @@ import Button from '@/components/Button';
 import Icon, { IconNameType } from '@/components/Icon';
 import LoginRequestModal from '@/components/LoginRequestModal';
 import { reviewList } from '@/constants/dummy';
+import { useModal } from '@/hooks';
 import { $userSession } from '@/recoil/atoms';
 import { IReview } from '@/types';
 
@@ -25,15 +26,7 @@ const HomePage: NextPage = () => {
   const user = useRecoilValue($userSession);
   const myReviews: IReview[] = reviewList;
 
-  const [isLoginRequestModalOpen, setIsLoginRequestModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsLoginRequestModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsLoginRequestModalOpen(false);
-  };
+  const [isLoginRequestModalOpen, openLoginRequestModal, closeLoginRequestModal] = useModal();
 
   return (
     <>
@@ -51,13 +44,17 @@ const HomePage: NextPage = () => {
         </div>
         <div className="home-contents">
           {!user || !myReviews?.length ? (
-            <img
-              className="no-review-ticket"
-              src="images/no-review-ticket.png"
-              width={300}
-              height="auto"
-              alt="기록된 티켓 없음"
-            />
+            <Link href="/beers">
+              <a>
+                <img
+                  className="no-review-ticket"
+                  src="images/no-review-ticket.png"
+                  width={300}
+                  height="auto"
+                  alt="기록된 티켓 없음"
+                />
+              </a>
+            </Link>
           ) : (
             <HomeBeerTicketSlider
               className={classNames({ 'beer-ticket-slider--single': myReviews.length === 1 })}
@@ -71,7 +68,7 @@ const HomePage: NextPage = () => {
             rightAddon={<Icon name="Airplane" color="yellow" />}
             iconMargin={14}
             width="large"
-            {...(user ? { href: '/beer/recommend-and-liked' } : { onClick: openModal })}
+            {...(user ? { href: '/beer/recommend-and-liked' } : { onClick: openLoginRequestModal })}
           >
             {'이런 맥주는 어떠세요?'}
           </Button>
@@ -80,7 +77,7 @@ const HomePage: NextPage = () => {
       </StyledHomeContainer>
       <LoginRequestModal
         isOpen={isLoginRequestModalOpen}
-        onClose={closeModal}
+        onClose={closeLoginRequestModal}
         disabledDimClick
         withCloseButton
       />
@@ -141,7 +138,7 @@ const StyledHomeContainer = styled.div`
     width: 100%;
     margin: auto 0;
 
-    & > .no-review-ticket {
+    & .no-review-ticket {
       margin: 0 auto;
     }
 

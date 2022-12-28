@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
 
 import Icon from '@/components/Icon';
 import { levels } from '@/constants/dummy';
+import { useModal } from '@/hooks';
 import { ILevel } from '@/types-old';
 
 import LevelModal from '../LevelModal';
@@ -16,11 +16,11 @@ export interface BioProps {
 }
 
 const Bio = ({ remainRecordCount, userLevel, nickname, email }: BioProps) => {
-  const [isLevelModalOpen, setIsLevelModalOpen] = useState(false);
-  const [isModifyModalOpen, setIsModifyModalOpen] = useState(false);
+  const [isLevelModalOpen, openLevelModal, closeLevelModal] = useModal();
+  const [isModifyModalOpen, openModifyModal, closeModifyModal] = useModal();
 
   const onSubmit = () => {
-    setIsModifyModalOpen(false);
+    closeModifyModal();
     // TODO: nickname update mutation 연결
   };
 
@@ -30,27 +30,23 @@ const Bio = ({ remainRecordCount, userLevel, nickname, email }: BioProps) => {
         {remainRecordCount > 0
           ? `여행 ${remainRecordCount}번만 더 하면 Level UP!`
           : '만렙이 되신걸 축하합니다!'}
-        <InfoIcon name="Info" size={20} onClick={() => setIsLevelModalOpen(true)} />
+        <InfoIcon name="Info" size={20} onClick={openLevelModal} />
       </ToolTip>
       <LevelImage src={userLevel?.imageUrl} alt={userLevel?.tier.toString()} />
       <NickName>
         {nickname}
         <button type="button" aria-label="수정">
-          <ModifyIcon name="Modify" size={24} onClick={() => setIsModifyModalOpen(true)} />
+          <ModifyIcon name="Modify" size={24} onClick={openModifyModal} />
         </button>
       </NickName>
       <Email>{email}</Email>
       {isLevelModalOpen && (
-        <LevelModal
-          open={isLevelModalOpen}
-          closeModal={() => setIsLevelModalOpen(false)}
-          levels={levels}
-        />
+        <LevelModal open={isLevelModalOpen} closeModal={closeLevelModal} levels={levels} />
       )}
       {isModifyModalOpen && (
         <NicknameModifyModal
           open={isModifyModalOpen}
-          closeModal={() => setIsModifyModalOpen(false)}
+          closeModal={closeModifyModal}
           onSubmit={onSubmit}
         />
       )}
