@@ -4,9 +4,9 @@ import React, { useCallback, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import Icon from '@/components/Icon';
+import { ROUTE_PATH } from '@/constants/routes';
 
 import { $addSearchHistory } from '../../atoms';
-import { ROUTE_PATH } from '@/constants/routes';
 
 const PLACEHOLDER_TEXT = '맥주 이름, 특징 검색';
 
