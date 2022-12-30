@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { $beerListViewType, BeerListViewType, BEER_LIST_VIEW_ATOM_KEY } from '@/recoil/atoms';
-import localStorage from '@/utils/localStorage';
+import { $beerListViewType, BeerListViewType } from '@/recoil/atoms';
 
-import Icon, { IconNameType } from '../Icon';
+import Icon, { IconNameType } from '../../../../components/Icon';
 
 const TOGGLE_BUTTONS: { type: BeerListViewType; iconName: IconNameType }[] = [
   { type: 'grid', iconName: 'GridView' },
