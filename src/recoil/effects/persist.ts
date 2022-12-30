@@ -1,5 +1,7 @@
 import { AtomEffect } from 'recoil';
 
+import localStorage from '@/utils/localStorage';
+
 interface PersistRecoilEffectArgs {
   recoilAtomKey: string;
 }
@@ -9,17 +11,15 @@ const persistRecoilEffect =
   ({ setSelf, onSet }) => {
     const persistRecoilKey = `persist:recoil@${recoilAtomKey}`;
 
-    const savedValue = localStorage.getItem(persistRecoilKey);
-
+    const savedValue = localStorage.get(persistRecoilKey);
     if (savedValue) {
-      const parsedValue = JSON.parse(savedValue);
-      setSelf(parsedValue);
+      setSelf(savedValue);
     }
 
     onSet((newValue, _, isReset) => {
       isReset
-        ? localStorage.removeItem(persistRecoilKey)
-        : localStorage.setItem(persistRecoilKey, JSON.stringify(newValue));
+        ? localStorage.remove(persistRecoilKey)
+        : localStorage.set(persistRecoilKey, newValue);
     });
   };
 

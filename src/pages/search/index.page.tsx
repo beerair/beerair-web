@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React, { useCallback, useState, useTransition } from 'react';
 import { RecoilRoot } from 'recoil';
 
-import Header from '@/components/Header';
+import Header, { HEADER_HEIGHT } from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';
 
 import SearchInput from './components/SearchInput';
@@ -11,13 +11,6 @@ import SearchInput from './components/SearchInput';
 const SearchList = dynamic(() => import('./components/SearchList'), {
   ssr: false,
 });
-
-const StyledSearchPage = styled.div`
-  & > .search-page-header {
-    border-bottom: 1px solid ${(p) => p.theme.semanticColor.secondary};
-    margin-bottom: 15px;
-  }
-`;
 
 const SearchPage: React.FC = () => {
   const [highlightingText, setHighlightingText] = useState('');
@@ -44,3 +37,11 @@ const SearchPage: React.FC = () => {
 };
 
 export default SearchPage;
+
+const StyledSearchPage = styled.div`
+  padding: ${HEADER_HEIGHT + 15}px 0 0;
+
+  & > .search-page-header {
+    border-bottom: 1px solid ${(p) => p.theme.semanticColor.secondary};
+  }
+`;

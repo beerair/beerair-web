@@ -45,7 +45,7 @@ const HomePage: NextPage = () => {
         </div>
         <div className="home-contents">
           {!user || !myReviews?.length ? (
-            <Link href={ROUTE_PATH.BEERS.HOME}>
+            <Link href={ROUTE_PATH.BEERS.LIST}>
               <a>
                 <img
                   className="no-review-ticket"

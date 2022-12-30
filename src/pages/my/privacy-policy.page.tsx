@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage, GetStaticProps } from 'next';
 
-import Header from '@/components/Header';
+import Header, { HEADER_HEIGHT } from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';
 import Markdown from '@/components/Markdown';
 import { parseMarkdown } from '@/utils/parseMarkdown';
@@ -21,6 +21,8 @@ const PrivacyPolicyPage: NextPage<PrivacyPolicyPageProps> = ({ html: privacyPoli
 
 const StyledPrivacyPolicyPage = styled.div`
   white-space: pre-line;
+  padding: ${HEADER_HEIGHT}px 0 0;
+
   & > section {
     padding: 0 20px;
 
