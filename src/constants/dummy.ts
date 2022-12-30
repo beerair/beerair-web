@@ -29,7 +29,7 @@ export const beer: IBeer = {
     content: '탄산이 비교적 약하고 강렬한 홉향과 강하고 텁텁한 쓴 맛이 나는 맥주',
     imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/BEER/TYPE/ipa.png',
   },
-  myReview: null,
+  myReview: undefined,
   korName: '빅슬라이스 IPA',
   engName: 'Big Slice Ipa',
   imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/BEER/big_slice_ipa.png',

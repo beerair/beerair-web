@@ -1,4 +1,5 @@
-import { ICountry } from '@/types/country';
+import { ICountry } from './country';
+import { IReview } from './reviews';
 
 export interface IBeerType {
   id: number;
@@ -12,7 +13,7 @@ export interface IBeer {
   id: number;
   country?: ICountry;
   type?: IBeerType;
-  myReview: any;
+  myReview?: IReview;
   korName: string;
   engName: string;
   imageUrl: string;
