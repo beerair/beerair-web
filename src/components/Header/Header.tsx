@@ -5,7 +5,42 @@ import { ellipsis } from '@/styles/common';
 
 export const HEADER_HEIGHT = 60;
 
+interface HeaderProps {
+  children?: ReactNode;
+  /** 좌측 추가 컴포넌트 */
+  leftExtras?: ReactNode;
+  /** 우측 추가 컴포넌트 */
+  rightExtras?: ReactNode;
+  /** 배경 투명 여부 (default: false) */
+  isTransparent?: boolean;
+  className?: string;
+}
+
+const Header = ({
+  children,
+  leftExtras,
+  rightExtras,
+  isTransparent = false,
+  className,
+}: HeaderProps) => {
+  return (
+    <StyledHeader className={className} isTransparent={isTransparent}>
+      <StyledLeftExtras>{leftExtras}</StyledLeftExtras>
+      <StyledTitle>
+        {typeof children === 'string' ? <StyledH1>{children}</StyledH1> : children}
+      </StyledTitle>
+      <StyledRightExtras>{rightExtras}</StyledRightExtras>
+    </StyledHeader>
+  );
+};
+
+export default Header;
+
 const StyledHeader = styled.header<Pick<HeaderProps, 'isTransparent'>>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   width: 100%;
@@ -55,34 +90,3 @@ const StyledH1 = styled.h1`
 
   ${ellipsis()};
 `;
-
-interface HeaderProps {
-  children?: ReactNode;
-  /** 좌측 추가 컴포넌트 */
-  leftExtras?: ReactNode;
-  /** 우측 추가 컴포넌트 */
-  rightExtras?: ReactNode;
-  /** 배경 투명 여부 (default: false) */
-  isTransparent?: boolean;
-  className?: string;
-}
-
-const Header = ({
-  children,
-  leftExtras,
-  rightExtras,
-  isTransparent = false,
-  className,
-}: HeaderProps) => {
-  return (
-    <StyledHeader className={className} isTransparent={isTransparent}>
-      <StyledLeftExtras>{leftExtras}</StyledLeftExtras>
-      <StyledTitle>
-        {typeof children === 'string' ? <StyledH1>{children}</StyledH1> : children}
-      </StyledTitle>
-      <StyledRightExtras>{rightExtras}</StyledRightExtras>
-    </StyledHeader>
-  );
-};
-
-export default Header;

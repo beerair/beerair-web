@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import BottomFloatingButtonArea from '@/components/BottomFloatingButtonArea';
 import Button from '@/components/Button';
-import Header from '@/components/Header';
+import Header, { HEADER_HEIGHT } from '@/components/Header';
 import { BackButton, ShareButton } from '@/components/Header/extras';
 import Icon from '@/components/Icon';
 import { useScroll } from '@/hooks';
@@ -141,6 +141,7 @@ const StyledBeerInfoPage = styled.div`
   width: 100%;
   height: 100%;
   z-index: 0;
+  padding-top: ${HEADER_HEIGHT}px;
 
   & > .container {
     padding: 0 20px;
