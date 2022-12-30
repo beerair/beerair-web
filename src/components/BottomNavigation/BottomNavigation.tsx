@@ -17,19 +17,19 @@ const NAVIGATION_LIST: {
   { label: '홈', href: ROUTE_PATH.HOME, iconName: 'NavHome', activeIconName: 'NavHomeActive' },
   {
     label: '맥주목록',
-    href: ROUTE_PATH.BEERS.HOME,
+    href: ROUTE_PATH.BEERS.LIST,
     iconName: 'NavBeer',
     activeIconName: 'NavBeerActive',
   },
   {
     label: '여행목록',
-    href: ROUTE_PATH.REVIEWS.HOME,
+    href: ROUTE_PATH.REVIEWS.LIST,
     iconName: 'NavTravel',
     activeIconName: 'NavTravelActive',
   },
   {
     label: '프로필',
-    href: ROUTE_PATH.MY.HOME,
+    href: ROUTE_PATH.MY.MAIN,
     iconName: 'NavMyPage',
     activeIconName: 'NavMyPageActive',
   },

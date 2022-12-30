@@ -67,7 +67,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
          * https://github.com/beerair/beerair-web/issues/100
          */
         router
-          .push(ROUTE_PATH.BEERS.HOME, {
+          .push(ROUTE_PATH.BEERS.LIST, {
             query: encodeURI(searchText),
           })
           .then(() => {

@@ -7,23 +7,26 @@ export const ROUTE_PATH = {
     SIGNUP: '/auth/signup',
   },
   BEERS: {
-    HOME: '/beers',
+    LIST: '/beers',
     INFO: '/beers/[id]',
     REQUESTS: {
-      MAIN: '/beers/requests',
-      COMPLETE: '/beers/complete',
+      LIST: '/beers/requests',
+      CREATE: {
+        MAIN: '/beers/requests/create',
+        COMPLETE: '/beers/requests/create/complete',
+      },
     },
   },
   MY: {
-    HOME: '/my',
+    MAIN: '/my',
     ETC: '/my/etc',
     PRIVACY_POLICY: '/my/privacy-policy',
     TERMS: '/my/terms',
   },
   REVIEWS: {
-    HOME: '/reviews',
+    LIST: '/reviews',
   },
   SEARCH: {
-    HOME: '/search',
+    MAIN: '/search',
   },
 };
