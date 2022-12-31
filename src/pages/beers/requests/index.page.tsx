@@ -13,7 +13,9 @@ const BeerRequestListPage = () => {
   const resultCount = 4;
   return (
     <>
-      <Header leftExtras={<BackButton />}>요청한 맥주 현황</Header>
+      <Header isTopFixed leftExtras={<BackButton />}>
+        요청한 맥주 현황
+      </Header>
       <StyledTotalNumber>총 {resultCount}건</StyledTotalNumber>
       {[
         requestBeer,

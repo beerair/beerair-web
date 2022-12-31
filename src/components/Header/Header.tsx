@@ -13,6 +13,8 @@ interface HeaderProps {
   rightExtras?: ReactNode;
   /** 배경 투명 여부 (default: false) */
   isTransparent?: boolean;
+  /** 상단 고정 여부 (default: false) */
+  isTopFixed?: boolean;
   className?: string;
 }
 
@@ -21,10 +23,11 @@ const Header = ({
   leftExtras,
   rightExtras,
   isTransparent = false,
+  isTopFixed = false,
   className,
 }: HeaderProps) => {
   return (
-    <StyledHeader className={className} isTransparent={isTransparent}>
+    <StyledHeader className={className} isTransparent={isTransparent} isTopFixed={isTopFixed}>
       <StyledLeftExtras>{leftExtras}</StyledLeftExtras>
       <StyledTitle>
         {typeof children === 'string' ? <StyledH1>{children}</StyledH1> : children}
@@ -36,11 +39,17 @@ const Header = ({
 
 export default Header;
 
-const StyledHeader = styled.header<Pick<HeaderProps, 'isTransparent'>>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+const StyledHeader = styled.header<Pick<HeaderProps, 'isTransparent' | 'isTopFixed'>>`
+  ${(p) =>
+    p.isTopFixed
+      ? `
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      `
+      : ''}
+
   display: flex;
   align-items: center;
   width: 100%;

@@ -63,6 +63,7 @@ const BeerInfoPage: NextPage<BeerInfoPageProps> = ({
       />
       <StyledBeerInfoPage>
         <Header
+          isTopFixed
           leftExtras={<BackButton />}
           rightExtras={
             <>
