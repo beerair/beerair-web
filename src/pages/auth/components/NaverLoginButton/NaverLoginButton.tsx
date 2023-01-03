@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { BASE_URL } from '@/commons/axios';
 import Icon from '@/components/Icon';
 
 const BACKGROUND_COLOR = '#03C75A';
@@ -8,7 +9,7 @@ const TEXT_COLOR = '#FFFFFF';
 /** @todo api 연동 */
 const NaverLoginButton = () => {
   return (
-    <StyledButton>
+    <StyledButton href={`${BASE_URL}/oauth2/authorization/naver`}>
       <Icon name="Naver" color="white" size={18} />
       <p>네이버로 시작하기</p>
     </StyledButton>
