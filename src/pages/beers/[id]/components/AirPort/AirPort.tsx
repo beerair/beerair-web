@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { isNil } from 'lodash';
 
 import Icon from '@/components/Icon';
-import { ICountry } from '@/types-old';
+import { ICountry } from '@/types';
 import { sliceAndUpperCase } from '@/utils/string';
 
 interface AirPortItemProps {
@@ -46,8 +46,8 @@ const Kor = styled.div`
 `;
 
 export interface AirPortProps {
-  startCountry: Pick<ICountry, 'nameKor' | 'nameEng'>;
-  endCountry: Pick<ICountry, 'nameKor' | 'nameEng'>;
+  startCountry: Pick<ICountry, 'korName' | 'engName'>;
+  endCountry: Pick<ICountry, 'korName' | 'engName'>;
   className?: string;
 }
 
@@ -56,9 +56,9 @@ const AirPort = (props: AirPortProps) => {
 
   return (
     <StyledAirPort {...rest} className={className}>
-      <AirPortItem title="출발지" kor={startCountry?.nameKor} eng={startCountry?.nameEng} />
+      <AirPortItem title="출발지" kor={startCountry?.korName} eng={startCountry?.engName} />
       <Icon name="FlyingAirplane" width="33%" />
-      <AirPortItem title="도착지" kor={endCountry?.nameKor} eng={endCountry?.nameEng} />
+      <AirPortItem title="도착지" kor={endCountry?.korName} eng={endCountry?.engName} />
     </StyledAirPort>
   );
 };

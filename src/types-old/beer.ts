@@ -1,4 +1,4 @@
-import { ICountry } from '.';
+import { ICountry } from './country';
 
 export const BEER_TYPE = {
   LIGHT_ALE: 'LIGHT_ALE',
