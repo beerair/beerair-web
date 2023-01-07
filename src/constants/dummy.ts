@@ -161,14 +161,14 @@ export const MYPAGE_BOX_BUTTON_LIST_DATA: MyPageBoxButtonListItemProps[] = [
     text: '내가 반한 맥주',
     count: 3,
     unit: '개',
-    href: '/beer/recommend-and-liked?tab="liked"',
+    href: '/beers/recommend-and-liked?tab="liked"',
   },
   {
     iconName: 'PlusCircle',
     text: '요청한 맥주 현황',
     count: 3,
     unit: '개',
-    href: '/beer/requests',
+    href: '/beers/requests',
   },
   {
     iconName: 'ThreeDot',

@@ -27,13 +27,13 @@ import ReviewList from './components/ReviewList';
 const FLAVORS_LIMIT = 3;
 
 interface BeerInfoPageProps {
-  beerResponse: IBeer;
+  //beerResponse: IBeer;
   flavorsResponse: IFlavor[];
   reviewsResponse: IReview[];
 }
 
 const BeerInfoPage: NextPage<BeerInfoPageProps> = ({
-  beerResponse: initialBeerResponse,
+  //beerResponse: initialBeerResponse,
   flavorsResponse: initialFlavorsResponse,
   reviewsResponse: initialReviewsByBeerResponse,
 }) => {
@@ -42,7 +42,7 @@ const BeerInfoPage: NextPage<BeerInfoPageProps> = ({
   const router = useRouter();
   const beerId = Number(router.query.id);
 
-  const { data: beer } = useGetBeer(beerId, initialBeerResponse);
+  const { data: beer } = useGetBeer(beerId);
   const { data: flavors } = useGetFlavors(beerId, FLAVORS_LIMIT, initialFlavorsResponse);
   const { data: reviews } = useGetReviewsByBeer(beerId, initialReviewsByBeerResponse);
 
