@@ -1,19 +1,27 @@
-/** @todo api 연동 */
+import { useQuery } from 'react-query';
+
+import request from '@/commons/axios';
+import { IBaseResponse, IBeerType } from '@/types';
+
+import { mockBeerTypes } from './mocks';
+
+interface IGetBeerTypesResponseData extends IBaseResponse<IBeerType[]> {}
+
+/**
+ * 맥주 종류 조회
+ */
+export const getBeerTypes = async () => {
+  // TODO: 서버 cors 에러 수정된 후 mock 걷어내기
+  return mockBeerTypes;
+
+  const res = await request<IGetBeerTypesResponseData>({
+    method: 'get',
+    url: '/api/v1/beer-types',
+  });
+
+  return res.data;
+};
+
 export const useGetBeerTypes = () => {
-  return {
-    beerTypes: [
-      {
-        nameEng: 'light-ale',
-        nameKor: '에일',
-        description: '투명한 황금빛으로 단 맛과 쓴 맛이 어우러진 깔끔한 맛',
-        imageUrl: '',
-      },
-      {
-        nameEng: 'pilsner',
-        nameKor: '필스너',
-        description: '투명한 황금빛으로 단 맛과 쓴 맛이 어우러진 깔끔한 맛',
-        imageUrl: '',
-      },
-    ],
-  };
+  return useQuery(['beerTypes'], getBeerTypes);
 };
