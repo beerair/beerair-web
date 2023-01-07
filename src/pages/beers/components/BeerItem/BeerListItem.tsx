@@ -44,7 +44,7 @@ export default BeerListItem;
 
 const StyledBeerListItem = styled.div`
   width: calc(100% - 26px);
-  aspect-ratio: 315 / 80;
+  height: 80px;
   background-color: ${({ theme }) => theme.color.whiteOpacity20};
   border-radius: 6px;
   position: relative;
