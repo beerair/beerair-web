@@ -47,6 +47,8 @@ const StyledHeader = styled.header<Pick<HeaderProps, 'isTransparent' | 'isTopFix
       top: 0;
       left: 0;
       right: 0;
+      max-width: 768px;
+      margin: 0 auto;
       `
       : ''}
 
