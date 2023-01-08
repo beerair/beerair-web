@@ -3,19 +3,19 @@ import { MouseEvent } from 'react';
 
 import Icon from '@/components/Icon';
 import { ellipsis } from '@/styles/common';
-import { IBeerType } from '@/types-old';
+import { IBeerType } from '@/types';
 
 const IMAGE_WIDTH = '70px';
 const CHECK_ICON_WIDTH = '30px';
 
-interface BeerTypeFilterItemProps extends Pick<IBeerType, 'nameKor' | 'description' | 'imageUrl'> {
+interface BeerTypeFilterItemProps extends Pick<IBeerType, 'korName' | 'content' | 'imageUrl'> {
   isSelected: boolean;
   onClick: (e?: MouseEvent) => void;
 }
 
 const BeerTypeFilterItem: React.FC<BeerTypeFilterItemProps> = ({
-  nameKor,
-  description,
+  korName,
+  content,
   imageUrl,
   isSelected,
   onClick = () => null,
@@ -24,8 +24,8 @@ const BeerTypeFilterItem: React.FC<BeerTypeFilterItemProps> = ({
     <StyledWrapper aria-checked={isSelected} onClick={onClick}>
       <BeerTypeImage src={imageUrl} alt="" />
       <BeerTypeInfo>
-        <b>{nameKor}</b>
-        <p className="description">{description}</p>
+        <b>{korName}</b>
+        <p className="description">{content}</p>
       </BeerTypeInfo>
       {isSelected && <Icon name="Check" width={CHECK_ICON_WIDTH} semanticColor="secondary" />}
     </StyledWrapper>

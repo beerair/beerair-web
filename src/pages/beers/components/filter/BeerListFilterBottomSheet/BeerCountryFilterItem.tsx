@@ -3,7 +3,7 @@ import React from 'react';
 
 import Icon from '@/components/Icon';
 import { ellipsis } from '@/styles/common';
-import { ICountry } from '@/types-old';
+import { ICountry } from '@/types';
 
 interface BeerCountryFilterItemProps {
   country: ICountry;
@@ -17,7 +17,7 @@ const BeerCountryFilterItem: React.FC<BeerCountryFilterItemProps> = ({
   isSelected = false,
   onClick = () => null,
 }) => {
-  const { nameKor, imageUrl } = country;
+  const { korName, imageUrl } = country;
 
   return (
     <StyledWrapper aria-checked={isSelected} onClick={onClick}>
@@ -29,7 +29,7 @@ const BeerCountryFilterItem: React.FC<BeerCountryFilterItemProps> = ({
           </Overlay>
         )}
       </ImageWrapper>
-      <Name isSelected={isSelected}>{nameKor}</Name>
+      <Name isSelected={isSelected}>{korName}</Name>
     </StyledWrapper>
   );
 };

@@ -1,15 +1,9 @@
 import styled from '@emotion/styled';
 
 import { hideScrollbar } from '@/styles/common';
+import { BeerListFilterChip as BeerListFilterChipType } from '@/types';
 
 import BeerListFilterChip from './BeerListFilterChip';
-
-
-export type BeerListFilterChipType = {
-  id: number | string;
-  text: string;
-  type: 'beerType' | 'country';
-};
 
 interface BeerListFilterChipListPros {
   filterChips: BeerListFilterChipType[];
@@ -21,17 +15,17 @@ const BeerListFilterChipList: React.FC<BeerListFilterChipListPros> = ({
   onRemove,
 }) => {
   return (
-    <StyledWrapper>
+    <StyledBeerListFilterChipList>
       {filterChips.map((chip) => (
-        <BeerListFilterChip key={`${chip.type}-${chip.id}`} onRemove={() => onRemove(chip)}>
+        <BeerListFilterChip key={`${chip.filterKey}-${chip.id}`} onRemove={() => onRemove(chip)}>
           {chip.text}
         </BeerListFilterChip>
       ))}
-    </StyledWrapper>
+    </StyledBeerListFilterChipList>
   );
 };
 
-const StyledWrapper = styled.div`
+const StyledBeerListFilterChipList = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

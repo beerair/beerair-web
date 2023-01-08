@@ -5,8 +5,7 @@ import { useGetContinents } from '@/apis/continents/getContinents';
 import Swiper from '@/components/Swiper';
 import Tab from '@/components/Tab';
 
-import BeerCountryFilterList from '../BeerCountryFilterList';
-
+import BeerCountryFilterList from './BeerCountryFilterList';
 
 const BeerCountryFilterTab = () => {
   const [activatedIndex, setActivatedIndex] = useState(0);
@@ -14,10 +13,10 @@ const BeerCountryFilterTab = () => {
   const { data } = useGetContinents();
 
   const continents = useMemo(
-    () => [{ id: undefined, name: '전체' }, ...(data?.contents || [])],
-    [data?.contents],
+    () => [{ id: undefined, korName: '전체', engName: 'All' }, ...(data || [])],
+    [data],
   );
-  const continentTabItems = useMemo(() => continents.map(({ name }) => name), [continents]);
+  const continentTabItems = useMemo(() => continents.map(({ korName }) => korName), [continents]);
 
   return (
     <Tab

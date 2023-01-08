@@ -23,3 +23,23 @@ export interface IBeer {
   volume: number;
   liked: boolean;
 }
+
+export type BeerListFilter = {
+  country?: number[];
+  type?: number[];
+};
+
+export type BeerListFilterChip = {
+  filterKey: keyof BeerListFilter;
+  id: number;
+  text: string;
+};
+
+export const BEER_LIST_ORDER = {
+  ALCOHOL_HIGHEST: 'ALCOHOL_HIGHEST',
+  ALCOHOL_LOWEST: 'ALCOHOL_LOWEST',
+  NAME: 'NAME',
+  REVIEW: 'REVIEW',
+} as const;
+
+export type BeerListOrder = typeof BEER_LIST_ORDER[keyof typeof BEER_LIST_ORDER];

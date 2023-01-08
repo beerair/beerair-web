@@ -1,17 +1,27 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj, ComponentStory } from '@storybook/react';
 
+import BeerCountryFilterList from './BeerCountryFilterList';
+import BeerCountryFilterTab from './BeerCountryFilterTab';
 import BeerListFilterBottomSheet from './BeerListFilterBottomSheet';
+import BeerTypeFilterList from './BeerTypeFilterList';
 
 export default {
   component: BeerListFilterBottomSheet,
-  argTypes: {
+  args: {
     open: { control: 'boolean', defaultValue: true },
   },
-} as ComponentMeta<typeof BeerListFilterBottomSheet>;
+} as Meta<typeof BeerListFilterBottomSheet>;
 
-const Template: ComponentStory<typeof BeerListFilterBottomSheet> = (args) => {
-  return <BeerListFilterBottomSheet {...args} />;
+export const 기본: StoryObj<typeof BeerListFilterBottomSheet> = {};
+
+export const 종류_필터_목록: ComponentStory<typeof BeerTypeFilterList> = () => {
+  return <BeerTypeFilterList />;
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const 나라_필터_목록: ComponentStory<typeof BeerCountryFilterList> = () => {
+  return <BeerCountryFilterList />;
+};
+
+export const 나라_필터_탭: ComponentStory<typeof BeerCountryFilterTab> = () => {
+  return <BeerCountryFilterTab />;
+};
