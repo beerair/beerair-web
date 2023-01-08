@@ -28,7 +28,7 @@ const BeerGridItem = ({ beer }: BeerGridItemProps) => {
         <StyledEmoji>
           <Emoji feel={feelState} />
         </StyledEmoji>
-        <BeerImage src={imageUrl} maxHeight={itemHeight ? itemHeight - 20 : undefined} />
+        <BeerImage src={imageUrl} />
       </BeerGridItemContainer>
       <BeerName>{korName}</BeerName>
     </StyledBeerGridItem>
@@ -55,6 +55,7 @@ const BeerName = styled.div`
 const BeerGridItemContainer = styled.div<{ feel?: number | null; height?: number }>`
   position: relative;
   width: 100%;
+  aspect-ratio: 1 / 1;
   ${({ height }) => (height ? `height: ${height}px;` : '')};
   background: ${({ feel, theme }) =>
     feel !== null ? theme.color.blue : theme.color.whiteOpacity20};
@@ -78,10 +79,10 @@ const LikeBeerToggleButtonWrapper = styled.div`
   z-index: 1;
 `;
 
-const BeerImage = styled.img<{ maxHeight?: number }>`
+const BeerImage = styled.img`
   width: 30%;
   height: auto;
-  ${({ maxHeight }) => `max-height: ${maxHeight ? `${maxHeight}px` : '100%'};`};
+  max-height: calc(100% - 20px);
   object-fit: contain;
 `;
 

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useRecoilValue } from 'recoil';
 
@@ -8,22 +9,40 @@ import { IBeer } from '@/types';
 import BeerItem from '../BeerItem';
 
 interface Props {
-  beers: IBeer[];
-  hasNextPage?: boolean;
+  beers?: IBeer[];
   isLoading?: boolean;
+  emptyComponent?: React.ReactNode;
+  loadingComponent?: React.ReactNode;
+  hasNextPage?: boolean;
   fetchNextPage?: () => void;
 }
 
-const BeerList = ({ beers, hasNextPage, isLoading, fetchNextPage }: Props) => {
+const BeerList = ({
+  beers,
+  isLoading,
+  emptyComponent = null,
+  loadingComponent = null,
+  hasNextPage,
+  fetchNextPage,
+}: Props) => {
   const beerListViewType = useRecoilValue($beerListViewType);
 
   const { ref } = useInView({
+    skip: !hasNextPage,
     onChange: (inView) => {
       if (inView && hasNextPage && !isLoading && fetchNextPage) {
         fetchNextPage();
       }
     },
   });
+
+  if (isLoading || !beers) {
+    return <>{loadingComponent}</>;
+  }
+
+  if (!isLoading && beers.length === 0) {
+    return <>{emptyComponent}</>;
+  }
 
   return (
     <StyledBeerList type={beerListViewType}>
