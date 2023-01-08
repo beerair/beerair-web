@@ -9,12 +9,12 @@ import Bio from './components/Bio';
 import MyPageBoxButtonList from './components/MyPageBoxButtonList';
 import MyPageInfoList from './components/MyPageInfoList';
 
-interface MyPagePageProps {}
+interface MyPageProps {}
 
-const MyPagePage: NextPage<MyPagePageProps> = () => {
+const MyPage: NextPage<MyPageProps> = () => {
   return (
     <>
-      <StyledMyPagePage>
+      <StyledMyPage>
         <Spacing size={60} />
         <Bio
           remainRecordCount={0}
@@ -26,15 +26,15 @@ const MyPagePage: NextPage<MyPagePageProps> = () => {
         <MyPageInfoList myPageInfoListItems={MYPAGE_INFO_LIST_DATA} />
         <Spacing size={50} />
         <MyPageBoxButtonList myPageBoxButtonListItems={MYPAGE_BOX_BUTTON_LIST_DATA} />
-      </StyledMyPagePage>
+      </StyledMyPage>
       <BottomNavigation />
     </>
   );
 };
 
-export default MyPagePage;
+export default MyPage;
 
-const StyledMyPagePage = styled.div`
+const StyledMyPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

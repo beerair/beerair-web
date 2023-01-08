@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { beer } from '@/constants/dummy';
+import { MOCK_BEER } from '@/constants/dummy';
 
 import BeerList from './BeerList';
 
@@ -9,7 +9,7 @@ export default {
   args: {
     beers: Array(10)
       .fill(0)
-      .map((_, index) => ({ ...beer, id: index + 1 })),
+      .map((_, index) => ({ ...MOCK_BEER, id: index + 1 })),
   },
 } as Meta<typeof BeerList>;
 

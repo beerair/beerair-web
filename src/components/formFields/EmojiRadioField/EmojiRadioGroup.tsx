@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import cx from 'classnames';
 import React, { useCallback } from 'react';
 
-
 import Emoji from '@/components/Emoji';
 import { FEEL_MESSAGES } from '@/constants/messages';
 
@@ -28,7 +27,7 @@ const StyledEmojiRadioGroup = styled.div`
   align-items: center;
 
   & > h1.emoji-feel-message {
-    margin: 30px 0 0 0;
+    margin: 30px 0 120px 0;
     ${({ theme }) => theme.fonts.H1};
     color: ${({ theme }) => theme.color.white};
   }

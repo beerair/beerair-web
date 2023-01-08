@@ -1,5 +1,4 @@
-import { ICountry } from './country';
-import { IReview } from './reviews';
+import { ICountry, IReview } from '@/types';
 
 export interface IBeerType {
   id: number;

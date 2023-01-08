@@ -1,9 +1,9 @@
 import { MyPageBoxButtonListItemProps } from '@/pages/my/components/MyPageBoxButtonListItem';
 import { IMyPageInfoListItem } from '@/pages/my/components/MyPageInfoList';
 import { IBeer, ICountry, IFlavor, IMember, IReview } from '@/types';
-import { ILevel, IRecord, IRequestBeer, REQUEST_BEER_STATUS } from '@/types-old';
+import { ILevel, IRequestBeer, REQUEST_BEER_STATUS } from '@/types-old';
 
-export const user: IMember = {
+export const MOCK_USER: IMember = {
   email: 'beerair.official@gmail.com',
   id: 'c4328f0675834f8687b17f0718146fa9',
   levelImage: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/MEMBER/LEVEL/5.png',
@@ -12,7 +12,7 @@ export const user: IMember = {
   tier: 5,
 };
 
-export const beer: IBeer = {
+export const MOCK_BEER: IBeer = {
   id: 1,
   country: {
     id: 1,
@@ -90,20 +90,38 @@ export const levels: ILevel[] = [
   },
 ];
 
-export const record: IRecord = {
-  id: 20,
+export const MOCK_REVIEW: IReview = {
+  id: 'sfs',
   content: '맛이 좋아요(한줄평)',
-  feel: 3,
+  feelStatus: 3,
   imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/samples/beer_background.png',
-  memberRecordDto: null,
+  member: {
+    email: 'beerair.official@gmail.com',
+    id: 'c4328f0675834f8687b17f0718146fa9',
+    levelImage: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/MEMBER/LEVEL/5.png',
+    nickname: '맥주아저씨',
+    profileUrl: 'https://picsum.photos/200/300',
+    tier: 5,
+  },
   createdAt: '2022-06-11T02:55:12.151Z',
-  updatedAt: '2022-06-11T02:55:12.151Z',
-  startCountryKor: 'seoul',
-  startCountryEng: '서울',
-  endCountryKor: '12',
-  endCountryEng: 'Seoul',
-  isPublic: true,
-  flavorDtos: [
+  departuresCountry: {
+    id: 1,
+    korName: '대한민국',
+    engName: 'korea',
+    backgroundImageUrl:
+      'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/background/korea.png',
+    imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/korea.png',
+  },
+  arrivalCountry: {
+    id: 1,
+    korName: '대한민국',
+    engName: 'korea',
+    backgroundImageUrl:
+      'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/background/korea.png',
+    imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/korea.png',
+  },
+  // isPublic: true,
+  flavors: [
     {
       id: 1,
       content: '탄 맛이나요',
@@ -117,42 +135,7 @@ export const record: IRecord = {
       content: '쓴 맛이 나요',
     },
   ],
-  beerResponseDto: {
-    id: 1,
-    type: {
-      nameEng: 'LIGHT_ALE' as any,
-      nameKor: 'test',
-      description: 'test',
-      imageUrl: 'test',
-    },
-    startCountry: {
-      nameKor: '한국',
-      nameEng: 'korea',
-    },
-    endCountry: {
-      nameKor: '미국',
-      nameEng: 'usa',
-    },
-    country: {
-      id: 1,
-      nameKor: '테스트',
-      nameEng: 'test',
-      imageUrl: 'test',
-      backgroundImageUrl:
-        'https://sulsul-media-bucket.s3.ap-northeast-2.amazonaws.com/COUNTRY/background/korea.png',
-    },
-    nameKor: '평양',
-    nameEng: 'peng',
-    imageUrl: 'https://www.naver.com',
-    content: '1',
-    alcohol: 5.5,
-    price: 1,
-    volume: 1,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    isLiked: true,
-  },
-  recordCount: 13,
+  beer: { ...MOCK_BEER },
 };
 
 export const MYPAGE_BOX_BUTTON_LIST_DATA: MyPageBoxButtonListItemProps[] = [
@@ -183,25 +166,22 @@ export const MYPAGE_INFO_LIST_DATA: IMyPageInfoListItem[] = [
   { count: 3, unit: '개국', title: '여행한 나라' },
 ];
 
-export const flavorList: IFlavor[] = [
+export const MOCK_FLAVORS: IFlavor[] = [
   {
     id: 1,
     content: '단 맛이나요',
-    count: 1,
   },
   {
     id: 2,
     content: '목넘김이 부드러워요',
-    count: 1,
   },
   {
     id: 3,
     content: '쓴 맛이 나요',
-    count: 1,
   },
 ];
 
-export const country: ICountry = {
+export const MOCK_COUNTRY: ICountry = {
   id: 1,
   korName: '대한민국',
   engName: 'korea',
@@ -209,67 +189,3 @@ export const country: ICountry = {
     'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/background/korea.png',
   imageUrl: 'https://beerair-service.s3.ap-northeast-2.amazonaws.com/COUNTRY/korea.png',
 };
-
-export const review: IReview = {
-  id: 'c3a3251a56bb4440ab04b0b0f64a196f',
-  content: '리뷰리뷰',
-  feelStatus: 5,
-  imageUrl: '',
-  createdAt: '2022-09-17T12:42:30',
-  member: {
-    id: '9a7cc50525eb4df286e0096b96874c38',
-    email: null,
-    profileUrl: null,
-    nickname: '재원잉',
-    authorities: null,
-    tier: null,
-    levelImage: null,
-  },
-  beer: beer,
-  departuresCountry: country,
-  arrivalCountry: country,
-  flavors: flavorList,
-};
-
-export const reviewList: IReview[] = [
-  {
-    id: 'c3a3251a56bb4440ab04b0b0f64a196f',
-    content: '리뷰리뷰',
-    feelStatus: 5,
-    imageUrl: '',
-    createdAt: '2022-09-17T12:42:30',
-    member: {
-      id: '9a7cc50525eb4df286e0096b96874c38',
-      email: null,
-      profileUrl: null,
-      nickname: '재원잉',
-      authorities: null,
-      tier: null,
-      levelImage: null,
-    },
-    beer: beer,
-    departuresCountry: country,
-    arrivalCountry: country,
-    flavors: flavorList,
-  },
-  {
-    id: 'ea8bb35a04c2423a95ac11e46531fb73',
-    content: 'string',
-    feelStatus: 3,
-    imageUrl: '',
-    createdAt: '2022-09-09T17:48:16',
-    member: {
-      id: '9a7cc50525eb4df286e0096b96874c38',
-      email: null,
-      profileUrl: null,
-      nickname: '재원잉',
-      authorities: null,
-      tier: null,
-      levelImage: null,
-    },
-    beer: beer,
-    departuresCountry: country,
-    arrivalCountry: country,
-    flavors: flavorList,
-  },
-];

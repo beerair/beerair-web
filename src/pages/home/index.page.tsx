@@ -12,7 +12,7 @@ import { BOTTOM_NAVIGATION_HEIGHT } from '@/components/BottomNavigation/BottomNa
 import Button from '@/components/Button';
 import Icon, { IconNameType } from '@/components/Icon';
 import LoginRequestModal from '@/components/LoginRequestModal';
-import { reviewList } from '@/constants/dummy';
+import { MOCK_REVIEW } from '@/constants/dummy';
 import { ROUTE_PATH } from '@/constants/routes';
 import { useModal } from '@/hooks';
 import { $userSession } from '@/recoil/atoms';
@@ -25,7 +25,7 @@ const HomePage: NextPage = () => {
   const { data } = useGetTest();
 
   const user = useRecoilValue($userSession);
-  const myReviews: IReview[] = reviewList;
+  const myReviews: IReview[] = [MOCK_REVIEW];
 
   const [isLoginRequestModalOpen, openLoginRequestModal, closeLoginRequestModal] = useModal();
 
