@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { beer } from '@/constants/dummy';
+import { MOCK_BEER } from '@/constants/dummy';
 
 import BeerItem from './BeerItem';
 
 export default {
   component: BeerItem,
   args: {
-    beer,
+    MOCK_BEER,
   },
 } as Meta<typeof BeerItem>;
 

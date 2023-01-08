@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-import { IFlavor } from '@/types';
+import { IFlavor, IFlavorByBeer } from '@/types';
 
 import LikeBadge from './LikeBadge';
 
 export interface IFlavorProps {
   content: IFlavor['content'];
-  count: IFlavor['count'];
+  count: IFlavorByBeer['count'];
 }
 
 const FlavorListItem = ({ content, count }: IFlavorProps) => {

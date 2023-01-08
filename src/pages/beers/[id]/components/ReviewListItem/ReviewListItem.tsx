@@ -21,7 +21,7 @@ const ReviewListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
         <UserAndDate>
           <User>
             {isMe && <Me>ME</Me>}
-            {member.name}
+            {member?.nickname}
           </User>
           {!isNil(createdAt) && <Date>{formatDateDiff(parseISO(createdAt))}</Date>}
         </UserAndDate>

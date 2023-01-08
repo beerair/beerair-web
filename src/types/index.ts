@@ -1,10 +1,11 @@
 export * from './beers';
 export * from './continent';
-export * from './country';
 export * from './flavors';
 export * from './levels';
 export * from './members';
 export * from './reviews';
+export * from './country';
+export * from './image';
 
 export interface IError {
   name: string;

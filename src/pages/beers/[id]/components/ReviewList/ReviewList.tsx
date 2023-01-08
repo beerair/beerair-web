@@ -33,7 +33,7 @@ const ReviewList = ({ reviews, lastItemRef }: Props) => {
           createdAt={review.createdAt}
           member={review.member}
           flavors={review.flavors}
-          isMe={user?.nickname === review.member.name}
+          isMe={user?.nickname === review.member.nickname}
         />
       ))}
     </StyledReviewList>

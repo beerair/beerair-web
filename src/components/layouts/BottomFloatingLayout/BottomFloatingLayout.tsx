@@ -33,7 +33,7 @@ const StyledBottomFloatingButton = styled.div<{ bottomOffset: number }>`
   justify-content: center;
   align-items: center;
   gap: 18px;
-  width: 100%;
+  width: 100vw;
   height: ${BOTTOM_FLOATING_BUTTON_AREA_HEIGHT}px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 40.1%);
   z-index: 1;

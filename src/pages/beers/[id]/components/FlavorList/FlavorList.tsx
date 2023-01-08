@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-import { IFlavor } from '@/types';
+import { IFlavorByBeer } from '@/types';
 
 import FlavorListItem from '../FlavorListItem';
 
 interface FlavorListProps {
-  flavors: IFlavor[];
+  flavors: IFlavorByBeer[];
 }
 
 const FlavorList = ({ flavors }: FlavorListProps) => {

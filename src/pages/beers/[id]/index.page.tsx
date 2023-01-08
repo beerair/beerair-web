@@ -12,12 +12,12 @@ import { BackButton, ShareButton } from '@/components/Header/extras';
 import Icon from '@/components/Icon';
 import { useScroll } from '@/hooks';
 import BeerInfoBox from '@/pages/beers/components/BeerInfoBox';
-import { IBeer, IFlavor, IReview } from '@/types';
+import { IBeer, IFlavor, IFlavorByBeer, IReview } from '@/types';
 import { share } from '@/utils/share';
+import { getFlavorsByBeer, useGetFlavorsByBeer } from 'src/apis/flavors';
+import { getReviewsByBeer, useGetReviewsByBeer } from 'src/apis/review';
 
 import { getBeer, useGetBeer } from '../../../apis/beers/getBeer';
-import { getFlavors, useGetFlavors } from '../../../apis/flavors/getFlavors';
-import { getReviewsByBeer, useGetReviewsByBeer } from '../../../apis/review/getReviewsByBeer';
 import LikeBeerToggleButton from '../components/LikeBeerToggleButton';
 
 import AirPort from './components/AirPort';
@@ -28,7 +28,7 @@ const FLAVORS_LIMIT = 3;
 
 interface BeerInfoPageProps {
   beerResponse: IBeer;
-  flavorsResponse: IFlavor[];
+  flavorsResponse: IFlavorByBeer[];
   reviewsResponse: IReview[];
 }
 
@@ -43,7 +43,7 @@ const BeerInfoPage: NextPage<BeerInfoPageProps> = ({
   const beerId = Number(router.query.id);
 
   const { data: beer } = useGetBeer(beerId, initialBeerResponse);
-  const { data: flavors } = useGetFlavors(beerId, FLAVORS_LIMIT, initialFlavorsResponse);
+  const { data: flavors } = useGetFlavorsByBeer(beerId, FLAVORS_LIMIT, initialFlavorsResponse);
   const { data: reviews } = useGetReviewsByBeer(beerId, initialReviewsByBeerResponse);
 
   if (!beer || !flavors) {
@@ -126,7 +126,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const { id } = context.query;
 
     const beerResponse = await getBeer(Number(id));
-    const flavorsResponse = await getFlavors(Number(id), FLAVORS_LIMIT);
+    const flavorsResponse = await getFlavorsByBeer(Number(id), FLAVORS_LIMIT);
     const reviewsResponse = await getReviewsByBeer(Number(id));
 
     return { props: { beerResponse, flavorsResponse, reviewsResponse } };
