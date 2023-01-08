@@ -15,8 +15,9 @@ interface BeerListSortBottomSheetProps {
 const BeerListSortBottomSheet = ({ open, onClose }: BeerListSortBottomSheetProps) => {
   const [order, setOrder] = useRecoilState($beerListOrder);
 
-  const handleOrderItemClick = (sortBy: BeerListOrder) => {
-    setOrder(sortBy);
+  const handleOrderItemClick = (order: BeerListOrder) => {
+    console.log('order', order);
+    setOrder(order);
     onClose();
   };
 
@@ -30,7 +31,7 @@ const BeerListSortBottomSheet = ({ open, onClose }: BeerListSortBottomSheetProps
               key={orderKey}
               aria-checked={isSelected}
               isSelected={isSelected}
-              onClick={() => handleOrderItemClick(order)}
+              onClick={() => handleOrderItemClick(orderKey as BeerListOrder)}
             >
               <p>{orderText}</p>
               <Icon

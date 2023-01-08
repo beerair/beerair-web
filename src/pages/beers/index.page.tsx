@@ -1,28 +1,34 @@
 import styled from '@emotion/styled';
 import { isNil } from 'lodash';
 import { useRouter } from 'next/router';
+import { useRecoilValue } from 'recoil';
 
+import { useGetBeers } from '@/apis/beers/getBeers';
 import BottomNavigation from '@/components/BottomNavigation';
 import { BOTTOM_NAVIGATION_HEIGHT } from '@/components/BottomNavigation';
 import Header from '@/components/Header';
-import { beer } from '@/constants/dummy';
 import { ROUTE_PATH } from '@/constants/routes';
 import { useElementSize } from '@/hooks';
-import { IBeer } from '@/types';
 
 import BeerList from './components/BeerList';
 import BeerListViewToggleButton from './components/BeerListViewToggleButton';
 import BeerSearchResultEmpty from './components/BeerSearchResultEmpty';
 import BeerListFilterAndSorter from './components/filter/BeerListFilterAndSorter';
 import SearchBox from './components/SearchBox';
+import { $beerListFilter, $beerListOrder } from './recoil/atoms';
 
 const BeerListPage = () => {
   const router = useRouter();
   const query = isNil(router.query.query) ? undefined : decodeURI(String(router.query.query));
+  const filter = useRecoilValue($beerListFilter);
+  const order = useRecoilValue($beerListOrder);
 
-  const beers: IBeer[] = Array(10)
-    .fill(0)
-    .map((_, index) => ({ ...beer, id: index + 1 }));
+  const { data: beersData, isLoading } = useGetBeers({
+    keyword: query,
+    order,
+    ...filter,
+  });
+  const beers = beersData?.values;
 
   const {
     ref,
@@ -46,9 +52,14 @@ const BeerListPage = () => {
             onClearClick={handleClearClick}
           />
         </Header>
+        {/* TODO: resultCount, totalCount 전달 */}
         <BeerListFilterAndSorter />
       </StyledTopFloatingLayout>
-      {!beers?.length ? <BeerSearchResultEmpty query={query} /> : <BeerList beers={beers} />}
+      <BeerList
+        beers={beers}
+        isLoading={isLoading}
+        emptyComponent={<BeerSearchResultEmpty query={query} />}
+      />
       <BottomNavigation />
     </StyledBeerListPage>
   );
