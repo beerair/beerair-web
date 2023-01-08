@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { isNil } from 'lodash';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import { useGetBeers } from '@/apis/beers/getBeers';
@@ -34,6 +35,10 @@ const BeerListPage = () => {
     ref,
     size: { height: topFloatingLayoutHeight },
   } = useElementSize<HTMLDivElement>();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [filter, order, query]);
 
   const handleSearchBoxClick = () => router.push(ROUTE_PATH.SEARCH.MAIN);
 
