@@ -9,7 +9,7 @@ import { ROUTE_PATH } from '@/constants/routes';
 const HERO_IMAGE_URL =
   'https://beerair-service.s3.ap-northeast-2.amazonaws.com/static/onboarding-hero.png';
 
-const OnBoardingPage = () => {
+const WelcomePage = () => {
   return (
     <>
       <BeginningLayout>
@@ -35,6 +35,8 @@ const OnBoardingPage = () => {
     </>
   );
 };
+
+export default WelcomePage;
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -87,5 +89,3 @@ const StyledLinkButton = styled.a`
     margin-left: 4px;
   }
 `;
-
-export default OnBoardingPage;
