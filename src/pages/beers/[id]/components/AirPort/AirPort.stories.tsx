@@ -6,12 +6,12 @@ export default {
   component: AirPort,
   args: {
     startCountry: {
-      nameKor: '독일',
-      nameEng: 'FRA',
+      korName: '독일',
+      engName: 'FRA',
     },
     endCountry: {
-      nameKor: '대한민국',
-      nameEng: 'KOR',
+      korName: '대한민국',
+      engName: 'KOR',
     },
   },
 } as ComponentMeta<typeof AirPort>;

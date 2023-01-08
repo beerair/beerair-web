@@ -4,15 +4,16 @@ import { useRouter } from 'next/router';
 
 import BottomNavigation from '@/components/BottomNavigation';
 import { BOTTOM_NAVIGATION_HEIGHT } from '@/components/BottomNavigation';
-import { HEADER_HEIGHT } from '@/components/Header';
 import Header from '@/components/Header';
 import { beer } from '@/constants/dummy';
 import { ROUTE_PATH } from '@/constants/routes';
+import { useElementSize } from '@/hooks';
 import { IBeer } from '@/types';
 
 import BeerList from './components/BeerList';
 import BeerListViewToggleButton from './components/BeerListViewToggleButton';
 import BeerSearchResultEmpty from './components/BeerSearchResultEmpty';
+import BeerListFilterAndSorter from './components/filter/BeerListFilterAndSorter';
 import SearchBox from './components/SearchBox';
 
 const BeerListPage = () => {
@@ -23,6 +24,11 @@ const BeerListPage = () => {
     .fill(0)
     .map((_, index) => ({ ...beer, id: index + 1 }));
 
+  const {
+    ref,
+    size: { height: topFloatingLayoutHeight },
+  } = useElementSize<HTMLDivElement>();
+
   const handleSearchBoxClick = () => router.push(ROUTE_PATH.SEARCH.MAIN);
 
   const handleClearClick = () => {
@@ -30,15 +36,18 @@ const BeerListPage = () => {
   };
 
   return (
-    <StyledBeerListPage>
-      <Header rightExtras={<BeerListViewToggleButton />}>
-        <SearchBox
-          query={query}
-          placeHolder="맥주 이름, 특징 검색"
-          onClick={handleSearchBoxClick}
-          onClearClick={handleClearClick}
-        />
-      </Header>
+    <StyledBeerListPage paddingTop={topFloatingLayoutHeight}>
+      <StyledTopFloatingLayout ref={ref}>
+        <Header rightExtras={<BeerListViewToggleButton />}>
+          <SearchBox
+            query={query}
+            placeHolder="맥주 이름, 특징 검색"
+            onClick={handleSearchBoxClick}
+            onClearClick={handleClearClick}
+          />
+        </Header>
+        <BeerListFilterAndSorter />
+      </StyledTopFloatingLayout>
       {!beers?.length ? <BeerSearchResultEmpty query={query} /> : <BeerList beers={beers} />}
       <BottomNavigation />
     </StyledBeerListPage>
@@ -47,6 +56,16 @@ const BeerListPage = () => {
 
 export default BeerListPage;
 
-const StyledBeerListPage = styled.div`
-  padding: ${HEADER_HEIGHT}px 0 ${BOTTOM_NAVIGATION_HEIGHT}px;
+const StyledBeerListPage = styled.div<{ paddingTop: number }>`
+  padding: ${(p) => p.paddingTop}px 0 ${BOTTOM_NAVIGATION_HEIGHT}px;
+`;
+
+const StyledTopFloatingLayout = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  max-width: 768px;
+  margin: 0 auto;
 `;

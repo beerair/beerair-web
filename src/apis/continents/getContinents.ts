@@ -1,13 +1,22 @@
-/** @todo api 연동 */
+import { useQuery } from 'react-query';
+
+import request from '@/commons/axios';
+import { IBaseResponse, IContinent } from '@/types';
+
+interface IGetContinentsResponseData extends IBaseResponse<IContinent[]> {}
+
+/**
+ * 대륙 조회
+ */
+export const getContinents = async () => {
+  const res = await request<IGetContinentsResponseData>({
+    method: 'get',
+    url: '/api/v1/continents',
+  });
+
+  return res.data;
+};
+
 export const useGetContinents = () => {
-  return {
-    data: {
-      contents: [
-        { id: 1, name: '유럽' },
-        { id: 2, name: '아시아' },
-        { id: 3, name: '아메리카' },
-        { id: 4, name: '호주' },
-      ],
-    },
-  };
+  return useQuery(['continents'], getContinents);
 };

@@ -1,9 +1,13 @@
 import { useRef, useCallback, useEffect, useState } from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
 
+import isServer from '@/utils/isServer';
+
 import { TAB_ITEM_MARGIN_LEFT } from '../TabItem';
 
-smoothscroll.polyfill();
+if (!isServer()) {
+  smoothscroll.polyfill();
+}
 
 interface useScrollToTabItemProps {
   activatedIndex: number;

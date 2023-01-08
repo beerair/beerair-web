@@ -13,7 +13,9 @@ interface PrivacyPolicyPageProps {
 const PrivacyPolicyPage: NextPage<PrivacyPolicyPageProps> = ({ html: privacyPolicyHtml }) => {
   return (
     <StyledPrivacyPolicyPage>
-      <Header leftExtras={<BackButton />}>개인정보 처리방침</Header>
+      <Header isTopFixed leftExtras={<BackButton />}>
+        개인정보 처리방침
+      </Header>
       <StyledMarkdown markdown={privacyPolicyHtml} />
     </StyledPrivacyPolicyPage>
   );

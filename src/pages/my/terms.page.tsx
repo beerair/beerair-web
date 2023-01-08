@@ -13,7 +13,9 @@ interface TermsOfServicePageProps {
 const TermsOfServicePage: NextPage<TermsOfServicePageProps> = ({ html: termsOfServiceHtml }) => {
   return (
     <StyledTermsOfServicePage>
-      <Header leftExtras={<BackButton />}>서비스 정책 약관</Header>
+      <Header isTopFixed leftExtras={<BackButton />}>
+        서비스 정책 약관
+      </Header>
       <StyledMarkdown markdown={termsOfServiceHtml} />
     </StyledTermsOfServicePage>
   );

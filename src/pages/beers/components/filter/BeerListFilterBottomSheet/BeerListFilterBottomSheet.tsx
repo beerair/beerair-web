@@ -3,25 +3,23 @@ import { useEffect } from 'react';
 import { RecoilRoot, useRecoilState, useResetRecoilState } from 'recoil';
 
 import BottomSheet from '@/components/BottomSheet';
+import Button from '@/components/Button';
 import Icon from '@/components/Icon';
 import Tab from '@/components/Tab';
-import { IBeerListFilter } from '@/types-old';
+import { BeerListFilter, BeerListFilterChip } from '@/types';
 
-import BeerCountryFilterTab from '../BeerCountryFilterTab';
-import { BeerListFilterChipType } from '../BeerListFilterChipList';
-import BeerListFilterFooter from '../BeerListFilterFooter';
-import BeerTypeFilterList from '../BeerTypeFilterList';
-import { $nextBeerListFilter, $nextBeerListFilterChips } from '../recoil/atoms';
+import BeerListFilterChipList from '../BeerListFilterChipList';
 
-
-const TAB_ITEMS = ['종류', '나라'];
+import BeerCountryFilterTab from './BeerCountryFilterTab';
+import BeerTypeFilterList from './BeerTypeFilterList';
+import { $nextBeerListFilter, $nextBeerListFilterChips } from './recoil/atoms';
 
 interface BeerListFilterBottomSheetProps {
   open: boolean;
-  defaultFilter?: IBeerListFilter;
-  defaultFilerChips?: BeerListFilterChipType[];
+  defaultFilter?: BeerListFilter;
+  defaultFilerChips?: BeerListFilterChip[];
   onClose: () => void;
-  onApply: (nextFiler: IBeerListFilter, nextFilerChips: BeerListFilterChipType[]) => void;
+  onApply: (nextFiler: BeerListFilter, nextFilerChips: BeerListFilterChip[]) => void;
 }
 
 const BeerListFilterBottomSheet: React.FC<BeerListFilterBottomSheetProps> = ({
@@ -31,7 +29,7 @@ const BeerListFilterBottomSheet: React.FC<BeerListFilterBottomSheetProps> = ({
   onClose,
   onApply,
 }) => {
-  const [nextFiler, setNextFilter] = useRecoilState($nextBeerListFilter);
+  const [nextFilter, setNextFilter] = useRecoilState($nextBeerListFilter);
   const [nextFilterChips, setNextFilterChips] = useRecoilState($nextBeerListFilterChips);
 
   const resetNextFilter = useResetRecoilState($nextBeerListFilter);
@@ -49,8 +47,18 @@ const BeerListFilterBottomSheet: React.FC<BeerListFilterBottomSheetProps> = ({
     resetNextFilterChips();
   };
 
+  const removeFilterChip = (chip: BeerListFilterChip) => {
+    setNextFilter({
+      ...nextFilter,
+      [chip.filterKey]: nextFilter[chip.filterKey]?.filter((id) => id !== chip.id),
+    });
+    setNextFilterChips(
+      nextFilterChips.filter((v) => !(v.id === chip.id && v.filterKey === chip.filterKey)),
+    );
+  };
+
   const applyFilter = () => {
-    onApply(nextFiler, nextFilterChips);
+    onApply(nextFilter, nextFilterChips);
     onClose();
   };
 
@@ -64,11 +72,20 @@ const BeerListFilterBottomSheet: React.FC<BeerListFilterBottomSheetProps> = ({
           초기화
         </button>
       </StyledHeader>
-      <StyledTab tabItems={TAB_ITEMS} type="primary" size="large">
+      <StyledTab tabItems={['종류', '나라']} type="primary" size="large">
         <BeerTypeFilterList />
         <BeerCountryFilterTab />
       </StyledTab>
-      <BeerListFilterFooter onApplyClick={applyFilter} />
+      <StyledFooter>
+        {!!nextFilterChips.length && (
+          <BeerListFilterChipList filterChips={nextFilterChips} onRemove={removeFilterChip} />
+        )}
+        <StyledApplyButonWrapper>
+          <Button type="primary" width="large" onClick={applyFilter}>
+            필터 적용
+          </Button>
+        </StyledApplyButonWrapper>
+      </StyledFooter>
     </StyledBottomSheet>
   );
 };
@@ -82,6 +99,8 @@ const BeerListFilterBottomSheetRecoilWrapper: React.FC<BeerListFilterBottomSheet
     </RecoilRoot>
   );
 };
+
+export default BeerListFilterBottomSheetRecoilWrapper;
 
 const StyledBottomSheet = styled(BottomSheet)`
   display: flex;
@@ -109,4 +128,29 @@ const StyledTab = styled(Tab)`
   overflow: hidden;
 `;
 
-export default BeerListFilterBottomSheetRecoilWrapper;
+const StyledFooter = styled.section`
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-top: 1px solid ${(p) => p.theme.semanticColor.secondary};
+
+  background-color: ${(p) => p.theme.semanticColor.backgroundLow};
+
+  /** 아이폰 하단 노치 영역 대응 */
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+`;
+
+const StyledApplyButonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+`;

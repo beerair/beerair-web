@@ -8,7 +8,9 @@ import { ROUTE_PATH } from '@/constants/routes';
 const EtcPage = () => {
   return (
     <ListRowContainer>
-      <Header leftExtras={<BackButton />}>기타</Header>
+      <Header isTopFixed leftExtras={<BackButton />}>
+        기타
+      </Header>
       <ListRow>
         <a href="mailto:beerair.official@gmail.com" target="_blank" rel="noreferrer">
           문의하기

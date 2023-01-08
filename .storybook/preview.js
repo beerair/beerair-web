@@ -3,6 +3,8 @@ import { RecoilRoot } from 'recoil';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 
+import ReactQueryClientProvider from '@/components/QueryClientProvider';
+
 import { theme, GlobalStyle } from '../src/themes';
 import MainLayout from '../src/components/layouts/MainLayout';
 
@@ -40,27 +42,29 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle theme={theme} />
-        <Global
-          styles={css`
-            html,
-            #root {
-              height: 100%;
-            }
+    <ReactQueryClientProvider>
+      <RecoilRoot>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle theme={theme} />
+          <Global
+            styles={css`
+              html,
+              #root {
+                height: 100%;
+              }
 
-            body {
-              height: 100%;
-              padding: 0 !important;
-              background-color: ${theme.semanticColor.background};
-            }
-          `}
-        />
-        <MainLayout>
-          <Story />
-        </MainLayout>
-      </ThemeProvider>
-    </RecoilRoot>
+              body {
+                height: 100%;
+                padding: 0 !important;
+                background-color: ${theme.semanticColor.background};
+              }
+            `}
+          />
+          <MainLayout>
+            <Story />
+          </MainLayout>
+        </ThemeProvider>
+      </RecoilRoot>
+    </ReactQueryClientProvider>
   ),
 ];

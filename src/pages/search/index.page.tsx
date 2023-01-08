@@ -27,7 +27,7 @@ const SearchPage: React.FC = () => {
   return (
     <RecoilRoot>
       <StyledSearchPage>
-        <Header leftExtras={<BackButton />} className="search-page-header">
+        <Header isTopFixed leftExtras={<BackButton />} className="search-page-header">
           <SearchInput onChangeHighlightingText={handleChangeHighlightingText} />
         </Header>
         <SearchList type="history" highlightingText={highlightingText} />

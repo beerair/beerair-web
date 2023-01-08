@@ -1,4 +1,4 @@
-import { IContinent } from ".";
+import { IContinent } from './continent';
 
 export interface ICountry {
   id: number;

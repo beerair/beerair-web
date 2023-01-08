@@ -1,9 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { BEER_TYPE } from '@/types-old/beer';
-
 import BeerListFilterChipList from './BeerListFilterChipList';
-
 
 export default {
   component: BeerListFilterChipList,
@@ -16,9 +13,9 @@ const Template: ComponentStory<typeof BeerListFilterChipList> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   filterChips: [
-    { id: 1, text: '아시아', type: 'country' },
-    { id: BEER_TYPE.PILSNER, text: '필스너', type: 'beerType' },
-    { id: BEER_TYPE.IPA, text: 'IPA', type: 'beerType' },
+    { id: 1, text: '아시아', filterKey: 'country' },
+    { id: 1, text: '필스너', filterKey: 'type' },
+    { id: 2, text: 'IPA', filterKey: 'type' },
   ],
-  onRemove: (chip) => alert(`${chip.id}, ${chip.type} 제거`),
+  onRemove: (chip) => alert(`${chip.id}, ${chip.filterKey} 제거`),
 };

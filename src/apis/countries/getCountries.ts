@@ -1,44 +1,22 @@
-import { ICountry } from '@/types-old'; // TODO 예전 api type 수정
+import { useQuery } from 'react-query';
 
-/** @todo api 연동 */
-export const useGetCountries = (continentId?: number): { countries: ICountry[] } => {
-  return {
-    countries: [
-      {
-        id: 1,
-        nameKor: '독일',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 2,
-        nameKor: '프랑스',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 3,
-        nameKor: '대한민국',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 4,
-        nameKor: '영국',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-      {
-        id: 5,
-        nameKor: '벨기에',
-        nameEng: '',
-        imageUrl: '',
-        backgroundImageUrl: '',
-      },
-    ],
-  };
+import request from '@/commons/axios';
+import { IBaseResponse, ICountry } from '@/types';
+
+interface IGetCountriesResponseData extends IBaseResponse<ICountry[]> {}
+
+/**
+ * 국가 조회
+ */
+export const getCountries = async (continentId?: number) => {
+  const res = await request<IGetCountriesResponseData>({
+    method: 'get',
+    url: continentId ? `/api/v1/continents/${continentId}/countries` : '/api/v1/countries',
+  });
+
+  return res.data;
+};
+
+export const useGetCountries = (continentId?: number) => {
+  return useQuery(['countries', continentId], () => getCountries(continentId));
 };

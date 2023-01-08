@@ -1,4 +1,5 @@
 export * from './beers';
+export * from './continent';
 export * from './country';
 export * from './flavors';
 export * from './levels';
