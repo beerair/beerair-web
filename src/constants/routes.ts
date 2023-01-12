@@ -9,6 +9,7 @@ export const ROUTE_PATH = {
   BEERS: {
     LIST: '/beers',
     INFO: '/beers/[id]',
+    RECOMMENDS_AND_LIKES: '/beers/recommends-and-likes',
     REQUESTS: {
       LIST: '/beers/requests',
       CREATE: {
