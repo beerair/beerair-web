@@ -69,7 +69,9 @@ const HomePage: NextPage = () => {
             rightAddon={<Icon name="Airplane" color="yellow" />}
             iconMargin={14}
             width="large"
-            {...(user ? { href: '/beer/recommend-and-liked' } : { onClick: openLoginRequestModal })}
+            {...(user
+              ? { href: ROUTE_PATH.BEERS.RECOMMENDS_AND_LIKES }
+              : { onClick: openLoginRequestModal })}
           >
             {'이런 맥주는 어떠세요?'}
           </Button>
