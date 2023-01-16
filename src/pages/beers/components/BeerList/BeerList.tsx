@@ -3,6 +3,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useRecoilValue } from 'recoil';
 
+import Icon from '@/components/Icon';
 import { $beerListViewType, BeerListViewType } from '@/recoil/atoms';
 import { IBeer } from '@/types';
 
@@ -45,12 +46,18 @@ const BeerList = ({
   }
 
   return (
-    <StyledBeerList type={beerListViewType}>
-      {beers?.map((beer) => (
-        <BeerItem key={beer.id} type={beerListViewType} beer={beer} />
-      ))}
-      {hasNextPage && <div ref={ref} />}
-    </StyledBeerList>
+    <>
+      <StyledBeerList type={beerListViewType}>
+        {beers?.map((beer) => (
+          <BeerItem key={beer.id} type={beerListViewType} beer={beer} />
+        ))}
+      </StyledBeerList>
+      {hasNextPage && (
+        <StyledLoadingIcon ref={ref}>
+          <Icon name="AirPlaneLoading" size={40} />
+        </StyledLoadingIcon>
+      )}
+    </>
   );
 };
 
@@ -75,4 +82,12 @@ const StyledBeerList = styled.div<{ type: BeerListViewType }>`
     gap: 16px;
     padding: 20px 20px 14px;
       `}
+`;
+
+const StyledLoadingIcon = styled.div`
+  width: 100%;
+  margin: 30px 0 50px;
+  & > svg {
+    margin: 0 auto;
+  }
 `;

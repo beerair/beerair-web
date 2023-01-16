@@ -24,12 +24,17 @@ const BeerListPage = () => {
   const filter = useRecoilValue($beerListFilter);
   const order = useRecoilValue($beerListOrder);
 
-  const { data: beersData, isLoading } = useGetBeers({
+  const {
+    data: beersData,
+    isLoading,
+    hasNextPage,
+    fetchNextPage,
+  } = useGetBeers({
     keyword: query,
     order,
     ...filter,
   });
-  const beers = beersData;
+  const beers = beersData?.data;
 
   const {
     ref,
@@ -57,12 +62,14 @@ const BeerListPage = () => {
             onClearClick={handleClearClick}
           />
         </Header>
-        {/* TODO: resultCount, totalCount 전달 */}
-        <BeerListFilterAndSorter />
+        {/* TODO: totalCount 전달 */}
+        <BeerListFilterAndSorter resultCount={beersData?.resultCount} />
       </StyledTopFloatingLayout>
       <BeerList
         beers={beers}
         isLoading={isLoading}
+        hasNextPage={hasNextPage}
+        fetchNextPage={fetchNextPage}
         emptyComponent={<BeerSearchResultEmpty query={query} />}
       />
       <BottomNavigation />
