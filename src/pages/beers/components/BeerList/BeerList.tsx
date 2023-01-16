@@ -54,7 +54,7 @@ const BeerList = ({
       </StyledBeerList>
       {hasNextPage && (
         <StyledLoadingIcon ref={ref}>
-          <Icon name="AirPlaneLoading" size={40} />
+          <Icon name="AirPlaneLoading" size={32} />
         </StyledLoadingIcon>
       )}
     </>
@@ -87,7 +87,27 @@ const StyledBeerList = styled.div<{ type: BeerListViewType }>`
 const StyledLoadingIcon = styled.div`
   width: 100%;
   margin: 30px 0 50px;
+
   & > svg {
     margin: 0 auto;
+
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-80%) scale(0.9);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      80% {
+        transform: translateY(20%) scale(1);
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    animation: 2s slideDown infinite;
   }
 `;
