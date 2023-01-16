@@ -29,7 +29,7 @@ const BeerListPage = () => {
     order,
     ...filter,
   });
-  const beers = beersData?.values;
+  const beers = beersData;
 
   const {
     ref,

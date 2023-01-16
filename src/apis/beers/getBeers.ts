@@ -1,9 +1,9 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
-import { BeerListFilter, BeerListOrder, IBaseResponse, IBeer } from '@/types';
+import { BeerListFilter, BeerListOrder, IBasePaginationResponse, IBeer } from '@/types';
 
-interface IGetBeerResponseData extends IBaseResponse<{ values: IBeer[] }> {}
+interface IGetBeerResponseData extends IBasePaginationResponse<IBeer[]> {}
 
 interface IGetBeersParams {
   country?: BeerListFilter['country'];
