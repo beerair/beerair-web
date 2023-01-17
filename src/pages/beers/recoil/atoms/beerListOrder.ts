@@ -15,6 +15,8 @@ export const beerListOrderTextAlias: Record<BeerListOrder, string> = {
   [BEER_LIST_ORDER.ALCOHOL_LOWEST]: '낮은 도수 순',
 };
 
+export const DEFAULT_BEER_LIST_ORDER = BEER_LIST_ORDER.REVIEW;
+
 const initDefaultOrder = (defaultValue: BeerListOrder): BeerListOrder => {
   if (isServer()) return defaultValue;
 
@@ -24,6 +26,6 @@ const initDefaultOrder = (defaultValue: BeerListOrder): BeerListOrder => {
 
 export const $beerListOrder = atom<BeerListOrder>({
   key: BEER_LIST_ORDER_ATOM_KEY,
-  default: initDefaultOrder(BEER_LIST_ORDER.REVIEW),
+  default: initDefaultOrder(DEFAULT_BEER_LIST_ORDER),
   effects: [urlSyncRecoilEffect('order')],
 });

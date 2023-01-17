@@ -8,6 +8,8 @@ import isServer from '@/utils/isServer';
 
 const BEER_LIST_FILTER_ATOM_KEY = 'beer-list-filter';
 
+export const DEFAULT_BEER_LIST_FILTER: BeerListFilter = {};
+
 const initDefaultFilter = (defaultValue: BeerListFilter): BeerListFilter => {
   if (isServer()) {
     return defaultValue;
@@ -21,6 +23,6 @@ const initDefaultFilter = (defaultValue: BeerListFilter): BeerListFilter => {
 
 export const $beerListFilter = atom<BeerListFilter>({
   key: BEER_LIST_FILTER_ATOM_KEY,
-  default: initDefaultFilter({}),
+  default: initDefaultFilter(DEFAULT_BEER_LIST_FILTER),
   effects: [urlSyncRecoilEffect('filter', { stringify: true })],
 });
