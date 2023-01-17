@@ -20,6 +20,7 @@ import { $beerListFilter, $beerListOrder } from './recoil/atoms';
 
 const BeerListPage = () => {
   const router = useRouter();
+
   const query = isNil(router.query.query) ? undefined : decodeURI(String(router.query.query));
   const filter = useRecoilValue($beerListFilter);
   const order = useRecoilValue($beerListOrder);

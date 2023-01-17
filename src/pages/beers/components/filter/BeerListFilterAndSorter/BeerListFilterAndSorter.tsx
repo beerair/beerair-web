@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { useRecoilState } from 'recoil';
+import dynamic from 'next/dynamic';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import { HEADER_HEIGHT } from '@/components/Header';
 import { useModal } from '@/hooks';
@@ -16,18 +17,20 @@ import BeerListSortBottomSheet from '../BeerListSortBottomSheet';
 
 import FilterButton from './FilterButton';
 import { useFilterChipsState } from './hooks/useFilterChipsState';
-import SortButton from './SortButton';
+
+const SortButton = dynamic(() => import('./SortButton'), {
+  ssr: false,
+});
 
 interface BeerListFilterAndSorterProps {
   resultCount?: number;
   totalCount?: number;
 }
 
-// TODO: filter, order, keyword (?) -> QueryParams 연동
 const BeerListFilterAndSorter = ({ resultCount, totalCount }: BeerListFilterAndSorterProps) => {
   const [filter, setFilter] = useRecoilState($beerListFilter);
   const [filterChips, setFilterChips] = useFilterChipsState(filter);
-  const [order, setOrder] = useRecoilState($beerListOrder);
+  const order = useRecoilValue($beerListOrder);
 
   const [isFilterBottomSheetOpen, openFilterBottomSheet, closeFilterBottomSheet] = useModal(false);
   const [isSortBottomSheetOpen, openSortBottomSheet, closeSortBottomSheet] = useModal(false);

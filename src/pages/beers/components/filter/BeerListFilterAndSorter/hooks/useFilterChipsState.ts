@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { isEmpty } from 'lodash';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import { useGetBeerTypes } from '@/apis/beerTypes/getBeerTypes';
@@ -14,7 +14,7 @@ export const useFilterChipsState = (
   const [filterChips, setFilterChips] = useState<BeerListFilterChip[]>([]);
 
   useEffect(() => {
-    if (!_.isEmpty(filter) || !beerTypes.length || !countries.length) return;
+    if (!beerTypes.length || !countries.length) return;
 
     setFilterChips(initFilterChips({ filter, beerTypes, countries }));
   }, [beerTypes, countries, filter, setFilterChips]);
@@ -39,6 +39,10 @@ const initFilterChips = ({
   beerTypes: IBeerType[];
   countries: ICountry[];
 }): BeerListFilterChip[] => {
+  if (isEmpty(filter) || !beerTypes.length || !countries.length) {
+    return [];
+  }
+
   const { type = [], country = [] } = filter;
 
   return [
