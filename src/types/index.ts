@@ -17,7 +17,10 @@ export interface IBaseResponse<T> {
 }
 
 export interface IBasePaginationResponse<T> extends IBaseResponse<T> {
-  hasNext: boolean;
-  nextCursor: number;
-  resultCount: number;
+  page: number;
+  size: number;
+  totalPages: number;
+  totalElements: number;
+  firstPage: boolean;
+  lastPage: boolean;
 }

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useMemo } from 'react';
 
 import Icon from '@/components/Icon';
+import { ROUTE_PATH } from '@/constants/routes';
 
 import { useSearchHistory } from '../../hooks';
 
@@ -53,7 +54,12 @@ const SearchItem: React.FC<SearchItemProps> = ({
   );
 
   const handleClick = useCallback(() => {
-    router.push(`/beers?query=${encodeURI(text)}`);
+    // NOTE: SearchInput submit과 동일한 로직
+    router.push(ROUTE_PATH.BEERS.LIST, {
+      query: {
+        query: encodeURI(text),
+      },
+    });
     addSearchHistory(text);
   }, [text, router, addSearchHistory]);
 

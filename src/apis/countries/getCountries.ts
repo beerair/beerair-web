@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { IBaseResponse, ICountry } from '@/types';
 
 interface IGetCountriesResponseData extends IBaseResponse<ICountry[]> {}
@@ -18,5 +19,5 @@ export const getCountries = async (continentId?: number) => {
 };
 
 export const useGetCountries = (continentId?: number) => {
-  return useQuery(['countries', continentId], () => getCountries(continentId));
+  return useQuery(queryKeyFactory.GET_COUNTRIES(continentId), () => getCountries(continentId));
 };

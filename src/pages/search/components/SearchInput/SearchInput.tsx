@@ -66,13 +66,11 @@ const SearchInput: React.FC<SearchInputProps> = ({
          * TODO: 기존 beer list 페이지에서 설정한 filter 유지되도록 refactoring 필요
          * https://github.com/beerair/beerair-web/issues/100
          */
-        router
-          .push(ROUTE_PATH.BEERS.LIST, {
+        router.push(ROUTE_PATH.BEERS.LIST, {
+          query: {
             query: encodeURI(searchText),
-          })
-          .then(() => {
-            // TODO
-          });
+          },
+        });
       }
     },
     [searchText, addSearchHistory, router],

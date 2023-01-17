@@ -1,8 +1,12 @@
+import { isNil } from 'lodash';
+import qs from 'qs';
 import { atom } from 'recoil';
 
+import urlSyncRecoilEffect from '@/recoil/effects/url-sync';
 import { BEER_LIST_ORDER, BeerListOrder } from '@/types';
+import isServer from '@/utils/isServer';
 
-export const BEER_LIST_ORDER_ATOM_KEY = 'beer-list-order';
+const BEER_LIST_ORDER_ATOM_KEY = 'beer-list-order';
 
 export const beerListOrderTextAlias: Record<BeerListOrder, string> = {
   [BEER_LIST_ORDER.NAME]: '맥주 이름 순',
@@ -13,7 +17,15 @@ export const beerListOrderTextAlias: Record<BeerListOrder, string> = {
 
 export const DEFAULT_BEER_LIST_ORDER = BEER_LIST_ORDER.REVIEW;
 
+const initDefaultOrder = (defaultValue: BeerListOrder): BeerListOrder => {
+  if (isServer()) return defaultValue;
+
+  const parsedQueryParams = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+  return isNil(parsedQueryParams.order) ? defaultValue : (parsedQueryParams.order as BeerListOrder);
+};
+
 export const $beerListOrder = atom<BeerListOrder>({
   key: BEER_LIST_ORDER_ATOM_KEY,
-  default: DEFAULT_BEER_LIST_ORDER,
+  default: initDefaultOrder(DEFAULT_BEER_LIST_ORDER),
+  effects: [urlSyncRecoilEffect('order')],
 });

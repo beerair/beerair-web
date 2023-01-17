@@ -1,11 +1,12 @@
-import { useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 
 import request from '@/commons/axios';
-import { BeerListFilter, BeerListOrder, IBaseResponse, IBeer } from '@/types';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
+import { BeerListFilter, BeerListOrder, IBasePaginationResponse, IBeer } from '@/types';
 
-interface IGetBeerResponseData extends IBaseResponse<{ values: IBeer[] }> {}
+interface IGetBeerResponseData extends IBasePaginationResponse<IBeer[]> {}
 
-interface IGetBeersParams {
+export interface IGetBeersParams {
   country?: BeerListFilter['country'];
   type?: BeerListFilter['type'];
   order?: BeerListOrder;
@@ -23,15 +24,42 @@ export const getBeers = async (params?: IGetBeersParams) => {
     params,
   });
 
-  return res.data;
+  return res;
 };
 
-// TODO: api 확정 후 무한스크롤 적용
 export const useGetBeers = (payload?: Omit<IGetBeersParams, 'offset'>) => {
-  const params: IGetBeersParams = {
-    ...payload,
-    // offset: 0,
-  };
+  const result = useInfiniteQuery(
+    queryKeyFactory.GET_BEERS(payload),
+    ({ pageParam }) =>
+      getBeers({
+        ...payload,
+        offset: pageParam ?? 0,
+      }),
+    {
+      getNextPageParam: (lastPage) => {
+        if (lastPage.lastPage) {
+          return;
+        }
 
-  return useQuery(['beers', params], () => getBeers(params));
+        return ((lastPage.page + 1) * lastPage.size) as IGetBeersParams['offset'];
+      },
+    },
+  );
+
+  const data = result.data
+    ? {
+        data: result.data.pages
+          .map((page) => page.data)
+          .reduce(
+            (mergedContents, currentContents) => [...mergedContents, ...(currentContents || [])],
+            [],
+          ),
+        resultCount: result.data.pages[0].totalElements,
+      }
+    : undefined;
+
+  return {
+    ...result,
+    data,
+  };
 };

@@ -16,7 +16,6 @@ const BeerListSortBottomSheet = ({ open, onClose }: BeerListSortBottomSheetProps
   const [order, setOrder] = useRecoilState($beerListOrder);
 
   const handleOrderItemClick = (order: BeerListOrder) => {
-    console.log('order', order);
     setOrder(order);
     onClose();
   };
