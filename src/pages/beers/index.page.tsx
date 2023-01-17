@@ -18,6 +18,9 @@ import BeerListFilterAndSorter from './components/filter/BeerListFilterAndSorter
 import SearchBox from './components/SearchBox';
 import { $beerListFilter, $beerListOrder } from './recoil/atoms';
 
+// FIXME: 맥주목록 ssr
+// FIXME: queryParams에 query, filter, order이 있는 경우 뒤늦게 적용되어 전체 목록이 한번 나타났다가 필터가 적용되는 현상
+// TODO: keyword 적용시 filter, order 초기화 되는 현상 제거
 const BeerListPage = () => {
   const router = useRouter();
 
