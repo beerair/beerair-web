@@ -1,11 +1,12 @@
 import { useInfiniteQuery } from 'react-query';
 
 import request from '@/commons/axios';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { BeerListFilter, BeerListOrder, IBasePaginationResponse, IBeer } from '@/types';
 
 interface IGetBeerResponseData extends IBasePaginationResponse<IBeer[]> {}
 
-interface IGetBeersParams {
+export interface IGetBeersParams {
   country?: BeerListFilter['country'];
   type?: BeerListFilter['type'];
   order?: BeerListOrder;
@@ -28,7 +29,7 @@ export const getBeers = async (params?: IGetBeersParams) => {
 
 export const useGetBeers = (payload?: Omit<IGetBeersParams, 'offset'>) => {
   const result = useInfiniteQuery(
-    ['beers', payload],
+    queryKeyFactory.GET_BEERS(payload),
     ({ pageParam }) =>
       getBeers({
         ...payload,

@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { IBaseResponse, IBeerType } from '@/types';
 
 interface IGetBeerTypesResponseData extends IBaseResponse<IBeerType[]> {}
@@ -18,5 +19,5 @@ export const getBeerTypes = async () => {
 };
 
 export const useGetBeerTypes = () => {
-  return useQuery(['beerTypes'], getBeerTypes);
+  return useQuery(queryKeyFactory.GET_BEER_TYPES(), getBeerTypes);
 };

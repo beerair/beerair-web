@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { IBaseResponse, IContinent } from '@/types';
 
 interface IGetContinentsResponseData extends IBaseResponse<IContinent[]> {}
@@ -18,5 +19,5 @@ export const getContinents = async () => {
 };
 
 export const useGetContinents = () => {
-  return useQuery(['continents'], getContinents);
+  return useQuery(queryKeyFactory.GET_CONTINENTS(), getContinents);
 };
