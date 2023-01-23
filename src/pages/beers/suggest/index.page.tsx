@@ -11,6 +11,7 @@ import { BackButton } from '@/components/Header/extras';
 
 import BeerSuggestLayout from './components/BeerSuggestLayout';
 import MultiImageUploadField from './components/MultiImageUploadField';
+import SuggestComplete from './components/SuggestComplete';
 import TextField from './components/TextField';
 
 // TODO: api 동작 확인 필요
@@ -50,8 +51,7 @@ const BeerSuggestPage = () => {
   );
 
   if (isCompleted) {
-    //   TODO 완료 페이지
-    return <>완료</>;
+    return <SuggestComplete />;
   }
 
   return (
