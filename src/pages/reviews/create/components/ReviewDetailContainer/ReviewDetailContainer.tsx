@@ -59,7 +59,7 @@ const ReviewDetailContainer: React.FC<RecordThirdStepContainerProps> = ({
   );
 
   const handleImageUpload = useCallback(
-    async (image: string) => {
+    async (image: FormData) => {
       const { imageUrl } = await uploadImageMutation(image);
 
       return imageUrl;

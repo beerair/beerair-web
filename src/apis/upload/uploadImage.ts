@@ -9,7 +9,7 @@ interface IUploadImageResponseData extends IBaseResponse<IImage> {}
  * 이미지 업로드
  */
 
-export const uploadImage = async (image: string) => {
+export const uploadImage = async (image: FormData) => {
   const res = await request<IUploadImageResponseData>({
     method: 'post',
     url: '/api/v1/images',
