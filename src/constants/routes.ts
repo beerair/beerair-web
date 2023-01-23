@@ -10,13 +10,8 @@ export const ROUTE_PATH = {
     LIST: '/beers',
     INFO: '/beers/[id]',
     RECOMMENDS_AND_LIKES: '/beers/recommends-and-likes',
-    REQUESTS: {
-      LIST: '/beers/requests',
-      CREATE: {
-        MAIN: '/beers/requests/create',
-        COMPLETE: '/beers/requests/create/complete',
-      },
-    },
+    SUGGEST: '/beers/suggest',
+    SUGGESTS: '/beers/suggests',
   },
   MY: {
     MAIN: '/my',

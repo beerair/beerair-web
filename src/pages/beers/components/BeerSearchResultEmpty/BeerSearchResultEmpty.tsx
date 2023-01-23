@@ -25,7 +25,7 @@ const BeerSearchResultEmpty = ({ query }: BeerSearchResultEmptyProp) => {
         className="request-button"
         type="primary"
         width="large"
-        href={ROUTE_PATH.BEERS.REQUESTS.CREATE.MAIN}
+        href={ROUTE_PATH.BEERS.SUGGEST}
       >
         맥주 등록 요청하기
       </Button>

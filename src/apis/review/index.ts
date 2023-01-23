@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
-import { IBaseResponse, IBeer, IImage, IReview } from '@/types';
+import { IBaseResponse, IBeer, IReview } from '@/types';
 
 export interface IGetReview extends IBaseResponse<IReview> {}
 export interface IGetReviews extends IBaseResponse<IReview[]> {}

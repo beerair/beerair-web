@@ -14,6 +14,9 @@ export const uploadImage = async (image: FormData) => {
     method: 'post',
     url: '/api/v1/images',
     data: image,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
   });
 
   return res.data;
