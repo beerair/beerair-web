@@ -6,7 +6,8 @@ import { useMutation } from 'react-query';
 import { useRecoilValue } from 'recoil';
 
 import { useGetFlavors } from '@/apis/flavors';
-import { ICreateReviewPayload, postReview, uploadImage } from '@/apis/review';
+import { ICreateReviewPayload, postReview } from '@/apis/review';
+import { uploadImage } from '@/apis/upload/uploadImage';
 import BottomFloatingButtonArea from '@/components/BottomFloatingButtonArea';
 import { BOTTOM_FLOATING_BUTTON_AREA_HEIGHT } from '@/components/BottomFloatingButtonArea/BottomFloatingButtonArea';
 import Button, { ButtonCount } from '@/components/Button';

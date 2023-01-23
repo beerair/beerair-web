@@ -100,19 +100,3 @@ export const getMyReviews = async (limit?: number) => {
 
   return res.data;
 };
-
-export interface IImageUploadResponseData extends IBaseResponse<IImage> {}
-
-/**
- * 이미지 업로드
- */
-
-export const uploadImage = async (image: string) => {
-  const res = await request<IImageUploadResponseData>({
-    method: 'post',
-    url: '/api/v1/images',
-    data: image,
-  });
-
-  return res.data;
-};
