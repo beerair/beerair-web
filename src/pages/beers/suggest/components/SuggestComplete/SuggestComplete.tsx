@@ -5,10 +5,12 @@ import Button from '@/components/Button';
 import Icon from '@/components/Icon';
 import { ROUTE_PATH } from '@/constants/routes';
 
-const BeerRequestCompletePage = () => {
+const SuggestComplete = () => {
   const router = useRouter();
 
-  const goToHome = () => router.push(ROUTE_PATH.HOME);
+  const goToHome = () => {
+    router.push(ROUTE_PATH.HOME);
+  };
 
   return (
     <StyledWrapper>
@@ -21,6 +23,8 @@ const BeerRequestCompletePage = () => {
     </StyledWrapper>
   );
 };
+
+export default SuggestComplete;
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -46,5 +50,3 @@ const StyledWrapper = styled.div`
     margin: 16px 0 0;
   }
 `;
-
-export default BeerRequestCompletePage;

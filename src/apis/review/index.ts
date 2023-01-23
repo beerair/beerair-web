@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
-import { IBaseResponse, IBeer, IImage, IReview } from '@/types';
+import { IBaseResponse, IBeer, IReview } from '@/types';
 
 export interface IGetReview extends IBaseResponse<IReview> {}
 export interface IGetReviews extends IBaseResponse<IReview[]> {}
@@ -96,22 +96,6 @@ export const getMyReviews = async (limit?: number) => {
     method: 'get',
     url: '/api/v1/reviews/me',
     data: { limit },
-  });
-
-  return res.data;
-};
-
-export interface IImageUploadResponseData extends IBaseResponse<IImage> {}
-
-/**
- * 이미지 업로드
- */
-
-export const uploadImage = async (image: string) => {
-  const res = await request<IImageUploadResponseData>({
-    method: 'post',
-    url: '/api/v1/images',
-    data: image,
   });
 
   return res.data;

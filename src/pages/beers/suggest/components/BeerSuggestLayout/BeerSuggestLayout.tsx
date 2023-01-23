@@ -3,12 +3,12 @@ import { ReactNode } from 'react';
 
 import Icon from '@/components/Icon';
 
-interface BeerRequestLayoutProps {
+interface BeerSuggestLayoutProps {
   title: string;
   children: ReactNode;
 }
 
-const BeerRequestLayout: React.FC<BeerRequestLayoutProps> = ({ title, children }) => {
+const BeerSuggestLayout: React.FC<BeerSuggestLayoutProps> = ({ title, children }) => {
   return (
     <StyledContainer>
       <Icon className="barcode-top" name="Barcode" width="240px" height="24px" />
@@ -20,6 +20,8 @@ const BeerRequestLayout: React.FC<BeerRequestLayoutProps> = ({ title, children }
     </StyledContainer>
   );
 };
+
+export default BeerSuggestLayout;
 
 const StyledContainer = styled.article`
   display: flex;
@@ -68,5 +70,3 @@ const StyledWrapper = styled.div`
     white-space: pre-line;
   }
 `;
-
-export default BeerRequestLayout;
