@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import BeerRequestLayout from './BeerRequestLayout';
+import BeerRequestLayout from './BeerSuggestLayout';
 
 export default {
   component: BeerRequestLayout,
