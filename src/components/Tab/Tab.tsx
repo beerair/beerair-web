@@ -6,7 +6,6 @@ import { hideScrollbar } from '@/styles/common';
 import { useScrollToTabItem } from './hooks';
 import TabItem from './TabItem';
 
-
 type TabType = 'primary' | 'secondary';
 type TabSize = 'small' | 'large';
 

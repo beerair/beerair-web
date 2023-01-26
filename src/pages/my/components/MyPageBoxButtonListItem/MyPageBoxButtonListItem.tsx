@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import Icon, { IconNameType } from '@/components/Icon';
 
-
 export interface MyPageBoxButtonListItemProps {
   iconName: IconNameType;
   text: string;

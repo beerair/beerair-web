@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 
 import { BackButton, CloseButton, ShareButton } from '.';
 
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   argTypes: {

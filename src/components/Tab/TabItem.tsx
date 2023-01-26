@@ -6,7 +6,6 @@ import { EmotionTheme } from '@/themes';
 
 import { TabProps } from './Tab';
 
-
 export const TAB_ITEM_MARGIN_LEFT = 10;
 
 interface TabItemProps extends Required<Pick<TabProps, 'type' | 'isGhost' | 'size'>> {

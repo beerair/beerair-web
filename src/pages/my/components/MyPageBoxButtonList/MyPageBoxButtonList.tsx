@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 import MyPageBoxButtonListItem, { MyPageBoxButtonListItemProps } from '../MyPageBoxButtonListItem';
 
-
 interface MyPageBoxButtonListProps {
   myPageBoxButtonListItems: MyPageBoxButtonListItemProps[];
 }

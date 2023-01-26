@@ -7,7 +7,6 @@ import Emoji from '@/components/Emoji';
 
 import { EmojiValue } from './EmojiRadioGroup';
 
-
 interface EmojiTransitionViewerProps {
   value: EmojiValue;
 }
