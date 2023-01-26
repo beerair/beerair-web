@@ -37,7 +37,7 @@ export type BeerListFilterChip = {
 export const BEER_LIST_ORDER = {
   ALCOHOL_HIGHEST: 'ALCOHOL_HIGHEST',
   ALCOHOL_LOWEST: 'ALCOHOL_LOWEST',
-  NAME: 'NAME',
+  BEER_KOR_NAME: 'BEER_KOR_NAME',
   REVIEW: 'REVIEW',
 } as const;
 
