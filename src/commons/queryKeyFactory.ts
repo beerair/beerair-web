@@ -8,6 +8,7 @@ import { IGetBeersParams } from '@/apis/beers/getBeers';
 export const queryKeyFactory = {
   FETCH_TEST: () => ['FETCH_TEST'],
   GET_BEERS: (payload?: Omit<IGetBeersParams, 'offset'>) => ['GET_BEERS', payload],
+  GET_BEERS_STATISTIC: () => ['GET_BEERS_STATISTIC'],
   GET_BEER_RECOMMENDS: () => ['GET_BEER_RECOMMENDS'],
   GET_BEER_LIKES: () => ['GET_BEER_LIKES'],
   GET_BEER_TYPES: () => ['GET_BEER_TYPES'],

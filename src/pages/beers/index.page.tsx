@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import { useGetBeers } from '@/apis/beers/getBeers';
+import { useGetBeersStatistics } from '@/apis/beers/getBeersStatistics';
 import BottomNavigation from '@/components/BottomNavigation';
 import { BOTTOM_NAVIGATION_HEIGHT } from '@/components/BottomNavigation';
 import Header from '@/components/Header';
@@ -39,6 +40,7 @@ const BeerListPage = () => {
     ...filter,
   });
   const beers = beersData?.data;
+  const { data: beerStatistics } = useGetBeersStatistics();
 
   const {
     ref,
@@ -66,8 +68,10 @@ const BeerListPage = () => {
             onClearClick={handleClearClick}
           />
         </Header>
-        {/* TODO: totalCount 전달 */}
-        <BeerListFilterAndSorter resultCount={beersData?.resultCount} />
+        <BeerListFilterAndSorter
+          resultCount={beersData?.resultCount}
+          totalCount={beerStatistics?.isActiveBeerCount}
+        />
       </StyledTopFloatingLayout>
       <BeerList
         beers={beers}
