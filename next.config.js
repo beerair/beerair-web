@@ -21,13 +21,7 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
-  experimental: {
-    lodash: {
-      transform: 'lodash/{{member}}',
-    },
-    outputStandalone: true,
-  },
-  pageExtensions: ['page.tsx', 'page.ts'],
+  pageExtenxsions: ['page.tsx', 'page.ts'],
   rewrites,
   redirects() {
     return [
