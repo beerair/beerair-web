@@ -1,16 +1,40 @@
-import { dehydrate, QueryClient } from 'react-query';
+import {
+  dehydrate,
+  FetchInfiniteQueryOptions,
+  FetchQueryOptions,
+  QueryClient,
+  QueryFunction,
+  QueryKey,
+  DehydratedState,
+} from 'react-query';
 
-export interface ResourcesType {
-  key: Array<any>;
-  fetcher: (...args: any) => void;
+interface ResourcesType<
+  TQueryFnData = unknown,
+  TError = unknown,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+> {
+  key: TQueryKey;
+  fetcher: QueryFunction<TQueryFnData, TQueryKey>;
+  options?:
+    | FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>
+    | FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey>;
+  useInfiniteQuery?: boolean;
 }
 
 export async function prefetchWithSSR(resources: ResourcesType[]) {
   const queryClient = new QueryClient();
 
-  await Promise.all(resources.map(({ key, fetcher }) => queryClient.prefetchQuery(key, fetcher)));
+  await Promise.all(
+    resources.map(({ key, fetcher, options, useInfiniteQuery }) => {
+      return useInfiniteQuery
+        ? queryClient.prefetchInfiniteQuery(key, fetcher, options as any)
+        : queryClient.prefetchQuery(key, fetcher, options as any);
+    }),
+  );
 
   return {
-    dehydratedState: dehydrate(queryClient),
+    // issue reference : https://github.com/TanStack/query/issues/1458
+    dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))) as DehydratedState,
   };
 }
