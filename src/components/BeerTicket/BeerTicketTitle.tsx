@@ -97,12 +97,12 @@ const BeerTicketTitle: React.FC<BeerTicketTitleProps> = ({
           {sliceAndUpperCase(beer?.country?.engName || 'non', 3)}
         </span>
         <div className="ticket-detail">
-          {`${beer?.alcohol?.toFixed(1)}%`}
+          {beer?.alcohol ? `${beer.alcohol?.toFixed(1)}%` : '-'}
           <span className="ticket-detail-split-dot">{'•'}</span>
-          {beer?.type?.korName}
+          {beer?.type?.korName ?? '-'}
         </div>
       </div>
-      <span className="ticket-beer-name">{beer?.korName}</span>
+      <span className="ticket-beer-name">{beer?.korName ?? '-'}</span>
     </StyledBeerTicketTitle>
   );
 };

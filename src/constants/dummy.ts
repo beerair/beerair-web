@@ -187,6 +187,58 @@ export const MOCK_FLAVORS: IFlavor[] = [
     id: 5,
     content: '쓴 맛이 나요',
   },
+  {
+    id: 6,
+    content: '단 맛이나요',
+  },
+  {
+    id: 7,
+    content: '목넘김이 부드러워요',
+  },
+  {
+    id: 8,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 9,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 10,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 11,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 12,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 13,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 14,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 15,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 16,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 17,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 18,
+    content: '쓴 맛이 나요',
+  },
 ];
 
 export const MOCK_COUNTRY: ICountry = {
