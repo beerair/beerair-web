@@ -8,19 +8,24 @@ import {
   DehydratedState,
 } from 'react-query';
 
-interface ResourcesType<
+type ResourcesType<
   TQueryFnData = unknown,
   TError = unknown,
   TData = TQueryFnData,
   TQueryKey extends QueryKey = QueryKey,
-> {
+> = {
   key: TQueryKey;
   fetcher: QueryFunction<TQueryFnData, TQueryKey>;
-  options?:
-    | FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>
-    | FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey>;
-  useInfiniteQuery?: boolean;
-}
+} & (
+  | {
+      options?: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>;
+      useInfiniteQuery?: false;
+    }
+  | {
+      options?: FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey>;
+      useInfiniteQuery: true;
+    }
+);
 
 export async function prefetchWithSSR(resources: ResourcesType[]) {
   const queryClient = new QueryClient();
@@ -28,8 +33,8 @@ export async function prefetchWithSSR(resources: ResourcesType[]) {
   await Promise.all(
     resources.map(({ key, fetcher, options, useInfiniteQuery }) => {
       return useInfiniteQuery
-        ? queryClient.prefetchInfiniteQuery(key, fetcher, options as any)
-        : queryClient.prefetchQuery(key, fetcher, options as any);
+        ? queryClient.prefetchInfiniteQuery(key, fetcher, options)
+        : queryClient.prefetchQuery(key, fetcher, options);
     }),
   );
 
