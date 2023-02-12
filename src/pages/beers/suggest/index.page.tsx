@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { FieldValues } from 'react-hook-form';
 
 import { useCreateSuggest } from '@/apis/suggests/createSuggest';
-import { useUploadImage } from '@/apis/upload/uploadImage';
+import { useUploadImageMutation } from '@/apis/upload/uploadImage';
 import EntityForm from '@/components/EntityForm';
 import FormSubmitButton from '@/components/FormSubmitButton';
 import Header, { HEADER_HEIGHT } from '@/components/Header';
@@ -18,7 +18,7 @@ import TextField from './components/TextField';
 const BeerSuggestPage = () => {
   const [isCompleted, setIsCompleted] = useState(false);
 
-  const { mutateAsync: uploadImagesMutation } = useUploadImage();
+  const { uploadImage } = useUploadImageMutation();
   const { mutateAsync: createSuggestMutation } = useCreateSuggest();
 
   const handleSubmit = useCallback(
@@ -44,10 +44,10 @@ const BeerSuggestPage = () => {
 
   const handleImageUpload = useCallback(
     async (data: FormData) => {
-      const { imageUrl } = await uploadImagesMutation(data);
+      const { imageUrl } = await uploadImage(data);
       return [{ imageUrl }];
     },
-    [uploadImagesMutation],
+    [uploadImage],
   );
 
   if (isCompleted) {

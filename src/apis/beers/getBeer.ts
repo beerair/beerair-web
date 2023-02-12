@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 
 import request from '@/commons/axios';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { IBaseResponse, IBeer } from '@/types';
 
 interface IGetBeerResponseData extends IBaseResponse<IBeer> {}
@@ -18,7 +19,7 @@ export const getBeer = async (beerId: number) => {
 };
 
 export const useGetBeer = (beerId: IBeer['id'], initialData?: IBeer) => {
-  const result = useQuery(['beer', beerId], () => getBeer(beerId), {
+  const result = useQuery(queryKeyFactory.GET_BEER(beerId), () => getBeer(beerId), {
     cacheTime: Infinity,
     initialData,
     enabled: !!beerId,
