@@ -12,6 +12,7 @@ import MultiSelectField from '@/components/formFields/MultiSelectField';
 import FormSubmitButton from '@/components/FormSubmitButton';
 import Icon from '@/components/Icon';
 import { SwiperLayoutChildProps } from '@/components/layouts/SwiperLayout';
+import { MOCK_FLAVORS as flavors } from '@/constants/dummy';
 import $reviewForm from '@/recoil/atoms/reviewForm';
 import { IFeelStatus } from '@/types';
 
@@ -28,7 +29,8 @@ const ReviewFlavorsContainer: React.FC<RecordSecondStepContainerProps> = ({
   onMovePrev,
   onMoveNext,
 }) => {
-  const { data: flavors } = useGetFlavors();
+  // @TODO: API 정상 호출되면 Mock data 제거
+  // const { data: flavors } = useGetFlavors();
   const [{ feelStatus }, setRecordForm] = useRecoilState($reviewForm);
 
   const flavorOptions = useMemo(

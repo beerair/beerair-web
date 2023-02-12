@@ -22,8 +22,8 @@ const CreateReviewPage: NextPage<CreateReviewPageProps> = ({ beer, review }) => 
     <StyledUpsertRecordContainer>
       <Header leftExtras={<BackButton />} />
       <StyledSwiperLayout>
-        <ReviewFeelStatusContainer beerName={beer.korName} defaultFeelValue={review?.feelStatus} />
-        <ReviewFlavorsContainer beerName={beer.korName} defaultFlavorValue={review?.flavors} />
+        <ReviewFeelStatusContainer beerName={beer?.korName} defaultFeelValue={review?.feelStatus} />
+        <ReviewFlavorsContainer beerName={beer?.korName} defaultFlavorValue={review?.flavors} />
         <ReviewDetailContainer beer={beer} review={review} />
       </StyledSwiperLayout>
     </StyledUpsertRecordContainer>
@@ -42,18 +42,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { beerId, reviewId } = context.query;
   const id = reviewId || beerId;
 
-  if (id && typeof id === 'string' && Number(id)) {
-    if (reviewId) {
-      const review = await getReview(Number(id));
-      const beer = await getBeer(review.beer.id);
-
-      return { props: { beer, review } };
-    }
-
-    const beer = await getBeer(Number(id));
-
-    return { props: { beer } };
-  }
+  // if (id && typeof id === 'string' && Number(id)) {
+  //   if (reviewId) {
+  //     const review = await getReview(Number(id));
+  //     const beer = await getBeer(review.beer.id);
+  //
+  //     return { props: { beer, review } };
+  //   }
+  //
+  //   const beer = await getBeer(Number(id));
+  //
+  //   return { props: { beer } };
+  // }
 
   return { props: {} };
 };

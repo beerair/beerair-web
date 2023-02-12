@@ -179,6 +179,14 @@ export const MOCK_FLAVORS: IFlavor[] = [
     id: 3,
     content: '쓴 맛이 나요',
   },
+  {
+    id: 4,
+    content: '쓴 맛이 나요',
+  },
+  {
+    id: 5,
+    content: '쓴 맛이 나요',
+  },
 ];
 
 export const MOCK_COUNTRY: ICountry = {

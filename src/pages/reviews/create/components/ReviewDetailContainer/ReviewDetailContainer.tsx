@@ -73,12 +73,12 @@ const ReviewDetailContainer: React.FC<RecordThirdStepContainerProps> = ({
         {
           ...reviewForm,
           ...data,
-          beerId: beer.id,
+          beerId: beer?.id,
         } as ICreateReviewPayload,
         { onSuccess: (_data) => router.push(`/record/ticket/${_data.id}?type=${NEW_TYPE}`) },
       );
     },
-    [createReviewMutation, reviewForm, beer.id, router],
+    [createReviewMutation, reviewForm, beer?.id, router],
   );
 
   // const handleUpdateSubmit = useCallback(
@@ -112,7 +112,7 @@ const ReviewDetailContainer: React.FC<RecordThirdStepContainerProps> = ({
     >
       <StyledWrapper>
         <h2>{'당신만의 맥주 이야기도 들려주세요'}</h2>
-        <p className="body-1">{beer.korName}</p>
+        <p className="body-1">{beer?.korName}</p>
         <ImageUploadField
           name="imageUrl"
           beer={beer}
