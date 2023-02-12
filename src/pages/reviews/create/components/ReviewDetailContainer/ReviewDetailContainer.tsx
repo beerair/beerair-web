@@ -6,7 +6,7 @@ import { useMutation } from 'react-query';
 import { useRecoilValue } from 'recoil';
 
 import { useGetFlavors } from '@/apis/flavors';
-import { ICreateReviewPayload, postReview } from '@/apis/review';
+import { ICreateReviewPayload, createReview } from '@/apis/review';
 import { uploadImage } from '@/apis/upload/uploadImage';
 import BottomFloatingButtonArea from '@/components/BottomFloatingButtonArea';
 import { BOTTOM_FLOATING_BUTTON_AREA_HEIGHT } from '@/components/BottomFloatingButtonArea/BottomFloatingButtonArea';
@@ -40,7 +40,7 @@ const ReviewDetailContainer: React.FC<RecordThirdStepContainerProps> = ({
   const reviewForm = useRecoilValue($reviewForm);
   const { data: flavors } = useGetFlavors();
   const { mutateAsync: uploadImageMutation } = useMutation(uploadImage);
-  const { mutateAsync: createReviewMutation } = useMutation(postReview);
+  const { mutateAsync: createReviewMutation } = useMutation(createReview);
   // const { mutateAsync: updateRecordMutation } = useMutation(updateRecord, {
   //   onSuccess: () => {
   //     router.back();

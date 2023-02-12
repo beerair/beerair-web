@@ -3,7 +3,7 @@ import { NextPage, GetServerSideProps } from 'next';
 import { RecoilRoot } from 'recoil';
 
 import { getBeer } from '@/apis/beers/getBeer';
-import { getReview, postReview } from '@/apis/review';
+import { getReview, createReview } from '@/apis/review';
 import Header, { HEADER_HEIGHT } from '@/components/Header';
 import { BackButton } from '@/components/Header/extras';
 import SwiperLayout from '@/components/layouts/SwiperLayout';

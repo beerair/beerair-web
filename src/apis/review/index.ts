@@ -49,7 +49,7 @@ export interface ICreateReviewPayload {
   flavorIds: number[];
 }
 
-export const postReview = async (payload: ICreateReviewPayload) => {
+export const createReview = async (payload: ICreateReviewPayload) => {
   const res = await request<ICreateReviewResponseData>({
     method: 'post',
     url: '/api/v1/reviews',
