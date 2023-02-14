@@ -18,5 +18,6 @@ export const queryKeyFactory = {
   GET_COUNTRIES: (continentId?: number) => ['GET_COUNTRIES', continentId],
   GET_REVIEWS: (beerId: IBeer['id']) => ['GET_REVIEWS', beerId],
   CREATE_REVIEW: () => ['CREATE_REVIEW'],
+  GET_REVIEW: () => ['GET_REVIEW'],
   UPLOAD_IMAGE: () => ['UPLOAD_IMAGE'],
 };

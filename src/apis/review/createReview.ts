@@ -34,7 +34,7 @@ export const useCreateReviewMutation = () => {
 
   const { mutateAsync: createReviewMutation, ...rest } = useMutation(createReview, {
     onSuccess: async () => {
-      await cache.invalidateQueries(queryKeyFactory.CREATE_REVIEW());
+      await cache.invalidateQueries(queryKeyFactory.GET_REVIEW());
     },
   });
 
