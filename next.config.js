@@ -21,7 +21,7 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
-  pageExtenxsions: ['page.tsx', 'page.ts'],
+  pageExtensions: ['page.tsx', 'page.ts'],
   rewrites,
   redirects() {
     return [
