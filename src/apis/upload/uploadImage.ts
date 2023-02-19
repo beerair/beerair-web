@@ -1,6 +1,8 @@
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
+import { createReview } from '@/apis/review';
 import request from '@/commons/axios';
+import { queryKeyFactory } from '@/commons/queryKeyFactory';
 import { IBaseResponse, IImage } from '@/types';
 
 interface IUploadImageResponseData extends IBaseResponse<IImage> {}
@@ -22,6 +24,17 @@ export const uploadImage = async (image: FormData) => {
   return res.data;
 };
 
-export const useUploadImage = () => {
-  return useMutation(uploadImage);
+export const useUploadImageMutation = () => {
+  const cache = useQueryClient();
+
+  const { mutateAsync: uploadImageMutation, ...rest } = useMutation(uploadImage, {
+    onSuccess: async () => {
+      await cache.invalidateQueries(queryKeyFactory.UPLOAD_IMAGE());
+    },
+  });
+
+  return {
+    uploadImage: uploadImageMutation,
+    ...rest,
+  };
 };

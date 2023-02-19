@@ -46,7 +46,7 @@ const SwiperLayout: React.FC<SwiperLayoutProps> = ({
 
   return (
     <StyledSwiperLayout className={className}>
-      <StyledSwiper swipeable={false} selectedItem={pageIndex} currentSlide={0} {...props}>
+      <StyledSwiper swipeable={false} selectedItem={pageIndex} currentSlide={pageIndex} {...props}>
         {React.Children.map(children || undefined, (child) => {
           return child
             ? React.createElement(child.type, {

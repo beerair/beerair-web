@@ -41,7 +41,7 @@ const ReviewFeelStatusContainer: React.FC<ReviewFeelStatusContainerProps> = ({
     >
       <StyledTitle>이번 맥주는 어땠나요?</StyledTitle>
       <StyledBeerName>{beerName}</StyledBeerName>
-      <StyledEmojiRadioField name="feel" />
+      <StyledEmojiRadioField name="feelStatus" />
       <BottomFloatingButtonArea
         button={
           <FormSubmitButton type="primary" htmlType="submit" width="large" autoDisabled>

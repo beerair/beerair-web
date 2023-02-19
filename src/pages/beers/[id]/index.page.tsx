@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { getReviewsByBeer, useGetReviewsByBeer } from '@/apis/review';
 import BottomFloatingButtonArea from '@/components/BottomFloatingButtonArea';
 import Button from '@/components/Button';
 import Header, { HEADER_HEIGHT } from '@/components/Header';
@@ -15,7 +16,6 @@ import BeerInfoBox from '@/pages/beers/components/BeerInfoBox';
 import { IBeer, IFlavor, IFlavorByBeer, IReview } from '@/types';
 import { share } from '@/utils/share';
 import { getFlavorsByBeer, useGetFlavorsByBeer } from 'src/apis/flavors';
-import { getReviewsByBeer, useGetReviewsByBeer } from 'src/apis/review';
 
 import { getBeer, useGetBeer } from '../../../apis/beers/getBeer';
 import LikeBeerToggleButton from '../components/LikeBeerToggleButton';
